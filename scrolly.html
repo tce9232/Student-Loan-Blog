@@ -178,8 +178,6 @@
 
     fill: none;
 
-    stroke: black;
-
     stroke-width: 1px;
 
     stroke-dasharray: 1600;
@@ -1569,30 +1567,11 @@ img {
 
           <svg id="secondlinechart" width="850" height="700" position=sticky top=0 opacity=1>
 
-              <!-- <svg id="secondlinechart" width="750" height="500" position=sticky top=0>
-
-                  <g>
-
-                      <path id="g2path1" class="path-thattest" class="firstline"/>
-
-                      <path id="g2path2" class="path-thattest" class="secondline"/>   
-
-                  </g> -->
-
-                  
-
             </svg>
-
-                  
 
           </figure>
 
-              
-
       </section>
-
-
-
 
 
       <body>
@@ -2311,7 +2290,7 @@ var chart2line1 = d3.line()
 
 var chart2line2 = d3.line()
   .x(function(d) { return x(d.Year); })
-  .y(function(d) { return y(d['Student Loans']); });
+  .y(function(d) { return y(d['Credit Card']); });
 
 var chart2line3 = d3.line()
   .x(function(d) { return x(d.Year); })
@@ -2319,11 +2298,11 @@ var chart2line3 = d3.line()
 
 var chart2line4 = d3.line()
   .x(function(d) { return x(d.Year); })
-  .y(function(d) { return y(d['Credit Card']); });
+  .y(function(d) { return y(d.Revolving); });
 
 var chart2line5 = d3.line()
   .x(function(d) { return x(d.Year); })
-  .y(function(d) { return y(d.Revolving); });
+  .y(function(d) { return y(d['Student Loans']); });
 
 
 
@@ -2375,7 +2354,8 @@ d3.csv("tuition.csv", function (error, data) {
       .data([data])
       .attr("id","flcpath1")
       .attr("class", "line")
-      .attr("d", tuitionline);
+      .attr("d", tuitionline)
+      .attr("stroke", "black");
 
 // Add the X Axis
    flc.append("g")
@@ -2410,35 +2390,40 @@ d3.csv("delinquency.csv", function (error, data) {
       .attr("id", "slcpath1")
       .attr("class", "line")
       .attr("d", chart2line1)
-      .attr("opacity", 0);
+      .attr("opacity", 0)
+      .attr("stroke", "gold");
 
     slc.append("path")
       .data([data])
       .attr("id", "slcpath2")
       .attr("class", "line")
       .attr("d", chart2line2)
-      .attr("opacity", 0);
+      .attr("opacity", 0)
+      .attr("stroke", "blue");
 
     slc.append("path")
       .data([data])
       .attr("id", "slcpath3")
       .attr("class", "line")
       .attr("d", chart2line3)
-      .attr("opacity", 0);
+      .attr("opacity", 0)
+      .attr("stroke", "black");
 
     slc.append("path")
       .data([data])
       .attr("id", "slcpath4")
       .attr("class", "line")
       .attr("d", chart2line4)
-      .attr("opacity", 0);
+      .attr("opacity", 0)
+      .attr("stroke", "black");
 
     slc.append("path")
       .data([data])
       .attr("id", "slcpath5")
       .attr("class", "line")
       .attr("d", chart2line5)
-      .attr("opacity", 0);
+      .attr("opacity", 0)
+      .attr("stroke", "red");
 
 
 // Add the X Axis
@@ -2454,43 +2439,6 @@ d3.csv("delinquency.csv", function (error, data) {
 })
 
 
-
-
-
-var line = d3.line();
-
-var data1 = [[50, 100], [200, 80], [350, 20], [500, 40],[650, 100], [800, 80], [950, 20], [1000, 40]];
-
-var data2 = [[50, 100], [200, 50], [350, 20], [500, 20],[650, 23], [800, 50], [950, 22], [1000, 40]];
-
-
-d3.select('#path1')
-
-  .attr('d', line(data1))
-
-
-
-  
-
-d3.select('#path2')
-
-  .attr('d', line(data2))
-
-
-
-
-
-  d3.select('#g2path1')
-
-  .attr('d', line(data1))
-
-
-
-  
-
-d3.select('#g2path2')
-
-  .attr('d', line(data2))
 
 
 
@@ -2565,16 +2513,12 @@ d3.select('#g2path2')
 
       document.getElementById("flcpath1").classList.add("path-thistest")
 
-      TweenMax.to(flc, 2, {opacity:1});
-      
-      document.getElementById("slcpath1").style.opacity=0
-      
+      TweenMax.to(flc, 2, {opacity:1}); 
+
+      document.getElementById("slcpath1").style.opacity=0  
       document.getElementById("slcpath2").style.opacity=0
-
-      document.getElementById("slcpath3").style.opacity=0
-      
+      document.getElementById("slcpath3").style.opacity=0     
       document.getElementById("slcpath4").style.opacity=0
-
       document.getElementById("slcpath5").style.opacity=0
 
     }
@@ -2587,14 +2531,10 @@ d3.select('#g2path2')
 
     function test4() {
 
-      document.getElementById("slcpath1").style.opacity=1
-      
+      document.getElementById("slcpath1").style.opacity=1 
       document.getElementById("slcpath1").classList.add("path-thistest")
-
       document.getElementById("secondlinechart").style.opacity=1
-
       document.getElementById("Money Mountain").style.opacity=0
-
       document.getElementById("Mountain Road").style.opacity=0
 
     }
@@ -2604,7 +2544,6 @@ d3.select('#g2path2')
     function test5() {
 
       document.getElementById("slcpath2").style.opacity=1
-
       document.getElementById("slcpath2").classList.add("path-thistest")
 
     }
@@ -2612,19 +2551,26 @@ d3.select('#g2path2')
     function test6() {
 
       document.getElementById("slcpath3").style.opacity=1
-
       document.getElementById("slcpath3").classList.add("path-thistest")
-
       document.getElementById("slcpath4").style.opacity=1
-
       document.getElementById("slcpath4").classList.add("path-thistest")
+
+     
+
+
+}
+
+    function test7() {
+      TweenMax.to(document.getElementById("slcpath1"), 1, {opacity:.1});
+      TweenMax.to(document.getElementById("slcpath2"), 1, {opacity:.1});
+      TweenMax.to(document.getElementById("slcpath3"), 1, {opacity:.1});
+      TweenMax.to(document.getElementById("slcpath4"), 1, {opacity:.1});
 
       document.getElementById("slcpath5").style.opacity=1
 
       document.getElementById("slcpath5").classList.add("path-thistest")
+    }
 
-
-}
 
 
 
@@ -2646,10 +2592,7 @@ d3.select('#g2path2')
 
     
 
-    function test7() {
-
-    }
-
+    
 
 
     function test8() {
@@ -2723,11 +2666,7 @@ d3.select('#g2path2')
 
       simulation.restart()
       .alpha(.25)
-      
-
   }
-
-
 
 function bubble3() {
 
@@ -2742,8 +2681,6 @@ function bubble3() {
    })
     .style("opacity", .9)
     
-  
-
 }
 
 
@@ -2790,13 +2727,6 @@ function bubble4() {
 
       response.element.id == 'step-14' ? bubble4() : console.log("not triggered")
 
-      
-
-      
-
-      
-
-      
 
     }
 
