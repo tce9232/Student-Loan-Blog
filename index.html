@@ -5,688 +5,411 @@
   <meta charset="utf-8">
 
   <script src="https://d3js.org/d3.v3.min.js"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
   <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
-
   <script src="https://unpkg.com/scrollama"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-
   <link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>
-
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-
   <script src="https://d3js.org/d3.v4.min.js"></script>
-
   <script src="https://unpkg.com/jeezy@1.11.2/lib/jeezy.min.js"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
-
   <script src="https://kit.fontawesome.com/3702056331.js"></script>
-
-    
-
-  
-
   <style>
 
     @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600');
 
-  *{
+*{
 
-    margin:0;
+  margin:0;
+  padding:0;
 
-    padding:0;
+}
 
-  }
+html, body{
 
-  html,
+  height: 100%;
+  padding: 10;
+  scroll-behavior: smooth;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 
-  body{
+}
 
-    height: 100%;
+h2{
 
-    padding: 10;
+  line-height: 1.25;
+  padding-top: 45px;
+  font-weight: 300;
 
-    scroll-behavior: smooth;
+}
 
-    background: #ffffff;
+svg{
 
-    color: rgb(0, 0, 0);
+  padding: 20px;
+  position: sticky;
+  top: 0;
 
-    font-weight: 500;
+}
 
-    font-size: 18px;
+text{
 
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 12px;
+  position: center;
 
+}
 
+strong{
 
+  font-weight: 600;
 
+}
 
-  }
+#domain{
+  opacity:0;
+}
 
-  body {
+#graphic {
 
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  max-width:  1440px;
+  width: 100%;
+  position:   relative; 
+  height:  100%;
+  position:  relative; 
+  margin:auto;
 
-        }
+}
 
-    
+.container {
 
-  #chart {
+  height: 100%;
+  max-width: 640px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  height: 100%;
+  line-height: 1.5;
+  left: 500px;
 
-      max-width: 600px;
+}
 
-      max-height: 400px;
+.container div {
 
-  }
+  height: 100%;
+  display: block;
+  padding: 0 45px;
 
-  h2{
+}
 
-    line-height: 1.25;
-
-    padding-top: 45px;
-
-    font-weight: 300;
-
-  }
-
-  svg{
-
-    padding: 20px;
-
-    position: sticky;
-
-    top: 0;
-
-  }
-
-  text{
-
-    font-size: 12px;
-    position: center;
-
-  }
-
-  strong{
-
-    font-weight: 600;
-
-  }
-
-  #domain{
-    opacity:0;
-  }
-
-  #graphic {
-
-    max-width:  1440px;
-
-    width: 100%;
-
-    position:   relative; 
-
-    height:  100%;
-
-    position:  relative; 
-
-    margin:auto;
-
-  }
-
-  .container {
-
-    height: 100%;
-
-    max-width: 640px;
-
-    width: 100%;
-
-    margin: 0;
-
-    padding: 0;
-
-    position: absolute;
-
-    height: 100%;
-
-    line-height: 1.5;
-
-    left: 500px;
-
-  }
-
-  .container div {
-
-    height: 100%;
-
-    display: block;
-
-    padding: 0 45px;
-
-  }
-
-  
-
-  path {
-    opacity: 1;
-
-    fill: none;
-
-    stroke-width: 1px;
-
-    stroke-dasharray: 1600;
-
-  }
-
-  .path-tuition {
-
+path {
   opacity: 1;
+  fill: none;
+  stroke-width: 1px;
+  stroke-dasharray: 1600;
 
-  }
+}
 
-  
+.path-tuition {
+  opacity: 1;
+}
 
-  .path-thattest {
+.path-animate {
 
-    fill: none;
+  fill: none;
+  stroke-dasharray: 1600;
+  animation: dash 2s linear 1;
+  stroke-width: 2;
 
-    stroke-dasharray: 1600;
-
-  }
-
-  .path-thistest {
-
-    fill: none;
-
-    stroke-dasharray: 1600;
-
-    animation: dash 2s linear 1;
-
-    stroke-width: 2;
-
-    
-
-  }
+}
 
   @-webkit-keyframes dash {
 
     from {
-
       stroke-dashoffset: 1600;
-
     }
-
     to {
-
       stroke-dashoffset: 0;
-
     }
-
   }
 
-  
+.axis path, .axis line {
 
-  .firstline {
+  fill: none;
+  stroke: grey;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
 
-    stroke: red;
+}
 
-  }
+.prose {
 
-  .secondline {
+  max-width: 40rem;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
 
-    stroke: black;
+}
 
-  }
+.title {
 
-  .axis path, .axis line {
+  max-width: 60rem;
+  margin: 0 auto 1rem auto;
+  padding-top: 0;
+  font-weight: 200;
+  text-align: center;
+  font-size: 60px;
+  line-height: 1.5;
 
-    fill: none;
+}
 
-    stroke: grey;
+.subtitle {
 
-    stroke-width: 1;
+  max-width: 60rem;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+  font-size: 24px;
 
-    shape-rendering: crispEdges;
+}
 
-  }
+.byline {
 
-  .prose {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
 
-    max-width: 40rem;
+}
 
-    margin: 1.5rem auto;
+.debt_scroll {
 
-    padding: 0 1rem;
+  position: relative;
 
-  }
+}
 
-  .title {
+.debt_container {
 
-    max-width: 60rem;
+  position: sticky;
+  top: 25%;
+  bottom: auto;
+  transform: translate3d(0,0,0);
 
-    margin: 0 auto 1rem auto;
+}
 
-    padding-top: 0;
+.picture_is_visible {
 
-    font-weight: 200;
+  opacity: 1;
+  transition: .3s;
+  max-width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  position: absolute
 
-    text-align: center;
+}
 
-    font-size: 60px;
+.picture_is_not_visible {
 
-    line-height: 1.5;
+  opacity: 0;
+  transition: .3s;
+  max-width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  position: absolute;
 
-  }
+}
 
-  .subtitle {
+.node circle {
+  stroke: #3a403d;
+  stroke-width: .5px;
+}
 
-    max-width: 60rem;
+.scroll-text {
 
-    margin: 0 auto 1rem auto;
-
-    text-align: center;
-
-    font-size: 24px;
-
-  }
-
-  .byline {
-
-    max-width: 40rem;
-
-    margin: 0 auto;
-
-    padding-top: 2rem;
-
-    padding-bottom: 1.5rem;
-
-    text-align: center;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-
-  }
-
-  .debt_scroll {
-
-    position: relative;
-
-  }
-
-  .debt_container {
-
-    position: sticky;
-
-    top: 25%;
-
-    bottom: auto;
-
-    transform: translate3d(0,0,0);
-
-  }
-
-  .picture_is_visible {
-
-    opacity: 1;
-
-    transition: .3s;
-
-    max-width: 300px;
-
-    display: block;
-
-    margin-left: auto;
-
-    margin-right: auto;
-
-    width: 50%;
-
-    position: absolute
-
-  }
-
-  .picture_is_not_visible {
-
-    opacity: 0;
-
-    transition: .3s;
-
-    max-width: 300px;
-
-    display: block;
-
-    margin-left: auto;
-
-    margin-right: auto;
-
-    width: 50%;
-
-    position: absolute;
-
-  }
-
-  .node circle {
-        stroke: #3a403d;
-        stroke-width: .5px;
-      }
-
-  .another_picture {
-
-    opacity: 0;
-
-    transition: .3s;
-
-    max-width: 300px;
-
-    display: block;
-
-    margin-left: auto;
-
-    margin-right: auto;
-
-    width: 50%;
-
-    position: absolute;
-
-  }
-
-  .scroll-text {
-
-    position: relative;
-
-    max-width: 30rem;
-
-    margin: 0 auto;
-
-    padding: 1rem;
-
-    z-index: 1;
-
-  }
-
-  
+  position: relative;
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 1rem;
+  z-index: 1;
+
+}
 
   .step {
 
-    
-
   }
 
+.hidden-step {
+
+  opacity: 0;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  border: 1px solid #c9c9c9;
+  box-shadow: 0 1rem 2rem rgba(201, 201, 201, .3);
+  padding: 2rem 1rem;
 
-
-  .hidden-step {
-
-    opacity: 0;
-
-    margin: 2rem auto;
-
-    background-color: #ffffff;
-
-    border: 1px solid #c9c9c9;
-
-    box-shadow: 0 1rem 2rem rgba(201, 201, 201, .3);
-
-    padding: 2rem 1rem;
-
-  }
-
-
-
-  .step-text-container {
-
-    background-color: #ffffff;
-
-    border: 1px solid #c9c9c9;
-
-    padding: 2rem 1rem;
-
-    box-shadow: 0 1rem 2rem rgba(201, 201, 201, .3);
-
-  }
-
-  .step-prose {
-
-    text-align: center;
-
-    font-size: 1rem;
-
-    margin: 0;
-
-  }
-
-  .step:last-child {
-
-			margin-bottom: 0;
-
-		}
-
-
-
-		.step.is-active p {
-
-			background-color: goldenrod;
-
-			color: #3b3b3b;
-
-      opacity: 1;
-
-		}
-
-
-
-		.step p {
-
-		text-align: center;
-		padding: 1rem;
-		font-size: 1.5rem;
-    background-color: #fff;
-    border: 1px solid #c9c9c9;
-    -webkit-box-shadow: 0 1rem 2rem rgba(201,201,201,.3);
-    box-shadow: 0 1rem 2rem rgba(201,201,201,.3);
-    padding: 2rem 1rem;
-    text-shadow: 0 0 black;
-    box-shadow: 0 0 5px black;
-		}
-
-
-
-		#scrolly {
-
-			position: relative;
-
-			background-color: #ffffff;
-
-			padding: 1rem;
-
-		}
-
-    #firstscrolly {
-
-			position: relative;
-
-			background-color: #ffffff;
-
-			padding: 1rem;
-
-		}
-
-
-
-    #scrollyleft {
-
-			position: relative;
-
-			background-color: #ffffff;
-
-			padding: 1rem;
-
-      display: flex;
-
-		}
-
-
-
-    #bubblescrolly {
-
-			position: relative;
-
-			background-color: #ffffff;
-
-			padding: 1rem;
-
-      display: flex;
-
-		}
-
-    div.tooltip {	
-    position: absolute;			
-    text-align: left;			
-    width: 200px;					
-    height: 80px;					
-    padding: 2px;				
-    font: 12px sans-serif;		
-    background: lightsteelblue;	
-    border: 0px;		
-    border-radius: 8px;			
-    pointer-events: none;			
 }
 
+.step-text-container {
 
+  background-color: #ffffff;
+  border: 1px solid #c9c9c9;
+  padding: 2rem 1rem;
+  box-shadow: 0 1rem 2rem rgba(201, 201, 201, .3);
 
-		article {
+}
 
-			position: relative;
+.step-prose {
 
-			padding: 0 1rem;
+  text-align: center;
+  font-size: 1rem;
+  margin: 0;
 
-			max-width: 20rem;
+}
 
-		}
+.step:last-child {
 
+  margin-bottom: 0;
 
+}
 
-    .centerpositioned {
+.step.is-active p {
 
-      position: relative;
+  background-color: goldenrod;
+  color: #3b3b3b;
+  opacity: 1;
 
-			padding: 0 1rem;
+}
 
-			max-width: 20rem;
+.step p {
 
-      margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: #fff;
+  border: 1px solid #c9c9c9;
+  -webkit-box-shadow: 0 1rem 2rem rgba(201,201,201,.3);
+  box-shadow: 0 1rem 2rem rgba(201,201,201,.3);
+  padding: 2rem 1rem;
+  text-shadow: 0 0 black;
+  box-shadow: 0 0 5px black;
+}
 
-    }
+#scrolly {
 
+  position: relative;
+  background-color: #ffffff;
+  padding: 1rem;
 
+}
 
-		figure {
+#firstscrolly {
 
-			position: sticky;
+  position: relative;
+  background-color: #ffffff;
+  padding: 1rem;
 
-			left: 0;
+}
 
-			width: 100%;
+#scrollyleft {
 
-			margin: 0;
+  position: relative;
+  background-color: #ffffff;
+  padding: 1rem;
+  display: flex;
 
-			-webkit-transform: translate3d(0, 0, 0);
+}
 
-			-moz-transform: translate3d(0, 0, 0);
+#bubblescrolly {
 
-			transform: translate3d(0, 0, 0);
+  position: relative;
+  background-color: #ffffff;
+  padding: 1rem;
+  display: flex;
 
-		}
+}
 
+div.tooltip {	
+  position: absolute;			
+  text-align: left;			
+  width: 200px;					
+  height: 80px;					
+  padding: 2px;				
+  font: 12px sans-serif;		
+  background: lightsteelblue;	
+  border: 0px;		
+  border-radius: 8px;			
+  pointer-events: none;			
+}
 
+article {
 
-		figure p {
+  position: relative;
+  padding: 0 1rem;
+  max-width: 20rem;
 
-			text-align: center;
+}
 
-			padding: 1rem;
+.centerpositioned {
 
-			position: absolute;
+  position: relative;
+  padding: 0 1rem;
+  max-width: 20rem;
+  margin: 0 auto;
 
-			top: 50%;
+}
 
-			left: 50%;
+figure {
 
-			-moz-transform: translate(-50%, -50%);
+  position: sticky;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 
-			-webkit-transform: translate(-50%, -50%);
+}
 
-			transform: translate(-50%, -50%);
+figure p {
 
-			font-size: 8rem;
+  text-align: center;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 8rem;
+  font-weight: 900;
+  color: #fff;
 
-			font-weight: 900;
+}
 
-			color: #fff;
-
-		}
-
-
-
-    
-
-
-
-
-
-
-
-    
-
-
-
-    /*
-
+ /*
 Plugin: jQuery Parallax
-
 Version 1.1.3
-
 Author: Ian Lunn
-
 Twitter: @IanLunn
-
 Author URL: https://www.ianlunn.co.uk/
-
 Plugin URL: https://www.ianlunn.co.uk/plugins/jquery-parallax/
 
-
-
 License: http://creativecommons.org/licenses/by-sa/3.0/ (Attribution Share Alike). Please attribute work to Ian Lunn simply by leaving these comments in the source code or if you'd prefer, place a link on your website to https://www.ianlunn.co.uk/.
-
 */
-
-
 
 @charset "utf-8";
 
 /* CSS Document */
-
-
-
-body{
-
-	margin: 0;
-
-	min-width: 980px;
-
-	padding: 0;
-
-}
-
-
 
 p{
 
@@ -694,67 +417,42 @@ p{
 
 }
 
-
-
 p, ul{
 
 	font-family:"Proxima Nova Light", 'Helvetica Neue', Arial, Helvetica, sans-serif;
-
 	font-size-adjust:0.488;
-
 	font-weight:200;
-
 	font-style:normal;
 
 }
-
-
 
 img{
 
 	border: 0;
-
   width: 100%;
-
-    margin-left: auto;
-
-    margin-right: auto;
-
-    top: 0
-
-    
+  margin-left: auto;
+  margin-right: auto;
+  top: 0
 
 }
-
-
 
 h1, #pixels{
 
 	font-family:"Museo 900", Verdana, serif;
-
 	font-size-adjust:0.40;
-
 	font-weight:700;
-
 	font-style:normal;
 
 }
-
-
 
 h2{
 
 	font-family:"Beau Sans Pro Book", Verdana, sans-serif;
-
 	font-size-adjust:0.531;
-
 	font-weight:500;
-
 	font-style:normal;
 
 }
-
-
 
 #header h1, #pixels{
 
@@ -762,46 +460,32 @@ h2{
 
 }
 
-
-
 .float-left{
 
 	float: left;	
-
 	margin: 0 0 0 20px;
 
 }
 
-
-
 .float-right{
 
 	float: right;
-
 	margin: 0 20px 0 0;
 
 }
 
-
-
 .center{
 
 	font-size: 2.5em;
-
 	padding: 80px 0 0 0;
-
 	text-align: center;
 
 }
 
-
-
 #nav{
 
 	list-style: none;
-
 	position: fixed;
-
 	right: 20px;
 
 }
@@ -809,14 +493,10 @@ h2{
 #navmtn{
 
 	list-style: none;
-
 	position: fixed;
-
 	right: 20px;
 
 }
-
-
 
 #nav li{
 
@@ -824,80 +504,50 @@ h2{
 
 }
 
-
-
 #header, #intro, #second{
 
 	width: 100%;
 
 }
 
-
-
 #intro{
 
 	background:url(classroom.jpg) 50% 0 no-repeat fixed;
-
 	color: white;
-
 	height: 1000px;
-
 	margin: 0 auto;
-
 	padding: 0;
 
 }
-
-
 
 #second{
 
 	background: url(grads.jpeg) 100% 0 no-repeat fixed;
-
 	color: white;
-
 	height: 1300px;
-
 	margin: 0 auto;
-
 	overflow: hidden;
-
 	padding: 0;
 
 }
-
-
 
 #second .bg{
 
 	background: url(gradhat.png) 50% 0 no-repeat fixed;
-
-
-
 	height: 2200px;
-
 	margin: 0 auto;
-
 	padding: 0;
-
 	position: absolute;
-
 	width: 900px;
-
 	z-index: 800;
 
 }
 
-
-
 #third{
 
 	background: url(woman.jpg) 50% 0 no-repeat fixed;
-
 	color: white;
-
 	height: 950px;
-
 	padding: 100px 0 0 0;	
 
 }
@@ -905,217 +555,108 @@ h2{
 #fourth{
 
 background: url(women.jpg) 50% 0 no-repeat fixed;
-
 color: white;
-
 height: 950px;
-
 padding: 100px 0 0 0;	
 
 }
 
-
-
 #mountain{
 
 	background: "MoneyMountain.png" 50% 0 no-repeat fixed;
-
 	color: white;
-
 	height: 650px;
-
 	padding: 100px 0 0 0;	
 
 }
 
-
-
 #fifth{
 
 	background: rgb(255, 255, 255);
-
 	height: 400px;
-
 	margin: 0 auto;
-
 	padding: 40px 0 0 0;
 
 }
 
-
-
 .story{
 
 	margin: 0 auto;
-
 	min-width: 980px;
-
 	overflow: auto;
-
 	width: 980px;
 
 }
 
-
-
 .story .float-left, .story .float-right{
 
 	padding: 100px 0 0 0;
-
 	position: relative;
-
 	width: 350px;	
 
 }
 
-
-
 .quote {
 
-    position: center;
-
-    display: block;
-
-    left: 50%;
-
-    top: 100px;
-
-    margin-top: 200px;
-
-    margin-left: 0px;
-
-    margin-bottom: 300px;
-
-    background: transparent;
+  position: center;
+  display: block;
+  left: 50%;
+  top: 100px;
+  margin-top: 200px;
+  margin-left: 0px;
+  margin-bottom: 300px;
+  background: transparent;
 
 }
 
-
-
 .graphic-surgery--inline {
 
-    display: block;
+  display: block;
 
 }
 
 .graphic-surgery--inline .inline-stack {
 
-    position: relative;
-
-    height: 100%;
-
-    overflow: hidden;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    max-width: 58rem;
-
-    margin: 0 auto;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 58rem;
+  margin: 0 auto;
 
 }
-
-
 
 .graphic-surgery--inline .stack-item {
 
-    position: relative;
-
-    height: 100%;
-
-    overflow: hidden;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    margin: 1em 0 2em;
-
-}
-
-
-
-#sections div .seched {
-
-    font-size: 18px;
-
-    color: #000;
-
-    padding-bottom: 0;
-
-}
-
-
-
-#sections div {
-
-    padding-bottom: 450px;
-
-    font-size: 16px;
-
-    color: #333;
-
-    width: 200px;
-
-}
-
-
-
-#sections {
-
-  width: 200px;
-
-  float: left;
-
-}
-
-#chart-a {
-
-    width: 600px;
-
-    float: left;
-
-    margin-left: 15px;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 1em 0 2em;
 
 }
 
 .ct-chart {
 
   text-align: center;
-
   padding: 1rem;
-
   position: sticky;
-
   height: 300px;
-
   width: 500px;
-
 }
 
 img {
 
   display: block;
-
   object-fit: cover;
-
   position: sticky;
-
   top: 0;
 
 }
-
-
-
-
-
-
-
 
 
   </style>
@@ -1125,39 +666,21 @@ img {
 
 
 <body>
-
-    
-
   <main id="content">
-
     <div class="intro">
-
       <p class="title">
-
         Student Loans
-
       </p>
-
       <p class="subtitle">
-
-          It's Payback Time
-
+        It's Payback Time
       </p>
-
       <p class="byline">
-
-          by: Ted Carlson
-
+        by: Ted Carlson
       </p>
-
       <section>
-
-          <img src="https://cdn.vox-cdn.com/thumbor/V5CWkAhmU6SymVLKN1HgUh4CTlw=/0x0:5082x3456/1820x1213/filters:focal(2135x1322:2947x2134):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/64622241/ecb28e3439.0.jpeg" width=100%>
-
-        </section>
-
+        <img src="https://cdn.vox-cdn.com/thumbor/V5CWkAhmU6SymVLKN1HgUh4CTlw=/0x0:5082x3456/1820x1213/filters:focal(2135x1322:2947x2134):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/64622241/ecb28e3439.0.jpeg" width=100%>
+      </section>
       <p class="prose">
-
         As the summer turns to fall, the end of my Analytics 
         program starts coming into focus, and I start feeling the graduate program version of the "Sunday scaries". 
         However, these are not caused by capstone projects, finding a full-time job, or even the threat of another Chicago winter. This is a fear that haunt
@@ -1165,18 +688,15 @@ img {
       </p>
 
       <p class="prose">
-
         Student loans seems like a concept that is as old as time itself. It's not difficult to 
         picture Aristotle logging onto Fedloan to complete his FAFSA, or Confucius checking NerdWallet
         to a find a list of the best private lenders, but student lending is a rather novel concept.
         Early in United States history, colleges and universities did not charge tuition, or had very low
         rates. The biggest cost of getting an advanced degree was moving and living expenses. This led to 
         colleges mostly made up of students from wealthy families.
-
       </p>
 
       <p class="prose">
-
         This all changed in the 1920s with the roaring economy. All of a sudden, the cost of college was within
         reach even if your last name wasn't Rockefeller. By the end of the 1920s, 20% of college-aged
         Americans would enroll in higher education. 
@@ -1185,17 +705,13 @@ img {
         after World War I. Then, 1965 saw the passing of the Higher Education Act. This legislation helped lower income 
         students afford college when they wouldn't be able to on their own. It also helped establish many of
         the financial aid programs that we know today.
-
       </p>
 
-
       <p class="prose">
-
         These government programs caused attendence at colleges to sky rocket. In the decade after the passing of
         the Higher Education Act, attendence at public colleges more than doubled. The increase in attendence caused
          the goverment grant money to get spread very thin. This is where we start to see a rush of students taking 
          out loans to pay for their advanced degree, a degree which is becoming more and more normalized in the work force.
-
       </p>
 
       <!-- <p class="prose">
@@ -1207,46 +723,13 @@ img {
   
         </p> -->
 
-      
-
     </body>
 
-
-
-    
-
-    
-
-
-
-
-
     <section id="firstscrolly">
-
-
-
-
-
-        <div>
-
-       
-
-            <img src="MountainRoad.jpg" id="Mountain Road">
-
-            <img src="MoneyMountain.png" id="Money Mountain"> 
-
-   
-
-            <svg id="firstlinechart" width="1150" height="650" position=sticky top=0 opacity=0>
-
-
-            </svg>
-
-                  
-
-            
-
-
+      <div>
+        <img src="MountainRoad.jpg" id="Mountain Road">
+        <img src="MoneyMountain.png" id="Money Mountain"> 
+        <svg id="firstlinechart" width="1150" height="650" position=sticky top=0 opacity=0></svg>
 
           <article class="centerpositioned">
 
@@ -1289,378 +772,208 @@ img {
             </div>
 
             <div class="hidden-step" data-step="1"
-
             data-scrollama-index="5" style="height: 325px;">
-
-              
-
             </div>
 
             <div class="step" data-step="7" id="step-3"
-
             data-scrollama-index="6" style="height: 125px;">
-
               <div class= "step-prose">
-
                 <p>
-
                   So how did we get here..?
-
                 </p>
-
               </div>
-
             </div>
 
             <div class="hidden-step" data-step="1"
-
             data-scrollama-index="6" style="height: 625px;">
-
-              
-
             </div>
 
             <div class="step" data-step="7" id="step-3"
-
             data-scrollama-index="6" style="height: 125px;">
-
               <div class= "step-prose">
-
                 <p>
-
                   This is the average price of tuition in the United States since 1960
-
                 </p>
-
               </div>
-
             </div>
 
             <div class="hidden-step" data-step="1"
-
             data-scrollama-index="6" style="height: 625px;">
-
-              
-
             </div>
 
             <div class="step" data-step="7" id="step-3"
-
             data-scrollama-index="6" style="height: 125px;">
-
               <div class= "step-prose">
-
                 <p>
-
                   This is the average price of tuition in the United States since 1960
-
                 </p>
-
               </div>
-
             </div>
 
             <div class="hidden-step" data-step="1"
-
             data-scrollama-index="6" style="height: 625px;">
-
-              
-
             </div>
-
-            
 
           </div>
-
         </article>
-
-        </div>
-
-      </section>
-
-
-
+      </div>
+    </section>
 
 
       <body>
-
         <p class="prose">
-
           Plus, many of the 
-
           low-rated Clippers in the depth chart above see their minutes fall off in our playoff projection, 
-
           rewarding L.A. more than most for having an extremely solid top seven in their rotation. Check 
-
           out how many of their poorly rated players (in pink) see a major drop-off in minutes for the 
-
           team’s full-strength playoff depth chart
-
         </p>
 
         <p class="prose">
-
           The new-look Philadelphia 76ers check in as the league’s most talented team, 
-
           though the Houston Rockets (remember them?) aren’t far behind — assuming they 
-
           aren’t torpedoed by their reported chemistry problems. 
 
-          
-
           The Clippers are firmly 
-
           in the next tier of teams, those projected for roughly between 52 and 55 wins of 
-
           talent, a group that also includes the Lakers, Warriors (remember them?), Bucks, 
-
           Nuggets and Jazz.
-
         </p>
 
         <p class="prose">
-
           We’ll put aside questions about whether Los Angeles will really have a barely average defense — 
-
           the metrics have disagreed with the eye test for years about the quality of Kawhi’s D — and 
-
           instead focus on what might make these Clippers more formidable in the playoffs. For starters, 
-
           we’ve added a new feature to CARMELO that accounts for players who routinely improve in the 
-
           playoffs, and Leonard’s rating gets a major shot in the arm in that regard. 
-
         </p>
 
         <p class="prose">
-
           Plus, many of the 
-
-          low-rated Clippers in the depth chart above see their minutes fall off in our playoff projection, 
-
+          low rated Clippers in the depth chart above see their minutes fall off in our playoff projection, 
           rewarding L.A. more than most for having an extremely solid top seven in their rotation. Check 
-
           out how many of their poorly rated players (in pink) see a major drop-off in minutes for the 
-
           team’s full-strength playoff depth chart
-
         </p>
 
         <p class="prose">
-
           The new-look Philadelphia 76ers check in as the league’s most talented team, 
-
           though the Houston Rockets (remember them?) aren’t far behind — assuming they 
-
           aren’t torpedoed by their reported chemistry problems. 
 
-          
-
           The Clippers are firmly 
-
           in the next tier of teams, those projected for roughly between 52 and 55 wins of 
-
           talent, a group that also includes the Lakers, Warriors (remember them?), Bucks, 
-
           Nuggets and Jazz.
-
         </p>
 
         <p class="prose">
-
           We’ll put aside questions about whether Los Angeles will really have a barely average defense — 
-
           the metrics have disagreed with the eye test for years about the quality of Kawhi’s D — and 
-
           instead focus on what might make these Clippers more formidable in the playoffs. For starters, 
-
           we’ve added a new feature to CARMELO that accounts for players who routinely improve in the 
-
           playoffs, and Leonard’s rating gets a major shot in the arm in that regard. 
-
         </p>
 
       </body>
-
-
-
-
 
       <section class="img" id="scrollyleft">
 
-			
-
         <article>
-
           <div class="step is-active" id = "step-4" data-step="1" data-scrollama-index="0" style="height: 546px; width: 300px;">
-
             <p>STEP 1</p>
-
           </div>
-
           <div class="step" id = "step-5" data-step="2" data-scrollama-index="1" style="height: 546px; width: 300px;">
-
             <p>STEP 2</p>
-
           </div>
-
           <div class="step" id = "step-6" data-step="3" data-scrollama-index="2" style="height: 546px; width: 300px;">
-
             <p>STEP 3</p>
-
           </div>
-
           <div class="step" id = "step-7" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
-
             <p>STEP 4</p>
-
           </div>
-
         </article>
 
-  
-
         <figure>
-
-          <svg id="secondlinechart" width="850" height="700" position=sticky top=0 opacity=1>
-
-            </svg>
-
-          </figure>
-
+          <svg id="secondlinechart" width="850" height="700" position=sticky top=0 opacity=1></svg>
+        </figure>
       </section>
 
 
       <body>
 
         <p class="prose">
-
           Plus, many of the 
-
           low-rated Clippers in the depth chart above see their minutes fall off in our playoff projection, 
-
           rewarding L.A. more than most for having an extremely solid top seven in their rotation. Check 
-
           out how many of their poorly rated players (in pink) see a major drop-off in minutes for the 
-
           team’s full-strength playoff depth chart
-
         </p>
 
         <p class="prose">
-
           The new-look Philadelphia 76ers check in as the league’s most talented team, 
-
           though the Houston Rockets (remember them?) aren’t far behind — assuming they 
-
           aren’t torpedoed by their reported chemistry problems. 
 
-          
-
           The Clippers are firmly 
-
           in the next tier of teams, those projected for roughly between 52 and 55 wins of 
-
           talent, a group that also includes the Lakers, Warriors (remember them?), Bucks, 
-
           Nuggets and Jazz.
-
         </p>
 
         <p class="prose">
-
           We’ll put aside questions about whether Los Angeles will really have a barely average defense — 
-
           the metrics have disagreed with the eye test for years about the quality of Kawhi’s D — and 
-
           instead focus on what might make these Clippers more formidable in the playoffs. For starters, 
-
           we’ve added a new feature to CARMELO that accounts for players who routinely improve in the 
-
           playoffs, and Leonard’s rating gets a major shot in the arm in that regard. 
-
         </p>
 
         <p class="prose">
-
           Plus, many of the 
-
           low-rated Clippers in the depth chart above see their minutes fall off in our playoff projection, 
-
           rewarding L.A. more than most for having an extremely solid top seven in their rotation. Check 
-
           out how many of their poorly rated players (in pink) see a major drop-off in minutes for the 
-
           team’s full-strength playoff depth chart
-
         </p>
 
         <p class="prose">
-
           The new-look Philadelphia 76ers check in as the league’s most talented team, 
-
           though the Houston Rockets (remember them?) aren’t far behind — assuming they 
-
           aren’t torpedoed by their reported chemistry problems. 
 
-          
-
           The Clippers are firmly 
-
           in the next tier of teams, those projected for roughly between 52 and 55 wins of 
-
           talent, a group that also includes the Lakers, Warriors (remember them?), Bucks, 
-
           Nuggets and Jazz.
-
         </p>
 
         <p class="prose">
-
           We’ll put aside questions about whether Los Angeles will really have a barely average defense — 
-
           the metrics have disagreed with the eye test for years about the quality of Kawhi’s D — and 
-
           instead focus on what might make these Clippers more formidable in the playoffs. For starters, 
-
           we’ve added a new feature to CARMELO that accounts for players who routinely improve in the 
-
           playoffs, and Leonard’s rating gets a major shot in the arm in that regard. 
-
         </p>
 
       </body>
 
 
-
-
-
       <section id="scrolly">
-
-
-
-
-
         <div class="debt_scroll">
-
           <figure class="debt_container">
 
             <img src="baby.png" id="baby"
-
             class = "picture_is_visible">
 
             <img src="worker.png" id="worker"
-
             class = "picture_is_not_visible">
 
             <img src="older-woman.png" id="retire"
-
             class = "picture_is_not_visible">
 
             <img src="house.png" id="house"
-
             class = "picture_is_not_visible">
-
 
             <div style="
             position: fixed;
@@ -1719,579 +1032,283 @@ img {
                 </span>
               </span>
             </div>
-
           </figure>
-
           <article class="centerpositioned">
 
-            
-
           <div class="scrolly">
-
             <div class="step" data-step="5" id="step-8"
-
             data-scrollama-index="4" style="height: 125px;">
-
               <div class= "step-prose">
-
                 <p>
                   10% of people said student debt has kept them from having a baby when they wanted
                 </p>
-
               </div>
-
             </div>
+            <div class="hidden-step" data-step="1" data-scrollama-index="4" style="height: 325px;"></div>
 
-            <div class="hidden-step" data-step="1"
-
-            data-scrollama-index="4" style="height: 325px;">
-
-              
-
-            </div>
-
-            <div class="step" data-step="6" id="step-9"
-
-            data-scrollama-index="5" style="height: 125px;">
-
+            <div class="step" data-step="6" id="step-9" data-scrollama-index="5" style="height: 125px;">
               <div class= "step-prose">
-
                 <p>
-
                   20% of people haven't been able to change jobs because of their student debt burden
-
                 </p>
-
               </div>
-
             </div>
+            <div class="hidden-step" data-step="1" data-scrollama-index="5" style="height: 325px;"></div>
 
-            <div class="hidden-step" data-step="1"
-
-            data-scrollama-index="5" style="height: 325px;">
-
-              
-
-            </div>
-
-            <div class="step" data-step="7" id="step-10"
-
-            data-scrollama-index="6" style="height: 125px;">
-
+            <div class="step" data-step="7" id="step-10" data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
-
                 <p>
-
                   30% have delayed saving for retirement 
-
                 </p>
-
               </div>
-
             </div>
 
-            <div class="hidden-step" data-step="1"
-
-            data-scrollama-index="5" style="height: 325px;">
-
-              
-
-            </div>
-
-            <div class="step" data-step="7" id="step-11"
-
-            data-scrollama-index="6" style="height: 125px;">
-
+            <div class="hidden-step" data-step="1" data-scrollama-index="5" style="height: 325px;"></div>
+            <div class="step" data-step="7" id="step-11" data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
-
                 <p>
-
                   Nearly half of survey respondants said their student debt prevented them from buying a home
-
                 </p>
-
               </div>
-
             </div>
 
-            <div class="hidden-step" data-step="1"
-
-            data-scrollama-index="6" style="height: 625px;">
-
-              
-
-            </div>
-
+            <div class="hidden-step" data-step="1" data-scrollama-index="6" style="height: 625px;"></div>
           </div>
-
         </article>
-
         </div>
-
       </section>
 
-
-
-
-
-
-
       <body>
-
         <ul id="nav">
-
           <li><a href="#intro" title="Next Section"><img src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
-
-            <li><a href="#second" title="Next Section"><img src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
-
-            <li><a href="#third" title="Next Section"><img src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
-
-            <li><a href="#fourth" title="Next Section"><img src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
-
-            <li><a href="#fifth" title="Next Section"><img src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
-
+          <li><a href="#second" title="Next Section"><img src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
+          <li><a href="#third" title="Next Section"><img src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
+          <li><a href="#fourth" title="Next Section"><img src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
+          <li><a href="#fifth" title="Next Section"><img src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
         </ul>
 
-        
-
         <div id="intro">
-
           <div class="story">
-
-              
-
-                  <img class="quote" src="FirstQuote.png" width="800" height="669" alt="">
-
-              
-
-            </div> <!--.story-->
-
+            <img class="quote" src="FirstQuote.png" width="800" height="669" alt="">
+          </div> <!--.story-->
         </div> <!--#intro-->
 
-        
-
         <div id="second">
-
           <div class="story"><div class="bg"></div>
-
-              <div class="float-right">
-
-                    <img class="quote" src="SecondQuote.png" width="800" height="669" alt="">
-                </div>
-
-            </div> <!--.story-->
-
-            
-
+            <div class="float-right">
+              <img class="quote" src="SecondQuote.png" width="800" height="669" alt="">
+            </div>
+          </div> <!--.story-->
         </div> <!--#second-->
 
-        
-
         <div id="third">
-
           <div class="story">
-
-              <div class="float-left">
-
-                <img class="quote" src="ThirdQuote.png" width="800" height="669" alt="">
-
-                </div>
-
-            </div> <!--.story-->
-
+            <div class="float-left">
+              <img class="quote" src="ThirdQuote.png" width="800" height="669" alt="">
+            </div>
+          </div> <!--.story-->
         </div> <!--#third-->
 
         <div id="fourth">
-
           <div class="story">
-
-              <div class="float-right">
-
-                <img class="quote" src="FourthQuote.png" width="800" height="669" alt="">
-
-
-                </div>
-
+            <div class="float-right">
+              <img class="quote" src="FourthQuote.png" width="800" height="669" alt="">
+              </div>
             </div> <!--.story-->
-
         </div> <!--#fourth-->
 
       </body>
 
-
-
       <section id="scrolly">
-
-
-
-
-
         <div class="debt_scroll">
-
           <figure class="debt_container">
 
             <img src="baby.png" id="baby"
-
             class = "picture_is_visible">
 
             <img src="worker.png" id="worker"
-
             class = "picture_is_not_visible">
 
             <img src="older-woman.png" id="retire"
-
             class = "picture_is_not_visible">
 
           </figure>
 
           <article class="centerpositioned">
 
-            
-
           <div class="scrolly">
-
-            <div class="step" data-step="5" id="step-8"
-
-            data-scrollama-index="4" style="height: 125px;">
-
+            <div class="step" data-step="5" id="step-8" data-scrollama-index="4" style="height: 125px;">
               <div class= "step-prose">
-
                 <p>
                   this is a test #1
                 </p>
-
               </div>
-
             </div>
 
-            <div class="hidden-step" data-step="1"
+            <div class="hidden-step" data-step="1" data-scrollama-index="4" style="height: 325px;"></div>
 
-            data-scrollama-index="4" style="height: 325px;">
-
-              
-
-            </div>
-
-            <div class="step" data-step="6" id="step-9"
-
-            data-scrollama-index="5" style="height: 125px;">
-
+            <div class="step" data-step="6" id="step-9" data-scrollama-index="5" style="height: 125px;">
               <div class= "step-prose">
-
                 <p>
-
                   another statement
-
                 </p>
-
               </div>
-
             </div>
 
-            <div class="hidden-step" data-step="1"
+            <div class="hidden-step" data-step="1" data-scrollama-index="5" style="height: 325px;"></div>
 
-            data-scrollama-index="5" style="height: 325px;">
-
-              
-
-            </div>
-
-            <div class="step" data-step="7" id="step-10"
-
-            data-scrollama-index="6" style="height: 125px;">
-
+            <div class="step" data-step="7" id="step-10" data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
-
                 <p>
-
                   Just one more statement
-
                 </p>
-
               </div>
-
             </div>
 
-            <div class="hidden-step" data-step="1"
-
-            data-scrollama-index="6" style="height: 625px;">
-
-              
-
-            </div>
-
+            <div class="hidden-step" data-step="1" data-scrollama-index="6" style="height: 625px;"></div>
           </div>
-
         </article>
-
         </div>
 
           <section class="img" id="bubblescrolly">
-
-			
-
               <article>
 
                 <div class="step is-active" id = "step-12" data-step="11" data-scrollama-index="0" style="height: 546px; width: 300px;">
-
                   <p>STEP 1</p>
-
                 </div>
 
                 <div class="step" id = "step-13" data-step="12" data-scrollama-index="1" style="height: 546px; width: 300px;">
-
                   <p>STEP 2</p>
-
                 </div>
 
                 <div class="step" id = "step-14" data-step="13" data-scrollama-index="2" style="height: 546px; width: 300px;">
-
                   <p>STEP 3</p>
-
                 </div>
 
                 <div class="step" id = "step-15" data-step="14" data-scrollama-index="3" style="height: 546px; width: 300px;">
-
                   <p>STEP 4</p>
-
                 </div>
 
               </article>
-
         
-
               <figure>
-
-                      <svg id="bubblechart" width="750" height="500" position=sticky top=0>
-
-                        </svg>
-    
-
-                    </figure>
+                <svg id="bubblechart" width="750" height="500" position=sticky top=0></svg>
+              </figure>
 
             </section>
 
-      
-
-       
-
       </section>
-
-
-
-      <section>
-
-        <img src="https://cdn.vox-cdn.com/thumbor/V5CWkAhmU6SymVLKN1HgUh4CTlw=/0x0:5082x3456/1820x1213/filters:focal(2135x1322:2947x2134):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/64622241/ecb28e3439.0.jpeg" width=100%>
-
-      </section>
-
-      
-
-
 
       <body>
 
-        
-
           <p class="prose">
-
             Plus, many of the 
-
             low-rated Clippers in the depth chart above see their minutes fall off in our playoff projection, 
-
             rewarding L.A. more than most for having an extremely solid top seven in their rotation. Check 
-
             out how many of their poorly rated players (in pink) see a major drop-off in minutes for the 
-
             team’s full-strength playoff depth chart
-
           </p>
 
           <p class="prose">
-
             The new-look Philadelphia 76ers check in as the league’s most talented team, 
-
             though the Houston Rockets (remember them?) aren’t far behind — assuming they 
-
             aren’t torpedoed by their reported chemistry problems. 
 
-            
-
             The Clippers are firmly 
-
             in the next tier of teams, those projected for roughly between 52 and 55 wins of 
-
             talent, a group that also includes the Lakers, Warriors (remember them?), Bucks, 
-
             Nuggets and Jazz.
-
           </p>
 
           <p class="prose">
-
             We’ll put aside questions about whether Los Angeles will really have a barely average defense — 
-
             the metrics have disagreed with the eye test for years about the quality of Kawhi’s D — and 
-
             instead focus on what might make these Clippers more formidable in the playoffs. For starters, 
-
             we’ve added a new feature to CARMELO that accounts for players who routinely improve in the 
-
             playoffs, and Leonard’s rating gets a major shot in the arm in that regard. 
-
           </p>
 
           <p class="prose">
-
             Plus, many of the 
-
             low-rated Clippers in the depth chart above see their minutes fall off in our playoff projection, 
-
             rewarding L.A. more than most for having an extremely solid top seven in their rotation. Check 
-
             out how many of their poorly rated players (in pink) see a major drop-off in minutes for the 
-
             team’s full-strength playoff depth chart
-
           </p>
 
           <p class="prose">
-
             The new-look Philadelphia 76ers check in as the league’s most talented team, 
-
             though the Houston Rockets (remember them?) aren’t far behind — assuming they 
-
             aren’t torpedoed by their reported chemistry problems. 
 
-            
-
             The Clippers are firmly 
-
             in the next tier of teams, those projected for roughly between 52 and 55 wins of 
-
             talent, a group that also includes the Lakers, Warriors (remember them?), Bucks, 
-
             Nuggets and Jazz.
-
           </p>
 
           <p class="prose">
-
             We’ll put aside questions about whether Los Angeles will really have a barely average defense — 
-
             the metrics have disagreed with the eye test for years about the quality of Kawhi’s D — and 
-
             instead focus on what might make these Clippers more formidable in the playoffs. For starters, 
-
             we’ve added a new feature to CARMELO that accounts for players who routinely improve in the 
-
             playoffs, and Leonard’s rating gets a major shot in the arm in that regard. 
-
           </p>
 
         </body>
 
     
-
-
-
       <head>
-
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
           
-
-          
-
           <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-
           <script type="text/javascript" src="https://ianlunn.co.uk/plugins/jquery-parallax/scripts/jquery.parallax-1.1.3.js"></script>
-
           <script type="text/javascript" src="https://ianlunn.co.uk/plugins/jquery-parallax/scripts/jquery.localscroll-1.2.7-min.js"></script>
-
           <script type="text/javascript" src="https://ianlunn.co.uk/plugins/jquery-parallax/scripts/jquery.scrollTo-1.4.2-min.js"></script>
+      </head>
 
-          
-
-          </head>
-
-    
-
-  
 
   <script>
-
-
 
     // using d3 for convenience
 
 		var main = d3.select('main')
-
     var scrolly = main.select('#scrolly');
-
     var firstscrolly = main.select('#firstscrolly');
-
     var scrollyleft = main.select('#scrollyleft');
-
 		var figure = scrolly.select('figure');
-
 		var article = scrolly.select('article');
-
 		var step = article.selectAll('.step');
-
-
 
 		// initialize the scrollama
 
 		var scroller = scrollama();
-
     var scrollerleft = scrollama();
-
     var firstscroller = scrollama();
-
-
 
     var options = {
 
   // If high is specified then the axis will display values explicitly up to this value and the computed maximum from the data is ignored
-
   high: 100,
 
   // If low is specified then the axis will display values explicitly down to this value and the computed minimum from the data is ignored
-
   low: 0,
 
   // This option will be used when finding the right scale division settings. The amount of ticks on the scale will be determined so that as many ticks as possible will be displayed, while not violating this minimum required space (in pixel).
-
   scaleMinSpace: 20,
 
   // Can be set to true or false. If set to true, the scale will be generated with whole numbers only.
-
   onlyInteger: true,
 
   // The reference value can be used to make sure that this value will always be on the chart. This is especially useful on bipolar charts where the bipolar center always needs to be part of the chart.
-
   referenceValue: 5
-
 };
-
-
-
-
-
-
 
 // set the dimensions and margins of the graph
 
 var margin = {top: 40, right: 40, bottom: 20, left: 60},
-
     width = 1250 - margin.left - margin.right,
-
     height = 650 - margin.top - margin.bottom;
-
-
-    
-
 
 
 // append the svg object to the body of the page
@@ -2299,24 +1316,16 @@ var margin = {top: 40, right: 40, bottom: 20, left: 60},
 var testing = d3.select("#secondlinechart")
 
   .append("svg")
-
     .attr("width", width + margin.left + margin.right)
-
     .attr("height", height + margin.top + margin.bottom)
 
   .append("g")
-
     .attr("transform",
-
           "translate(" + margin.left + "," + margin.top + ")");
 
 var slcpositionInfo = document.getElementById('secondlinechart').getBoundingClientRect();
-
 var slcwidth = slcpositionInfo.width - (margin.left + margin.right);
-
 var slcheight = slcpositionInfo.height - 200;
-
-
 
 
 // set the ranges
@@ -2353,38 +1362,25 @@ var chart2line5 = d3.line()
   .y(function(d) { return y(d['Student Loans']); });
 
 
-
-
 var flc = d3.select("#firstlinechart")
 
   .append("svg")
-
     .attr("width", width + margin.left + margin.right)
-
     .attr("height", height + margin.top + margin.bottom)
 
   .append("g")
-
     .attr("transform",
-
           "translate(" + margin.left + "," + margin.top + ")");
 
 var slc = d3.select("#secondlinechart")
 
 .append("svg")
-
   .attr("slcwidth", width + margin.left + margin.right)
-
   .attr("slcheight", height + margin.top + margin.bottom)
 
 .append("g")
-
   .attr("transform",
-
         "translate(" + margin.left + "," + margin.top + ")");
-
-
-
 
 d3.csv("tuition.csv", function (error, data) {
   if (error) throw error;
@@ -2394,7 +1390,6 @@ d3.csv("tuition.csv", function (error, data) {
     d.year = +d.year;
     d.Private = +d.Private;
     d.Public = +d.Public
-    console.log(data)
   })
   // Scale the range of the data
     x.domain([1985, 2020]);
@@ -2408,7 +1403,7 @@ d3.csv("tuition.csv", function (error, data) {
       .attr("stroke", "black");
     flc.append("path")
       .data([data])
-      .attr("id","flcpath1")
+      .attr("id","flcpath2")
       .attr("class", "line")
       .attr("d", Publictuitionline)
       .attr("stroke", "blue");
@@ -2416,22 +1411,18 @@ d3.csv("tuition.csv", function (error, data) {
 // Add the X Axis
    flc.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x))
-        ;
+        .call(d3.axisBottom(x));
 
     // Add the Y Axis
     flc.append("g")
         .call(d3.axisLeft(y));
-
 })
 
-   
 d3.csv("delinquency.csv", function (error, data) {
   if (error) throw error;
 
   // format data
   data.forEach(function(d) {
-    console.log(data)
     d.Year = +d.Year;
     d.Mortgage = +d.Mortgage;
     d.Auto = +d.Auto;
@@ -2481,93 +1472,59 @@ d3.csv("delinquency.csv", function (error, data) {
       .attr("opacity", 0)
       .attr("stroke", "red");
 
-
 // Add the X Axis
     slc.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x))
-        ;
+        .call(d3.axisBottom(x));
 
     // Add the Y Axis
     slc.append("g")
         .call(d3.axisLeft(y));
-
 })
 
-
-
-
-
     $(document).ready(function(){
-
 	$('#nav').localScroll(800);
 
-	
-
 	//.parallax(xPosition, speedFactor, outerHeight) options:
-
 	//xPosition - Horizontal position of the element
-
 	//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
-
 	//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
 
 	$('#intro').parallax("50%", 0.1);
-
 	$('#second').parallax("50%", 0.1);
-
 	$('.bg').parallax("50%", 0.4);
-
   $('#third').parallax("50%", 0.3);
-
   $('#fourth').parallax("50%", 0.2);
-
-
 })
 
     //waypoints scroll constructor
 
     function scroll(n, offset, func1, func2){
-
       return new Waypoint({
-
         element: document.getElementById(n),
-
         handler: function(direction) {
-
            direction == 'down' ? func1() : func2();
-
         },
 
         //start 75% from the top of the div
 
         offset: offset
-
       });
-
     };
 
-
-
     function test3() {
-
       var mtn = document.getElementById("Money Mountain")
-
       var bckgrd = document.getElementById("Mountain Road")
-
       var flc = document.getElementById("firstlinechart")
 
       TweenMax.to(mtn, 1, {scale:0.01});
-
       TweenMax.to(mtn, 1, {y:-620});
-
       TweenMax.to(mtn, 1, {x:410});
-
       TweenMax.to(bckgrd, 2, {opacity:0});
-
       TweenMax.to(mtn, 2, {opacity:0, delay:1.4});
 
-      document.getElementById("flcpath1").classList.add("path-thistest")
+      document.getElementById("flcpath1").classList.add("path-animate")
+      document.getElementById("flcpath2").classList.add("path-animate")
 
       TweenMax.to(flc, 2, {opacity:1}); 
 
@@ -2576,44 +1533,26 @@ d3.csv("delinquency.csv", function (error, data) {
       document.getElementById("slcpath3").style.opacity=0     
       document.getElementById("slcpath4").style.opacity=0
       document.getElementById("slcpath5").style.opacity=0
-
     }
 
-
-
-    
-
-    
-
     function test4() {
-
       document.getElementById("slcpath1").style.opacity=1 
-      document.getElementById("slcpath1").classList.add("path-thistest")
+      document.getElementById("slcpath1").classList.add("path-animate")
       document.getElementById("secondlinechart").style.opacity=1
       document.getElementById("Money Mountain").style.opacity=0
       document.getElementById("Mountain Road").style.opacity=0
-
     }
 
-
-
     function test5() {
-
       document.getElementById("slcpath2").style.opacity=1
-      document.getElementById("slcpath2").classList.add("path-thistest")
-
+      document.getElementById("slcpath2").classList.add("path-animate")
     }
 
     function test6() {
-
       document.getElementById("slcpath3").style.opacity=1
-      document.getElementById("slcpath3").classList.add("path-thistest")
+      document.getElementById("slcpath3").classList.add("path-animate")
       document.getElementById("slcpath4").style.opacity=1
-      document.getElementById("slcpath4").classList.add("path-thistest")
-
-     
-
-
+      document.getElementById("slcpath4").classList.add("path-animate")
 }
 
     function test7() {
@@ -2624,31 +1563,19 @@ d3.csv("delinquency.csv", function (error, data) {
 
       document.getElementById("slcpath5").style.opacity=1
 
-      document.getElementById("slcpath5").classList.add("path-thistest")
+      document.getElementById("slcpath5").classList.add("path-animate")
     }
-
 
 
 
     function makemountain() {
-
       document.getElementById("secondlinechart").style.opacity=0
-
       document.getElementById("path1").style.opacity = 0
-
-      document.getElementById("path1").classList.add("path-thistest");
-
+      document.getElementById("path1").classList.add("path-animate");
       document.getElementById("Money Mountain").style.opacity=1
-
       document.getElementById("Mountain Road").style.opacity=1
-
     }
 
-
-
-    
-
-    
 
 
     function test8() {
@@ -2659,86 +1586,63 @@ d3.csv("delinquency.csv", function (error, data) {
 
       document.getElementById("smile1").style.opacity = "0"
       document.getElementById("frown1").style.opacity = "1"
+
       TweenMax.to(frown1, 1, {y:300, ease: Bounce.easeOut});
       
       baby.style.opacity = "1";
 
       document.getElementById("retire").style.opacity = "0";
-
       document.getElementById("worker").style.opacity = "0";
-
       document.getElementById("house").style.opacity = "0";
-
     }
-
-
 
     function test9() {
 
       document.getElementById("smile2").style.opacity = "0"
       document.getElementById("frown2").style.opacity = "1"
+
       TweenMax.to(frown2, 1, {y:300, ease: Bounce.easeOut});
 
       document.getElementById("baby").style.opacity = "0";
-
       document.getElementById("retire").style.opacity = "1";
-
       document.getElementById("worker").style.opacity = "0";
-
       document.getElementById("house").style.opacity = "0";
-
     }
 
     function test10() {
-
       document.getElementById("smile3").style.opacity = "0"
       document.getElementById("frown3").style.opacity = "1"
+
       TweenMax.to(frown3, 1, {y:300, ease: Bounce.easeOut});
 
       document.getElementById("baby").style.opacity = "0";
-
       document.getElementById("retire").style.opacity = "0";
-
       document.getElementById("house").style.opacity = "0";
-
       document.getElementById("worker").style.opacity = "1";
-
     }
     
     function test11() {
-
       document.getElementById("smile4").style.opacity = "0"
       document.getElementById("frown4").style.opacity = "1"
       document.getElementById("smile5").style.opacity = "0"
       document.getElementById("frown5").style.opacity = "1"
+
       TweenMax.to(frown4, 1, {y:300, ease: Bounce.easeOut});
       TweenMax.to(frown5, 1, {y:300, ease: Bounce.easeOut});
 
       document.getElementById("baby").style.opacity = "0";
-
       document.getElementById("retire").style.opacity = "0";
-
       document.getElementById("worker").style.opacity = "0";
-
       document.getElementById("house").style.opacity = "1";
-
-
-
 }
 
-
-
     function bubble1() {
-
       //bubble1
   }
-
-
 
     function bubble2() {
 
       var color = d3.scaleOrdinal(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]);
-
 
       var x = d3.scaleOrdinal()
         .domain([1, 2, 3, 4, 5])
@@ -2778,210 +1682,100 @@ function bubble3() {
     
 }
 
-
-
 function bubble4() { 
-
   d3.select("#bubblechart").selectAll("circle").style("opacity", .9)
-
 }
-
-
 
     // scrollama event handlers
 
 		function handleStepEnter(response) {
 
-      
-
-
-
 			console.log(response)
-
-      response.element.id == 'step-3' ? test3() : console.log("not triggered")
-
-      response.element.id == 'step-4' ? test4() : console.log("not triggered")
-
-      response.element.id == 'step-5' ? test5() : console.log("not triggered")
-
-      response.element.id == 'step-6' ? test6() : console.log("not triggered")
-
-      response.element.id == 'step-7' ? test7() : console.log("not triggered")
-
-      response.element.id == 'step-8' ? test8() : console.log("not triggered")
-
-      response.element.id == 'step-9' ? test9() : console.log("not triggered")
-
-      response.element.id == 'step-10' ? test10() : console.log("not triggered")
-
-      response.element.id == 'step-11' ? test11() : console.log("not triggered")
-
-      response.element.id == 'step-12' ? bubble1() : console.log("not triggered")
-
-      response.element.id == 'step-13' ? bubble2() : console.log("not triggered")
-
-      response.element.id == 'step-14' ? bubble3() : console.log("not triggered")
-
-      response.element.id == 'step-15' ? bubble4() : console.log("not triggered")
-
-
+      if(response.element.id == 'step-3') {test3()} 
+      if(response.element.id == 'step-4') {test4()} 
+      if(response.element.id == 'step-5') {test5()} 
+      if(response.element.id == 'step-6') {test6()} 
+      if(response.element.id == 'step-7') {test7()} 
+      if(response.element.id == 'step-8') {test8()} 
+      if(response.element.id == 'step-9') {test9()} 
+      if(response.element.id == 'step-10') {test10()} 
+      if(response.element.id == 'step-11') {test11()} 
+      if(response.element.id == 'step-12') {bubble1()} 
+      if(response.element.id == 'step-13') {bubble2()} 
+      if(response.element.id == 'step-14') {bubble3()} 
+      if(response.element.id == 'step-15') {bubble4()} 
     }
 
-    
-
-    
-
-
-
     function handleResize() {
-
 			// 1. update height of step elements
-
 			var stepH = Math.floor(window.innerHeight * 0.25);
-
 			step.style('height', stepH + 'px');
 
-
-
 			var figureHeight = window.innerHeight / 2
-
 			var figureMarginTop = (window.innerHeight - figureHeight) / 2  
 
-
-
 			figure
-
 				.style('height', figureHeight + 'px')
-
 				.style('top', figureMarginTop + 'px');
 
-
-
-
-
 			// 3. tell scrollama to update new element dimensions
-
 			scroller.resize();
-
 		}
-
-
-
-    
-
-
 
     function setupStickyfill() {
-
 			d3.selectAll('.sticky').each(function () {
-
 				Stickyfill.add(this);
-
 			});
-
 		}
 
-
-
     function init() {
-
 			setupStickyfill();
-
-
-
 			// 1. force a resize on load to ensure proper dimensions are sent to scrollama
-
 			handleResize();
-
-
-
 			// 2. setup the scroller passing options
-
 			// 		this will also initialize trigger observations
-
 			// 3. bind scrollama event handlers (this can be chained like below)
 
-      
-
       scroller.setup({
-
 				step: '#scrolly article .step',
-
 				offset: 0.33,
-
 				debug: false,
-
 			})
 
         .onStepEnter(handleStepEnter)
-
-        
 
         firstscroller.setup({
 
 				step: '#firstscrolly article .step',
-
 				offset: 0.33,
-
 				debug: true,
-
 			})
-
         .onStepEnter(handleStepEnter)
-
-
 
       scroller.setup({
-
 				step: '#scrollyleft article .step',
-
         offset: 0.33,
-
         progress: true,
-
 				debug: false,
-
 			})
-
         .onStepEnter(handleStepEnter)
 
-        
-
         scroller.setup({
-
 				step: '#bubblescrolly article .step',
-
         offset: 0.33,
-
         progress: true,
-
 				debug: false,
-
 			})
-
 				.onStepEnter(handleStepEnter)
 
-
-
-
-
 			// setup resize event
-
 			window.addEventListener('resize', handleResize);
-
     }
-
-    
-
-
 
     var bubblewidth = 700, bubbleheight = 500;
     var svg = d3.select("#bubblechart").append("svg").attr("width", bubblewidth).attr("height", bubbleheight);
  
-
-
 var color = d3.scaleOrdinal(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]);
-
 var simulation = d3.forceSimulation()
         .force("forceX", d3.forceX().strength(.13).x(bubblewidth * .5))
         .force("forceY", d3.forceY().strength(.13).y(bubbleheight * .5))
@@ -2997,11 +1791,7 @@ sizeDivisor = 3000, nodePadding = 1;
 
   d3.csv("CollegeClusters.csv", types, function (error, data) {
     if (error) throw error;
-
-    console.log(data)
-
-   
-
+ 
     simulation
           .nodes(data)
           .force("collide", d3.forceCollide().strength(1).radius(function(d){ return d.radius + nodePadding; }).iterations(1))
@@ -3039,7 +1829,6 @@ sizeDivisor = 3000, nodePadding = 1;
           //     .on("drag", dragged)
           //     .on("end", dragended));
           
-
     });
 
     // function dragstarted(d) {
@@ -3066,15 +1855,8 @@ sizeDivisor = 3000, nodePadding = 1;
       return d;
     }
 
-
-
 		// kick things off
-
 		init();
-
-
-
-
 
   </script>
 
