@@ -737,7 +737,7 @@ img {
 
           <div class="firstscrolly">
 
-            <div class="step" data-step="5" id="step-1"
+            <div class="step" data-step="5" id="step-flc1"
 
             data-scrollama-index="4" style="height: 125px;">
 
@@ -757,7 +757,7 @@ img {
 
             </div>
 
-            <div class="step" data-step="6" id="step-2"
+            <div class="step" data-step="6" id="step-flc2"
 
             data-scrollama-index="5" style="height: 125px;">
 
@@ -775,7 +775,7 @@ img {
             data-scrollama-index="5" style="height: 325px;">
             </div>
 
-            <div class="step" data-step="7" id="step-3"
+            <div class="step" data-step="7" id="step-flc3"
             data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
                 <p>
@@ -788,7 +788,7 @@ img {
             data-scrollama-index="6" style="height: 625px;">
             </div>
 
-            <div class="step" data-step="7" id="step-3"
+            <div class="step" data-step="7" id="step-flc4"
             data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
                 <p>
@@ -801,7 +801,7 @@ img {
             data-scrollama-index="6" style="height: 625px;">
             </div>
 
-            <div class="step" data-step="7" id="step-3"
+            <div class="step" data-step="7" id="step-flc5"
             data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
                 <p>
@@ -880,16 +880,16 @@ img {
       <section class="img" id="scrollyleft">
 
         <article>
-          <div class="step is-active" id = "step-4" data-step="1" data-scrollama-index="0" style="height: 546px; width: 300px;">
+          <div class="step is-active" id = "step-slc1" data-step="1" data-scrollama-index="0" style="height: 546px; width: 300px;">
             <p>STEP 1</p>
           </div>
-          <div class="step" id = "step-5" data-step="2" data-scrollama-index="1" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc2" data-step="2" data-scrollama-index="1" style="height: 546px; width: 300px;">
             <p>STEP 2</p>
           </div>
-          <div class="step" id = "step-6" data-step="3" data-scrollama-index="2" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc3" data-step="3" data-scrollama-index="2" style="height: 546px; width: 300px;">
             <p>STEP 3</p>
           </div>
-          <div class="step" id = "step-7" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc4" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
             <p>STEP 4</p>
           </div>
         </article>
@@ -1036,7 +1036,7 @@ img {
           <article class="centerpositioned">
 
           <div class="scrolly">
-            <div class="step" data-step="5" id="step-8"
+            <div class="step" data-step="5" id="step-emoji1"
             data-scrollama-index="4" style="height: 125px;">
               <div class= "step-prose">
                 <p>
@@ -1046,7 +1046,7 @@ img {
             </div>
             <div class="hidden-step" data-step="1" data-scrollama-index="4" style="height: 325px;"></div>
 
-            <div class="step" data-step="6" id="step-9" data-scrollama-index="5" style="height: 125px;">
+            <div class="step" data-step="6" id="step-emoji2" data-scrollama-index="5" style="height: 125px;">
               <div class= "step-prose">
                 <p>
                   20% of people haven't been able to change jobs because of their student debt burden
@@ -1055,7 +1055,7 @@ img {
             </div>
             <div class="hidden-step" data-step="1" data-scrollama-index="5" style="height: 325px;"></div>
 
-            <div class="step" data-step="7" id="step-10" data-scrollama-index="6" style="height: 125px;">
+            <div class="step" data-step="7" id="step-emoji3" data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
                 <p>
                   30% have delayed saving for retirement 
@@ -1064,7 +1064,7 @@ img {
             </div>
 
             <div class="hidden-step" data-step="1" data-scrollama-index="5" style="height: 325px;"></div>
-            <div class="step" data-step="7" id="step-11" data-scrollama-index="6" style="height: 125px;">
+            <div class="step" data-step="7" id="step-emoji4" data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
                 <p>
                   Nearly half of survey respondants said their student debt prevented them from buying a home
@@ -1119,73 +1119,85 @@ img {
 
       </body>
 
+      <body>
+          <p class="prose">
+            There are thousands of colleges in the United States, are they all contributing to the debt 
+            crisis at the same rate? What traits do these colleges have that distinguish them from each
+            other in terms of debt? These were the questions I sought to answer in my final analysis. 
+
+            First, I created a dataset using the College Scorecard, which is a tool the US government created
+            to help students compare colleges in key metrics. The metrics I decided would most apply to 
+            this debt study were average grant aid awarded, average loans awarded, number of undergraduate
+            students, median debt after graduation, median earnings 10 years after graduation, the default
+            rate for students within 3 years of graduation, and finally the net cost of the school.
+
+          </p>
+  
+          <p class="prose">
+            Using the K-Means algorithm in Python, I created an elbow plot to decide how many clusters to 
+            add to my analysis. This is more art than science, but 5 clusters is the point were the benefit 
+            from adding clusters seems to become marginal. And 5 clusters also gives us fairly even cluster
+            sizes.
+
+            <img src="ElbowPlot.png" width=100%>
+  
+          </p>
+  
+          <p class="prose">
+            Now let's take a look at the cluster heat map, and see if we can interpret what these clusters
+            represent. 
+         
+
+            <img src="ClusterPlot.png" width=200px>
+          </p>
+          <p class="prose">
+            Cluster 1 schools have low cost and low median debt, but their default rate is tied for highest
+            amoung the clusters. A lot of cluster 1 schools are community colleges or tech schools. Examples
+            include Illinois Valley Community College, North Georgia Technical College and New Mexico Junior
+            College.
+          </p>
+          <p class="prose"> 
+            Cluster 2 schools are pretty average across the board except they typically have the highest debt.
+            Examples of cluster 2 schools are the Art Institue of Seattle, Chicago State University and Prarie
+            View A&M University.
+          </p>
+          <p class="prose">
+            Cluster 3 schools have the highest costs and highest median debt, but also receive the highest earnings,
+            get the most financial aid and have the lowest default rate. These tend to be very prestigious and
+            expensive schools populated with wealthy students that can typically afford to pay back the debt. Examples
+            of these schools are Northwestern University and all of the Ivys. 
+          </p>
+          <p class="prose">
+            Cluster 4 schools seem to be the most dangerous schools in terms of student loans. The cost is above average, 
+            they take out the most loans by far, and the default rate is also quite high. This is combined with the 
+            lowest average earnings amoung the clusters. Examples of these schools are the Southwest Institute of Healing 
+            Arts, Commonwealth Institue of Funeral Service, and the Art Institue of Indianapolis. 
+          </p>
+          <p class="prose">
+            Finally, cluster 5 are mostly the giant state schools. They have by far the highest attendence, but they 
+            make up for it with pretty high earnings, and fairly low cost and default rate. Examples of these schools 
+            are Purdue University, the University of Wisconsin, and Ohio State University.
+          </p>
+  
+        </body>
+
       <section id="scrolly">
-        <div class="debt_scroll">
-          <figure class="debt_container">
-
-            <img src="baby.png" id="baby"
-            class = "picture_is_visible">
-
-            <img src="worker.png" id="worker"
-            class = "picture_is_not_visible">
-
-            <img src="older-woman.png" id="retire"
-            class = "picture_is_not_visible">
-
-          </figure>
-
-          <article class="centerpositioned">
-
-          <div class="scrolly">
-            <div class="step" data-step="5" id="step-8" data-scrollama-index="4" style="height: 125px;">
-              <div class= "step-prose">
-                <p>
-                  this is a test #1
-                </p>
-              </div>
-            </div>
-
-            <div class="hidden-step" data-step="1" data-scrollama-index="4" style="height: 325px;"></div>
-
-            <div class="step" data-step="6" id="step-9" data-scrollama-index="5" style="height: 125px;">
-              <div class= "step-prose">
-                <p>
-                  another statement
-                </p>
-              </div>
-            </div>
-
-            <div class="hidden-step" data-step="1" data-scrollama-index="5" style="height: 325px;"></div>
-
-            <div class="step" data-step="7" id="step-10" data-scrollama-index="6" style="height: 125px;">
-              <div class= "step-prose">
-                <p>
-                  Just one more statement
-                </p>
-              </div>
-            </div>
-
-            <div class="hidden-step" data-step="1" data-scrollama-index="6" style="height: 625px;"></div>
-          </div>
-        </article>
-        </div>
-
           <section class="img" id="bubblescrolly">
               <article>
 
-                <div class="step is-active" id = "step-12" data-step="11" data-scrollama-index="0" style="height: 546px; width: 300px;">
+                <div class="step is-active" id = "step-bubble1" data-step="11" data-scrollama-index="0" style="height: 546px; width: 300px;">
                   <p>STEP 1</p>
                 </div>
 
-                <div class="step" id = "step-13" data-step="12" data-scrollama-index="1" style="height: 546px; width: 300px;">
+                <div class="step" id = "step-bubble2" data-step="12" data-scrollama-index="1" style="height: 546px; width: 300px;">
                   <p>STEP 2</p>
                 </div>
 
-                <div class="step" id = "step-14" data-step="13" data-scrollama-index="2" style="height: 546px; width: 300px;">
+                <div class="step" id = "step-bubble3" data-step="13" data-scrollama-index="2" style="height: 546px; width: 300px;">
                   <p>STEP 3</p>
                 </div>
 
-                <div class="step" id = "step-15" data-step="14" data-scrollama-index="3" style="height: 546px; width: 300px;">
+                <div class="step" id = "step-bubble4" data-step="14" data-scrollama-index="3" style="height: 546px; width: 300px;">
                   <p>STEP 4</p>
                 </div>
 
@@ -1341,6 +1353,10 @@ var Publictuitionline = d3.line()
   .x(function(d) { return x(d.year); })
   .y(function(d) { return y(d.Public); });
 
+var MaxPellGrantline = d3.line()
+  .x(function(d) { return x(d.year); })
+  .y(function(d) { return y(d.MaxPellGrant); });
+
 var chart2line1 = d3.line()
   .x(function(d) { return x(d.Year); })
   .y(function(d) { return y(d.Mortgage); });
@@ -1384,12 +1400,13 @@ var slc = d3.select("#secondlinechart")
 
 d3.csv("tuition.csv", function (error, data) {
   if (error) throw error;
-
+  console.log(data)
   // format data
   data.forEach(function(d) {
     d.year = +d.year;
     d.Private = +d.Private;
     d.Public = +d.Public
+    d.MaxPellGrant = +d.MaxPellGrant
   })
   // Scale the range of the data
     x.domain([1985, 2020]);
@@ -1400,13 +1417,22 @@ d3.csv("tuition.csv", function (error, data) {
       .attr("id","flcpath1")
       .attr("class", "line")
       .attr("d", Privatetuitionline)
+      .attr("opacity", 0)
       .attr("stroke", "black");
     flc.append("path")
       .data([data])
       .attr("id","flcpath2")
       .attr("class", "line")
       .attr("d", Publictuitionline)
+      .attr("opacity", 0)
       .attr("stroke", "blue");
+    flc.append("path")
+      .data([data])
+      .attr("id","flcpath3")
+      .attr("class", "line")
+      .attr("d", MaxPellGrantline)
+      .attr("opacity", 0)
+      .attr("stroke", "orange");
 
 // Add the X Axis
    flc.append("g")
@@ -1512,7 +1538,23 @@ d3.csv("delinquency.csv", function (error, data) {
       });
     };
 
-    function test3() {
+    function flc1() {
+      
+      document.getElementById("flcpath1").style.opacity=0     
+      document.getElementById("flcpath2").style.opacity=0
+      document.getElementById("flcpath3").style.opacity=0
+      document.getElementById("slcpath1").style.opacity=0  
+      document.getElementById("slcpath2").style.opacity=0
+      document.getElementById("slcpath3").style.opacity=0     
+      document.getElementById("slcpath4").style.opacity=0
+      document.getElementById("slcpath5").style.opacity=0
+
+    }
+    function flc2() {
+      
+    }
+
+    function flc3() {
       var mtn = document.getElementById("Money Mountain")
       var bckgrd = document.getElementById("Mountain Road")
       var flc = document.getElementById("firstlinechart")
@@ -1523,19 +1565,25 @@ d3.csv("delinquency.csv", function (error, data) {
       TweenMax.to(bckgrd, 2, {opacity:0});
       TweenMax.to(mtn, 2, {opacity:0, delay:1.4});
 
+      document.getElementById("flcpath1").style.opacity=1
+      document.getElementById("flcpath2").style.opacity=1
       document.getElementById("flcpath1").classList.add("path-animate")
       document.getElementById("flcpath2").classList.add("path-animate")
 
       TweenMax.to(flc, 2, {opacity:1}); 
 
-      document.getElementById("slcpath1").style.opacity=0  
-      document.getElementById("slcpath2").style.opacity=0
-      document.getElementById("slcpath3").style.opacity=0     
-      document.getElementById("slcpath4").style.opacity=0
-      document.getElementById("slcpath5").style.opacity=0
     }
 
-    function test4() {
+    function flc4() {
+      
+    }
+
+    function flc5() {
+      document.getElementById("flcpath3").style.opacity=1
+      document.getElementById("flcpath3").classList.add("path-animate")
+    }
+
+    function slc1() {
       document.getElementById("slcpath1").style.opacity=1 
       document.getElementById("slcpath1").classList.add("path-animate")
       document.getElementById("secondlinechart").style.opacity=1
@@ -1543,19 +1591,19 @@ d3.csv("delinquency.csv", function (error, data) {
       document.getElementById("Mountain Road").style.opacity=0
     }
 
-    function test5() {
+    function slc2() {
       document.getElementById("slcpath2").style.opacity=1
       document.getElementById("slcpath2").classList.add("path-animate")
     }
 
-    function test6() {
+    function slc3() {
       document.getElementById("slcpath3").style.opacity=1
       document.getElementById("slcpath3").classList.add("path-animate")
       document.getElementById("slcpath4").style.opacity=1
       document.getElementById("slcpath4").classList.add("path-animate")
 }
 
-    function test7() {
+    function slc4() {
       TweenMax.to(document.getElementById("slcpath1"), 1, {opacity:.1});
       TweenMax.to(document.getElementById("slcpath2"), 1, {opacity:.1});
       TweenMax.to(document.getElementById("slcpath3"), 1, {opacity:.1});
@@ -1578,7 +1626,7 @@ d3.csv("delinquency.csv", function (error, data) {
 
 
 
-    function test8() {
+    function emoji1() {
 
       var fish = document.getElementById("fish")
       var tomato = document.getElementById("tomato")
@@ -1596,7 +1644,7 @@ d3.csv("delinquency.csv", function (error, data) {
       document.getElementById("house").style.opacity = "0";
     }
 
-    function test9() {
+    function emoji2() {
 
       document.getElementById("smile2").style.opacity = "0"
       document.getElementById("frown2").style.opacity = "1"
@@ -1609,7 +1657,7 @@ d3.csv("delinquency.csv", function (error, data) {
       document.getElementById("house").style.opacity = "0";
     }
 
-    function test10() {
+    function emoji3() {
       document.getElementById("smile3").style.opacity = "0"
       document.getElementById("frown3").style.opacity = "1"
 
@@ -1621,7 +1669,7 @@ d3.csv("delinquency.csv", function (error, data) {
       document.getElementById("worker").style.opacity = "1";
     }
     
-    function test11() {
+    function emoji4() {
       document.getElementById("smile4").style.opacity = "0"
       document.getElementById("frown4").style.opacity = "1"
       document.getElementById("smile5").style.opacity = "0"
@@ -1691,19 +1739,23 @@ function bubble4() {
 		function handleStepEnter(response) {
 
 			console.log(response)
-      if(response.element.id == 'step-3') {test3()} 
-      if(response.element.id == 'step-4') {test4()} 
-      if(response.element.id == 'step-5') {test5()} 
-      if(response.element.id == 'step-6') {test6()} 
-      if(response.element.id == 'step-7') {test7()} 
-      if(response.element.id == 'step-8') {test8()} 
-      if(response.element.id == 'step-9') {test9()} 
-      if(response.element.id == 'step-10') {test10()} 
-      if(response.element.id == 'step-11') {test11()} 
-      if(response.element.id == 'step-12') {bubble1()} 
-      if(response.element.id == 'step-13') {bubble2()} 
-      if(response.element.id == 'step-14') {bubble3()} 
-      if(response.element.id == 'step-15') {bubble4()} 
+      if(response.element.id == 'step-flc1') {flc1()} 
+      if(response.element.id == 'step-flc2') {flc2()} 
+      if(response.element.id == 'step-flc3') {flc3()} 
+      if(response.element.id == 'step-flc4') {flc4()} 
+      if(response.element.id == 'step-flc5') {flc5()} 
+      if(response.element.id == 'step-slc1') {slc1()} 
+      if(response.element.id == 'step-slc2') {slc2()} 
+      if(response.element.id == 'step-slc3') {slc3()} 
+      if(response.element.id == 'step-slc4') {slc4()} 
+      if(response.element.id == 'step-emoji1') {emoji1()} 
+      if(response.element.id == 'step-emoji2') {emoji2()} 
+      if(response.element.id == 'step-emoji3') {emoji3()} 
+      if(response.element.id == 'step-emoji4') {emoji4()} 
+      if(response.element.id == 'step-bubble1') {bubble1()} 
+      if(response.element.id == 'step-bubble2') {bubble2()} 
+      if(response.element.id == 'step-bubble3') {bubble3()} 
+      if(response.element.id == 'step-bubble4') {bubble4()} 
     }
 
     function handleResize() {
