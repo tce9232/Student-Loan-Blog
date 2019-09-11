@@ -880,16 +880,16 @@ img {
           <div class="step" id = "step-slc4" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
             <p>Now let's look at the rate of default on student loan debt</p>
           </div>
-          <div class="step" id = "step-slc4" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc5" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
               <p>Not only is this rate currenly past the rate of default during the peak of the housing crisis...</p>
           </div>
-          <div class="step" id = "step-slc4" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc6" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
               <p>...the default rate has never gone down, even post-recession</p>
           </div>
-          <div class="step" id = "step-slc4" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc7" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
               <p>How high can it go?</p>
           </div>
-          <div class="step" id = "step-slc4" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc8" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
               <p>What will this graph look like if there's another recession?</p>
           </div>
 
@@ -1155,15 +1155,15 @@ img {
               <article>
 
                 <div class="step is-active" id = "step-bubble1" data-step="11" data-scrollama-index="0" style="height: 546px; width: 300px;">
-                  <p>STEP 1</p>
+                  <p>Here I grouped every school into an individual bubble</p>
                 </div>
 
                 <div class="step" id = "step-bubble2" data-step="12" data-scrollama-index="1" style="height: 546px; width: 300px;">
-                  <p>STEP 2</p>
+                  <p>Now let's separate them into their individual clusters</p>
                 </div>
 
                 <div class="step" id = "step-bubble3" data-step="13" data-scrollama-index="2" style="height: 546px; width: 300px;">
-                  <p>STEP 3</p>
+                  <p>Here's where all the Ivy Leagues are </p>
                 </div>
 
                 <div class="step" id = "step-bubble4" data-step="14" data-scrollama-index="3" style="height: 546px; width: 300px;">
@@ -1173,7 +1173,7 @@ img {
               </article>
         
               <figure>
-                <svg id="bubblechart" width="750" height="500" position=sticky top=0></svg>
+                <svg id="bubblechart" height="600" position=sticky top=0 style="width: 100%;"></svg>
               </figure>
 
             </section>
@@ -1308,7 +1308,6 @@ img {
 var margin = {top: 40, right: 40, bottom: 20, left: 60},
     width = 1250 - margin.left - margin.right,
     height = 650 - margin.top - margin.bottom;
-
 
 // append the svg object to the body of the page
 
@@ -1679,7 +1678,7 @@ d3.csv("delinquency.csv", function (error, data) {
 
       var x = d3.scaleOrdinal()
         .domain([1, 2, 3, 4, 5])
-        .range([50, 100, 150, 250, 400])
+        .range([1*width/7, 2*width/7,3*width/7,4*width/7,5*width/7])
 
       // d3.select("#bubblechart").selectAll("circle").style("cx", function(d){return x(d.cluster)+ (Math.random() * 40)})
 
@@ -1692,9 +1691,9 @@ d3.csv("delinquency.csv", function (error, data) {
       
       simulation
       .alpha(.5)
-      .force("forceX", d3.forceX().strength(.5).x(function(d){ return x(d.cluster) }))
-      .force("forceY", d3.forceY().strength(.13).y(bubbleheight * .5))
-      .force("collide", d3.forceCollide().strength(.5).radius(function(d){ return d.radius + nodePadding; }).iterations(1))
+      .force("forceX", d3.forceX().strength(.4).x(function(d){ return x(d.cluster) }))
+      .force("forceY", d3.forceY().strength(.1).y(height * .5))
+      .force("collide", d3.forceCollide().strength(.6).radius(function(d){ return d.radius + nodePadding; }).iterations(1))
 
       simulation.restart()
       .alpha(.25)
@@ -1716,6 +1715,7 @@ function bubble3() {
 }
 
 function bubble4() { 
+  simulation.stop()
   d3.select("#bubblechart").selectAll("circle").style("opacity", .9)
 }
 
@@ -1809,14 +1809,14 @@ function bubble4() {
 			window.addEventListener('resize', handleResize);
     }
 
-    var bubblewidth = 700, bubbleheight = 500;
+    var bubblewidth = width, bubbleheight = height;
     var svg = d3.select("#bubblechart").append("svg").attr("width", bubblewidth).attr("height", bubbleheight);
  
 var color = d3.scaleOrdinal(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]);
 var simulation = d3.forceSimulation()
-        .force("forceX", d3.forceX().strength(.13).x(bubblewidth * .5))
-        .force("forceY", d3.forceY().strength(.13).y(bubbleheight * .5))
-        .force("center", d3.forceCenter().x(bubblewidth * .5).y(bubbleheight * .5))
+        .force("forceX", d3.forceX().strength(.12).x(bubblewidth * .5))
+        .force("forceY", d3.forceY().strength(.12).y(bubbleheight * .75))
+        // .force("center", d3.forceCenter().x(bubblewidth * .5).y(bubbleheight * .5))
         .force("charge", d3.forceManyBody().strength(-2));
 
 // Define the div for the tooltip
