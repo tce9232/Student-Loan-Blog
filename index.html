@@ -17,6 +17,7 @@
   <script src="https://unpkg.com/jeezy@1.11.2/lib/jeezy.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
   <script src="https://kit.fontawesome.com/3702056331.js"></script>
+  <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
   <style>
 
     @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600');
@@ -316,7 +317,6 @@ path {
 
   position: relative;
   background-color: #ffffff;
-  padding: 1rem;
 
 }
 
@@ -527,13 +527,11 @@ h2{
 	height: 1800px;
 	margin: 0 auto;
 	overflow: hidden;
-	padding: 0;
 
 }
 
 #second .bg{
 
-	background: url(gradhat.png) 50% 0 no-repeat fixed;
 	height: 2200px;
 	margin: 0 auto;
 	padding: 0;
@@ -556,7 +554,7 @@ h2{
 
 background: url(women.jpg) 50% 0 no-repeat fixed;
 color: white;
-height: 200VH;
+height: 250VH;
 padding: 100px 0 0 0;	
 
 }
@@ -896,7 +894,7 @@ img {
         </article>
 
         <figure>
-          <svg id="secondlinechart" width="850" height="700" position=sticky top=0 opacity=1></svg>
+          <svg id="secondlinechart" width=width height="700" position=sticky top=0 opacity=1></svg>
         </figure>
       </section>
 
@@ -906,7 +904,7 @@ img {
           </ul>
 
           <div id="second">
-            <div class="story"><div class="bg"></div>
+            <div class="story"><div class="bg" style="background-position: 400px"></div>
               <div class="float-right">
                 <img class="quote" src="SecondQuote.png" width="800" height="669" alt="">
               </div>
@@ -1016,7 +1014,7 @@ img {
                 </p>
               </div>
             </div>
-            <div class="hidden-step" data-step="1" data-scrollama-index="4" style="height: 325px;"></div>
+            <div class="hidden-step" data-step="6" data-scrollama-index="4" style="height: 325px;"></div>
 
             <div class="step" data-step="6" id="step-emoji2" data-scrollama-index="5" style="height: 125px;">
               <div class= "step-prose">
@@ -1025,7 +1023,7 @@ img {
                 </p>
               </div>
             </div>
-            <div class="hidden-step" data-step="1" data-scrollama-index="5" style="height: 325px;"></div>
+            <div class="hidden-step" data-step="7" data-scrollama-index="5" style="height: 325px;"></div>
 
             <div class="step" data-step="7" id="step-emoji3" data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
@@ -1035,8 +1033,8 @@ img {
               </div>
             </div>
 
-            <div class="hidden-step" data-step="1" data-scrollama-index="5" style="height: 325px;"></div>
-            <div class="step" data-step="7" id="step-emoji4" data-scrollama-index="6" style="height: 125px;">
+            <div class="hidden-step" data-step="8" data-scrollama-index="6" style="height: 325px;"></div>
+            <div class="step" data-step="8" id="step-emoji4" data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
                 <p>
                   Nearly half of survey respondants said their student debt prevented them from buying a home
@@ -1044,7 +1042,7 @@ img {
               </div>
             </div>
 
-            <div class="hidden-step" data-step="1" data-scrollama-index="6" style="height: 625px;"></div>
+            <div class="hidden-step" data-step="9" data-scrollama-index="7" style="height: 625px;"></div>
           </div>
         </article>
         </div>
@@ -1068,7 +1066,7 @@ img {
         <div id="third">
           <div class="story">
             <div class="float-left">
-              <img class="quote" src="ThirdQuote.png" width="800" height="669" alt="">
+              <img class="quote" src="ThirdQuote.png" width="800" height="669" alt="" style="margin-top: 100px;">
             </div>
           </div> <!--.story-->
         </div> <!--#third-->
@@ -1155,7 +1153,9 @@ img {
               <article>
 
                 <div class="step is-active" id = "step-bubble1" data-step="11" data-scrollama-index="0" style="height: 546px; width: 300px;">
-                  <p>Here I grouped every school into an individual bubble</p>
+                  <p>monochrome bubbles
+
+                  </p>
                 </div>
 
                 <div class="step" id = "step-bubble2" data-step="12" data-scrollama-index="1" style="height: 546px; width: 300px;">
@@ -1163,17 +1163,59 @@ img {
                 </div>
 
                 <div class="step" id = "step-bubble3" data-step="13" data-scrollama-index="2" style="height: 546px; width: 300px;">
-                  <p>Here's where all the Ivy Leagues are </p>
+                  <p>Here's UW </p>
                 </div>
 
                 <div class="step" id = "step-bubble4" data-step="14" data-scrollama-index="3" style="height: 546px; width: 300px;">
-                  <p>STEP 4</p>
+                  <p>Here's NW</p>
                 </div>
+
+                <div class="step" id = "step-bubble5" data-step="15" data-scrollama-index="4" style="height: 546px; width: 300px;">
+                    <p>Here are the Ivys</p>
+                  </div>
+                
+                <div class="step" id = "step-bubble6" data-step="16" data-scrollama-index="5" style="height: 546px; width: 300px;">
+                    <p>Here's every school in IL</p>
+                  </div>
+
+                <div class="step" id = "step-bubble7" data-step="17" data-scrollama-index="6" style="height: 546px; width: 300px;">
+                    <p>Back to clusters</p>
+                  </div>
+
+                <div class="step" id = "step-bubble8" data-step="18" data-scrollama-index="7" style="height: 546px; width: 300px;">
+                    <p>Student size</p>
+                  </div>
+
+                <div class="step" id = "step-bubble9" data-step="19" data-scrollama-index="8" style="height: 546px; width: 300px;">
+                    <p>debt size</p>
+                  </div>
+                
+                <div class="step" id = "step-bubble10" data-step="20" data-scrollama-index="9" style="height: 546px; width: 300px;">
+                    <p>school type</p>
+                  </div>
+
+                <div class="step" id = "step-bubble11" data-step="21" data-scrollama-index="10" style="height: 546px; width: 300px;">
+                    <p>default rate</p>
+                  </div>
+
+                <div class="step" id = "step-bubble12" data-step="22" data-scrollama-index="11" style="height: 546px; width: 300px;">
+                    <p>Color on aid</p>
+                  </div>
+
+                <div class="step" id = "step-bubble13" data-step="23" data-scrollama-index="12" style="height: 546px; width: 300px;">
+                    <p>Color on earnings</p>
+                  </div>
 
               </article>
         
               <figure>
-                <svg id="bubblechart" height="600" position=sticky top=0 style="width: 100%;"></svg>
+                <div id="legend1" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; "> </div>
+                <div id="legend2" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; "> </div>
+                <div id="legend3" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; "> </div>
+                <svg id="my_dataviz2" position=sticky top=10px id="my_dataviz2" style="top:40; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
+                <svg id="my_dataviz" position=sticky top=10px id="my_dataviz" style="top:40; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
+                
+                <svg id="bubblechart" height="600" position=sticky style="width: 100%; top: 40px"></svg>
               </figure>
 
             </section>
@@ -1440,7 +1482,7 @@ d3.csv("delinquency.csv", function (error, data) {
     console.log(d)
   })
   // Scale the range of the data
-    x.domain([2003, 2028]);
+    x.domain([2003, 2020]);
 
     y.domain([0, 16]);
   // Add the valueline path
@@ -1504,7 +1546,6 @@ d3.csv("delinquency.csv", function (error, data) {
 
 	$('#intro').parallax("50%", 0.1);
 	$('#second').parallax("50%", 0.1);
-	$('.bg').parallax("50%", 0.4);
   $('#third').parallax("50%", 0.3);
   $('#fourth').parallax("50%", 0.2);
 })
@@ -1678,46 +1719,257 @@ d3.csv("delinquency.csv", function (error, data) {
 
       var x = d3.scaleOrdinal()
         .domain([1, 2, 3, 4, 5])
-        .range([1*width/7, 2*width/7,3*width/7,4*width/7,5*width/7])
-
-      // d3.select("#bubblechart").selectAll("circle").style("cx", function(d){return x(d.cluster)+ (Math.random() * 40)})
-
-      // simulation.force("forceX", d3.forceX().strength(.13).x(function(d){ return x(d.cluster) }))
-      // .force("x", d3.forceX().strength(5).x( function(d){ return x(d.cluster) } ))
-      // .force("y", d3.forceY().strength(0.1).y( 500/2 ))
-      // .force("collide", d3.forceCollide().strength(1).radius(function(d){ return d.radius + nodePadding; }).iterations(1))
+        .range([3*width/10, 4*width/10,5*width/10,6*width/10,7*width/10])
 
       d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return color(d.cluster); })
-      
+        
       simulation
       .alpha(.5)
       .force("forceX", d3.forceX().strength(.4).x(function(d){ return x(d.cluster) }))
-      .force("forceY", d3.forceY().strength(.1).y(height * .5))
-      .force("collide", d3.forceCollide().strength(.6).radius(function(d){ return d.radius + nodePadding; }).iterations(1))
+      .force("forceY", d3.forceY().strength(.2).y(height * .5))
+      .force("charge", d3.forceManyBody().strength(-6))
+      .force("collide", d3.forceCollide().strength(1).radius(function(d){ return 4; }).iterations(1))
 
-      simulation.restart()
-      .alpha(.25)
   }
 
-function bubble3() {
+  function bubble3() {
 
   simulation.stop()
 
-  var IvyLeague = ["Harvard University", "Yale University", "Cornell University", "Princeton University", "Dartmouth College", "Columbia University in the City of New York", "Brown University", "University of Pennsylvania"]
+  d3.select("#bubblechart").selectAll("circle").attr("fill", "#838383")
+  d3.select("#bubblechart").selectAll("circle").attr("opacity", .1)
 
-  d3.select("#bubblechart").selectAll("circle").style("opacity", .1)
+  var Wisconsin = ["University of Wisconsin-Madison"]
+
   d3.select("#bubblechart").selectAll("circle")
     .filter(function(d) {
-      return IvyLeague.indexOf(d["Institution Name"]) > -1;
+      return Wisconsin.indexOf(d["Institution Name"]) > -1;
    })
     .style("opacity", .9)
+    .style("fill", "#c5050c")
     
 }
 
-function bubble4() { 
-  simulation.stop()
-  d3.select("#bubblechart").selectAll("circle").style("opacity", .9)
+function bubble4() {
+
+  var Northwestern = ["Northwestern University"]
+
+d3.select("#bubblechart").selectAll("circle")
+  .filter(function(d) {
+    return Northwestern.indexOf(d["Institution Name"]) > -1;
+ })
+  .style("opacity", .9)
+  .style("fill", "#4E2A84")
+  
 }
+
+function bubble5() {
+
+var IvyLeague = ["Harvard University", "Yale University", "Cornell University", "Princeton University", "Dartmouth College", "Columbia University in the City of New York", "Brown University", "University of Pennsylvania"]
+
+d3.select("#bubblechart").selectAll("circle")
+  .filter(function(d) {
+    return IvyLeague.indexOf(d["Institution Name"]) > -1;
+ })
+  .style("opacity", .9)
+  .style("fill", "#EE95F1")
+  
+}
+
+function bubble6() {
+
+var Illinois = ["IL"]
+
+d3.select("#bubblechart").selectAll("circle")
+  .filter(function(d) {
+    return Illinois.indexOf(d["State abbreviation (HD2016)"]) > -1;
+ })
+  .style("opacity", .9)
+  .style("fill", "#63B878")
+  
+}
+
+
+
+function bubble7(){
+
+  var ResetSchools = ["University of Wisconsin-Madison", "Northwestern University", "Harvard University", "Yale University", "Cornell University", "Princeton University", "Dartmouth College", "Columbia University in the City of New York", "Brown University", "University of Pennsylvania"]
+
+  d3.select("#bubblechart").selectAll("circle")
+    .filter(function(d) {
+      return ResetSchools.indexOf(d["Institution Name"]) > -1;
+   })
+    .style("fill", "")
+
+  var ResetState = ["IL"]
+
+  d3.select("#bubblechart").selectAll("circle")
+    .filter(function(d) {
+      return ResetState.indexOf(d["State abbreviation (HD2016)"]) > -1;
+   })
+    .style("fill", "")
+
+
+  var color = d3.scaleOrdinal(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]);
+
+  d3.select("#bubblechart").selectAll("circle").attr("opacity", .9)
+  d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return color(d.cluster); })
+
+}
+
+function bubble8() {
+
+  document.getElementById("my_dataviz").style.opacity="1"
+
+  simulation.restart()
+
+  d3.select("#bubblechart").selectAll("circle").attr("r", function(d){
+      +d.UGDS / 3500;
+      d.size < 2 ? d.radius = 2 : d.radius = d.size;
+      return d.radius;
+    })
+
+    var x = d3.scaleOrdinal()
+        .domain([1, 2, 3, 4, 5])
+        .range([3*width/10, 4*width/10,5*width/10,6*width/10,7*width/10])
+
+    simulation
+      .alpha(.1)
+      .force("forceX", d3.forceX().strength(.4).x(function(d){ return x(d.cluster) }))
+      .force("forceY", d3.forceY().strength(.3).y(height * .5))
+      .force("charge", d3.forceManyBody().strength(-7))
+      .force("collide", d3.forceCollide().strength(1).radius(function(d){
+      +d.UGDS / 3500;
+      d.size < 2 ? d.radius = 2 : d.radius = d.size;
+      return d.radius;
+    }).iterations(1))
+
+    setTimeout(function(){ simulation.stop(); }, 2000)
+    
+}
+
+function bubble9(){
+
+  
+  document.getElementById("my_dataviz").style.opacity="0"
+  document.getElementById("my_dataviz2").style.opacity="1"
+
+
+  d3.select("#bubblechart").selectAll("circle").attr("r", function(d){
+      d.size = +d.GRAD_DEBT_MDN_SUPP / 6000;
+      d.size < 2 ? d.radius = 2 : d.radius = d.size;
+      return d.radius;
+    })
+
+    var x = d3.scaleOrdinal()
+        .domain([1, 2, 3, 4, 5])
+        .range([3*width/10, 4*width/10,5*width/10,6*width/10,7*width/10])
+
+    simulation.restart()
+
+    simulation
+      .alpha(.2)
+      .force("forceX", d3.forceX().strength(.4).x(function(d){ return x(d.cluster) }))
+      .force("forceY", d3.forceY().strength(.3).y(height * .5))
+      .force("charge", d3.forceManyBody().strength(-8))
+      .force("collide", d3.forceCollide().strength(.5).radius(function(d){
+      d.size = +d.GRAD_DEBT_MDN_SUPP / 6000;
+      d.size < 2 ? d.radius = 2 : d.radius = d.size;
+      return d.radius;
+    }).iterations(1))
+
+    setTimeout(function(){ simulation.stop(); }, 2000)
+}
+
+function bubble10() { 
+
+  var color = d3.scaleOrdinal(["#34B4B2", "#F19145","#F1D678"]);
+
+  d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return color(+d["CONTROL"]); })
+
+  }
+
+// function bubble4() { 
+//   nodePadding = .2
+//   simulation.restart();
+
+//   function types(d){
+//       d.size = +d["MD_EARN_WNE_P10"] / sizeDivisor;
+//       d.size < 2 ? d.radius = 3 : d.radius = d.size;
+//       return d;
+//     }
+
+//     var x = d3.scaleOrdinal()
+//         .domain([1, 2, 3, 4, 5])
+//         .range([1*width/7, 2*width/7,3*width/7,4*width/7,5*width/7])
+
+  
+//   simulation.restart()
+//   d3.select("#bubblechart").selectAll("circle").style("opacity", .9)
+//   d3.select("#bubblechart").selectAll("circle").attr("r", function (d) {return +d["MD_EARN_WNE_P10"]/8000})
+
+//   simulation
+//       .alpha(.5)
+//       .force("forceX", d3.forceX().strength(.25).x(function(d){ return x(d.cluster) }))
+//       .force("forceY", d3.forceY().strength(.15).y(height * .5))
+//       .force("charge", d3.forceManyBody().strength(-6))
+//       .force("collide", d3.forceCollide().strength(1).radius(function(d){ return +d["MD_EARN_WNE_P10"]/8000; }).iterations(1))
+
+//   setTimeout(function(){ simulation.stop(); }, 5000)
+
+//   }
+
+  // function bubble6() { 
+
+  //   var x = d3.scaleOrdinal()
+  //       .domain([1, 2, 3, 4, 5])
+  //       .range([1*width/7, 2*width/7,3*width/7,4*width/7,5*width/7])
+
+  
+  // simulation.restart()
+  // d3.select("#bubblechart").selectAll("circle").style("opacity", .9)
+  // d3.select("#bubblechart").selectAll("circle").attr("r", function (d) {d.size = +d["CDR3"] *25;
+  //     d.size < 1 ? d.radius = 1 : d.radius = d.size;
+  //     return d.radius;})
+
+  // simulation
+  //     .alpha(.005)
+  //     .force("forceX", d3.forceX().strength(.35).x(function(d){ return x(d.cluster) }))
+  //     .force("forceY", d3.forceY().strength(.25).y(height * .5))
+  //     .force("charge", d3.forceManyBody().strength(3))
+  //     .force("collide", d3.forceCollide().strength(1).radius(function(d){ d.size = +d["CDR3"] * 25;
+  //     d.size < 1 ? d.radius = 1 : d.radius = d.size;
+  //     return d.radius; }).iterations(1))
+
+  // setTimeout(function(){ simulation.stop(); }, 5000)
+
+  // }
+
+  function bubble11() {
+
+    var colorScale = d3.scaleSequential(d3.interpolateYlOrRd).domain([0,.3])
+
+    d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return colorScale(+d['CDR3']); })
+
+  }
+
+  function bubble12() { 
+
+  var colorScale = d3.scaleSequential(d3.interpolateGreens).domain([0,40000])
+
+  d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return colorScale(+d['Average amount of federal  state  local or institutional grant aid awarded (SFA1516)']); })
+
+}
+
+function bubble13() { 
+
+var colorScale = d3.scaleSequential(d3.interpolateGreens).domain([0,100000])
+
+d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return colorScale(+d['MD_EARN_WNE_P10']); })
+
+}
+
+
 
     // scrollama event handlers
 
@@ -1740,7 +1992,16 @@ function bubble4() {
       if(response.element.id == 'step-bubble1') {bubble1()} 
       if(response.element.id == 'step-bubble2') {bubble2()} 
       if(response.element.id == 'step-bubble3') {bubble3()} 
-      if(response.element.id == 'step-bubble4') {bubble4()} 
+      if(response.element.id == 'step-bubble4') {bubble4()}
+      if(response.element.id == 'step-bubble5') {bubble5()} 
+      if(response.element.id == 'step-bubble6') {bubble6()}
+      if(response.element.id == 'step-bubble7') {bubble7()} 
+      if(response.element.id == 'step-bubble8') {bubble8()}
+      if(response.element.id == 'step-bubble9') {bubble9()} 
+      if(response.element.id == 'step-bubble10') {bubble10()}
+      if(response.element.id == 'step-bubble11') {bubble11()} 
+      if(response.element.id == 'step-bubble12') {bubble12()} 
+      if(response.element.id == 'step-bubble13') {bubble13()} 
     }
 
     function handleResize() {
@@ -1809,6 +2070,329 @@ function bubble4() {
 			window.addEventListener('resize', handleResize);
     }
 
+
+
+
+
+
+    // append the svg object to the body of the page
+var legendheight = 60
+var legendwidth = 150
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("padding", "0")
+    .attr("width", legendwidth)
+    .attr("height", legendheight)
+
+// The scale you use for bubble size
+var size = d3.scaleSqrt()
+  .domain([1, 175000])  // What's in the data, let's say it is percentage
+  .range([1, 25])  // Size in pixel
+
+// Add legend: circles
+var valuesToShow = [5000, 100000]
+var xCircle = 40
+var xLabel = 80
+var yCircle = 40
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("circle")
+    .attr("cx", xCircle)
+    .attr("cy", function(d){ return yCircle - size(d) } )
+    .attr("r", function(d){ return size(d) })
+    .style("fill", "none")
+    .attr("stroke", "black")
+
+// Add legend: segments
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("line")
+    .attr('x1', function(d){ return xCircle + size(d) } )
+    .attr('x2', xLabel)
+    .attr('y1', function(d){ return yCircle - size(d) } )
+    .attr('y2', function(d){ return yCircle - size(d) } )
+    .attr('stroke', 'black')
+    .style('stroke-dasharray', ('2,2'))
+
+// Add legend: labels
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("text")
+    .attr('x', xLabel)
+    .attr('y', function(d){ return yCircle - size(d) } )
+    .text( function(d){ return d } )
+    .style("font-size", 10)
+    .attr('alignment-baseline', 'middle')
+
+
+
+
+
+
+    // append the svg object to the body of the page
+    var legendheight = 60
+var legendwidth = 150
+var svg = d3.select("#my_dataviz2")
+  .append("svg")
+    .attr("padding", "0")
+    .attr("width", legendwidth)
+    .attr("height", legendheight)
+
+// The scale you use for bubble size
+var size = d3.scaleSqrt()
+  .domain([1, 120000])  // What's in the data, let's say it is percentage
+  .range([1, 10])  // Size in pixel
+
+// Add legend: circles
+var valuesToShow = [1000, 80000]
+var xCircle = 40
+var xLabel = 80
+var yCircle = 40
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("circle")
+    .attr("cx", xCircle)
+    .attr("cy", function(d){ return yCircle - size(d) } )
+    .attr("r", function(d){ return size(d) })
+    .style("fill", "none")
+    .attr("stroke", "black")
+
+// Add legend: segments
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("line")
+    .attr('x1', function(d){ return xCircle + size(d) } )
+    .attr('x2', xLabel)
+    .attr('y1', function(d){ return yCircle - size(d) } )
+    .attr('y2', function(d){ return yCircle - size(d) } )
+    .attr('stroke', 'black')
+    .style('stroke-dasharray', ('2,2'))
+
+// Add legend: labels
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("text")
+    .attr('x', xLabel)
+    .attr('y', function(d){ return yCircle - size(d) } )
+    .text( function(d){ return d } )
+    .style("font-size", 10)
+    .attr('alignment-baseline', 'middle')
+
+
+
+
+
+
+    var w = 300, h = 50;
+
+    var key1 = d3.select("#legend1")
+      .append("svg")
+      .attr("width", w+50)
+      .attr("height", h);
+
+    var legend1 = key1.append("defs")
+      .append("svg:linearGradient")
+      .attr("id", "gradient1")
+      .attr("x1", "0%")
+      .attr("y1", "100%")
+      .attr("x2", "100%")
+      .attr("y2", "100%")
+      .attr("spreadMethod", "pad");
+
+    legend1.append("stop")
+      .attr("offset", "0%")
+      .attr("stop-color", "#F7FCF5")
+      .attr("stop-opacity", 1);
+
+    legend1.append("stop")
+      .attr("offset", "33%")
+      .attr("stop-color", "#93D290")
+      .attr("stop-opacity", 1);
+
+    legend1.append("stop")
+      .attr("offset", "66%")
+      .attr("stop-color", "#147E3A")
+      .attr("stop-opacity", 1);
+
+    legend1.append("stop")
+      .attr("offset", "100%")
+      .attr("stop-color", "#004400")
+      .attr("stop-opacity", 1);
+
+    key1.append("rect")
+      .attr("width", w)
+      .attr("height", h - 30)
+      .style("fill", "url(#gradient1)")
+      .attr("transform", "translate(0,10)");
+
+    var y1 = d3.scaleLinear()
+      .range([300, 0])
+      .domain([120, 0]);
+
+    var yAxis1 = d3.axisBottom()
+      .scale(y1)
+      .ticks(5);
+
+    key1.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate(0,30)")
+      .call(yAxis1)
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("axis title");
+
+
+
+
+
+      var key2 = d3.select("#legend2")
+      .append("svg")
+      .attr("width", w+50)
+      .attr("height", h);
+
+    var legend2 = key2.append("defs")
+      .append("svg:linearGradient")
+      .attr("id", "gradient2")
+      .attr("x1", "0%")
+      .attr("y1", "100%")
+      .attr("x2", "100%")
+      .attr("y2", "100%")
+      .attr("spreadMethod", "pad");
+
+    legend2.append("stop")
+      .attr("offset", "0%")
+      .attr("stop-color", "#FFF8BC")
+      .attr("stop-opacity", 1);
+
+    legend2.append("stop")
+      .attr("offset", "33%")
+      .attr("stop-color", "#FEA547")
+      .attr("stop-opacity", 1);
+
+    legend2.append("stop")
+      .attr("offset", "66%")
+      .attr("stop-color", "#D61320")
+      .attr("stop-opacity", 1);
+
+    legend2.append("stop")
+      .attr("offset", "100%")
+      .attr("stop-color", "#800026")
+      .attr("stop-opacity", 1);
+
+    key2.append("rect")
+      .attr("width", w)
+      .attr("height", h - 30)
+      .style("fill", "url(#gradient2)")
+      .attr("transform", "translate(0,10)");
+
+    var y2 = d3.scaleLinear()
+      .range([300, 0])
+      .domain([35, 0]);
+
+    var yAxis2 = d3.axisBottom()
+      .scale(y2)
+      .ticks(5);
+
+    key2.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate(0,30)")
+      .call(yAxis2)
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("axis title");
+
+
+
+
+
+
+      var key = d3.select("#legend3")
+      .append("svg")
+      .attr("width", w+50)
+      .attr("height", h);
+
+    var legend = key.append("defs")
+      .append("svg:linearGradient")
+      .attr("id", "gradient3")
+      .attr("x1", "0%")
+      .attr("y1", "100%")
+      .attr("x2", "100%")
+      .attr("y2", "100%")
+      .attr("spreadMethod", "pad");
+
+    legend.append("stop")
+      .attr("offset", "0%")
+      .attr("stop-color", "#F7FCF5")
+      .attr("stop-opacity", 1);
+
+    legend.append("stop")
+      .attr("offset", "33%")
+      .attr("stop-color", "#93D290")
+      .attr("stop-opacity", 1);
+
+    legend.append("stop")
+      .attr("offset", "66%")
+      .attr("stop-color", "#147E3A")
+      .attr("stop-opacity", 1);
+
+    legend.append("stop")
+      .attr("offset", "100%")
+      .attr("stop-color", "#004400")
+      .attr("stop-opacity", 1);
+
+    key.append("rect")
+      .attr("width", w)
+      .attr("height", h - 30)
+      .style("fill", "url(#gradient3)")
+      .attr("transform", "translate(0,10)");
+
+    var y = d3.scaleLinear()
+      .range([300, 0])
+      .domain([40, 0]);
+
+    var yAxis = d3.axisBottom()
+      .scale(y)
+      .ticks(5);
+
+    key.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate(0,30)")
+      .call(yAxis)
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("axis title");
+
+
+
+
+
+
+
+
+
+
+
     var bubblewidth = width, bubbleheight = height;
     var svg = d3.select("#bubblechart").append("svg").attr("width", bubblewidth).attr("height", bubbleheight);
  
@@ -1828,10 +2412,12 @@ sizeDivisor = 3000, nodePadding = 1;
 
   d3.csv("CollegeClusters.csv", types, function (error, data) {
     if (error) throw error;
+
+    console.log(data)
  
     simulation
           .nodes(data)
-          .force("collide", d3.forceCollide().strength(1).radius(function(d){ return d.radius + nodePadding; }).iterations(1))
+          .force("collide", d3.forceCollide().strength(1).radius(function(d){ return 4; }).iterations(1))
           .alpha(.15)
           .on("tick", function(d){
             node
@@ -1844,7 +2430,7 @@ sizeDivisor = 3000, nodePadding = 1;
         .selectAll("circle")
         .data(data)
         .enter().append("circle")
-          .attr("r", function(d) { return d.radius; })
+          .attr("r", 4)
           .attr("fill", "#65E5DC")
           .attr("cx", function(d){ return d.x; })
           .attr("cy", function(d){ return d.y; })
@@ -1852,7 +2438,7 @@ sizeDivisor = 3000, nodePadding = 1;
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html(d["Institution Name"] + "<br/>"  + "Net Cost: " + +d["net cost"] + "<br/>"  + "Median Earnings: " + +d["MD_EARN_WNE_P10"]+ "<br/>"  + "Median Debt: " + +d["GRAD_DEBT_MDN_SUPP"])	
+            div	.html(d["Institution Name"] + "<br/>"  + "Aid" + +d['Average amount of federal  state  local or institutional grant aid awarded (SFA1516)'] + "<br/>" + "Net Cost: " + +d["net cost"] + "<br/>"  + "Median Earnings: " + +d["MD_EARN_WNE_P10"]+ "<br/>"  + "Median Debt: " + +d["GRAD_DEBT_MDN_SUPP"]+ "<br/>"  + "Control: " + +d["CONTROL"]+ "<br/>"  + "Default Rare: " + +d["CDR3"])	
                 .style("left", (d3.event.pageX + 10) + "px")		
                 .style("top", (d3.event.pageY - 80) + "px");	
             })					
