@@ -246,6 +246,7 @@ path {
 }
 
   .step {
+    
 
   }
 
@@ -283,15 +284,7 @@ path {
 
 }
 
-.step.is-active p {
-
-  background-color: goldenrod;
-  color: #3b3b3b;
-  opacity: 1;
-
-}
-
-.step p {
+.step.boxed p {
 
   text-align: center;
   padding: 1rem;
@@ -303,6 +296,16 @@ path {
   padding: 2rem 1rem;
   text-shadow: 0 0 black;
   box-shadow: 0 0 5px black;
+
+}
+
+.step p {
+
+  margin-bottom: 150px;
+  font-family: "TiemposTextWeb-Regular","Georgia";
+  font-size: 16px;
+  line-height: 23px;
+  color: #767678;
 }
 
 #scrolly {
@@ -419,10 +422,11 @@ p{
 
 p, ul{
 
-	font-family:"Proxima Nova Light", 'Helvetica Neue', Arial, Helvetica, sans-serif;
-	font-size-adjust:0.488;
-	font-weight:200;
-	font-style:normal;
+	margin-bottom: 150px;
+  font-family: "TiemposTextWeb-Regular","Georgia";
+  font-size: 16px;
+  line-height: 23px;
+  color: #767678;
 
 }
 
@@ -727,7 +731,7 @@ img {
 
           <div class="firstscrolly">
 
-            <div class="step" data-step="5" id="step-flc1"
+            <div class="step boxed" data-step="5" id="step-flc1"
 
             data-scrollama-index="4" style="height: 125px;">
 
@@ -747,7 +751,7 @@ img {
 
             </div>
 
-            <div class="step" data-step="6" id="step-flc2"
+            <div class="step boxed" data-step="6" id="step-flc2"
 
             data-scrollama-index="5" style="height: 125px;">
 
@@ -765,7 +769,7 @@ img {
             data-scrollama-index="5" style="height: 325px;">
             </div>
 
-            <div class="step" data-step="7" id="step-flc3"
+            <div class="step boxed" data-step="7" id="step-flc3"
             data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
                 <p>
@@ -778,7 +782,7 @@ img {
             data-scrollama-index="6" style="height: 625px;">
             </div>
 
-            <div class="step" data-step="7" id="step-flc4"
+            <div class="step boxed" data-step="7" id="step-flc4"
             data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
                 <p>
@@ -791,7 +795,7 @@ img {
             data-scrollama-index="6" style="height: 625px;">
             </div>
 
-            <div class="step" data-step="7" id="step-flc5"
+            <div class="step boxed" data-step="7" id="step-flc5"
             data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
                 <p>
@@ -804,7 +808,7 @@ img {
             data-scrollama-index="6" style="height: 625px;">
             </div>
 
-            <div class="step" data-step="7" id="step-flc5"
+            <div class="step boxed" data-step="7" id="step-flc5"
             data-scrollama-index="6" style="height: 125px;">
               <div class= "step-prose">
                 <p>
@@ -863,7 +867,7 @@ img {
       <section class="img" id="scrollyleft">
 
         <article>
-          <div class="step is-active" id = "step-slc1" data-step="1" data-scrollama-index="0" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc1" data-step="1" data-scrollama-index="0" style="height: 546px; width: 300px;">
             <p>Here is the rate of default on mortgages</p>
           </div>
           <div class="step" id = "step-slc2" data-step="2" data-scrollama-index="1" style="height: 546px; width: 300px;">
@@ -878,16 +882,16 @@ img {
           <div class="step" id = "step-slc4" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
             <p>Now let's look at the rate of default on student loan debt</p>
           </div>
-          <div class="step" id = "step-slc5" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc5" data-step="5" data-scrollama-index="4" style="height: 546px; width: 300px;">
               <p>Not only is this rate currenly past the rate of default during the peak of the housing crisis...</p>
           </div>
-          <div class="step" id = "step-slc6" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc6" data-step="6" data-scrollama-index="5" style="height: 546px; width: 300px;">
               <p>...the default rate has never gone down, even post-recession</p>
           </div>
-          <div class="step" id = "step-slc7" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc7" data-step="7" data-scrollama-index="6" style="height: 546px; width: 300px;">
               <p>How high can it go?</p>
           </div>
-          <div class="step" id = "step-slc8" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc8" data-step="8" data-scrollama-index="7" style="height: 546px; width: 300px;">
               <p>What will this graph look like if there's another recession?</p>
           </div>
 
@@ -1152,68 +1156,97 @@ img {
           <section class="img" id="bubblescrolly">
               <article>
 
-                <div class="step is-active" id = "step-bubble1" data-step="11" data-scrollama-index="0" style="height: 546px; width: 300px;">
-                  <p>monochrome bubbles
-
+                <div class="step" id = "step-bubble1" data-step="11" data-scrollama-index="0" style="height: 546px; width: 300px;">
+                  <p>Now that we know a bit about these clusters, let’s explore them more in depth in a less static way.
+                      I’ve created a bubble here for every school in the college scorecard dataset. You can hover your 
+                      mouse over them to see their cluster attributes. Let’s see what they look like when they’re organized by their clusters.
                   </p>
                 </div>
 
                 <div class="step" id = "step-bubble2" data-step="12" data-scrollama-index="1" style="height: 546px; width: 300px;">
-                  <p>Now let's separate them into their individual clusters</p>
+                  <p>As we already knew, the clusters are about evenly split except for the 5th one. Feel free to hunt 
+                    around for a school that is meaningful to you, but first let me highlight a few that are of interest.</p>
                 </div>
 
                 <div class="step" id = "step-bubble3" data-step="13" data-scrollama-index="2" style="height: 546px; width: 300px;">
-                  <p>Here's UW </p>
+                  <p>This red dot is the University of Wisconsin. It’s where I went to undergrad. They’re a very large 
+                    public university with a low cost and high relative earnings. This leads to a very low default rate 
+                    of 1.6%. All of these attributes are characteristic of this cluster.
+                    </p>
                 </div>
 
                 <div class="step" id = "step-bubble4" data-step="14" data-scrollama-index="3" style="height: 546px; width: 300px;">
-                  <p>Here's NW</p>
+                  <p>This purple dot is Northwestern University, where I’m currently attending graduate school. 
+                    Northwestern is included in the cluster that I call “elite colleges”. They typically have a 
+                    higher cost and higher debt than other schools, but they make up for it by giving out much more 
+                    grant aid (median of $38,500 vs UW’s median grant aid of $6,500) and graduate students with higher earnings. </p>
                 </div>
 
                 <div class="step" id = "step-bubble5" data-step="15" data-scrollama-index="4" style="height: 546px; width: 300px;">
-                    <p>Here are the Ivys</p>
+                    <p>The Ivy League schools are probably the most classic examples of this cluster</p>
                   </div>
                 
                 <div class="step" id = "step-bubble6" data-step="16" data-scrollama-index="5" style="height: 546px; width: 300px;">
-                    <p>Here's every school in IL</p>
+                    <p>Here is every college in Illinois. As you can see, this is a diverse group. Here 
+                      you’ll find everything from large public schools like the University of Illinois 
+                      to the much smaller operations like McHenry County College.
+                      </p>
                   </div>
 
                 <div class="step" id = "step-bubble7" data-step="17" data-scrollama-index="6" style="height: 546px; width: 300px;">
-                    <p>Back to clusters</p>
+                    <p>You can get a sense for the attributes of each cluster by hovering your mouse over the 
+                      schools in each one, but perhaps a better way to actually use some size and color
+                      </p>
                   </div>
 
                 <div class="step" id = "step-bubble8" data-step="18" data-scrollama-index="7" style="height: 546px; width: 300px;">
-                    <p>Student size</p>
+                    <p>This is what it looks like when the size of the bubbles correspond to the size of the 
+                      undergraduate populations at the schools. It’s no surprise that the 5th cluster has most 
+                      of the massive schools. But let’s instead size these bubbles using a measure that has 
+                      to do with the debt crisis.</p>
                   </div>
 
                 <div class="step" id = "step-bubble9" data-step="19" data-scrollama-index="8" style="height: 546px; width: 300px;">
-                    <p>debt size</p>
+                    <p>Now the bubbles are sized by the median debt a student has coming out of college. It’s 
+                      pretty easy to see that the schools with the most debt fall into clusters 2 and 3. Let’s 
+                      bring in another variable we haven’t seen before to help explain this phenomenon.</p>
                   </div>
                 
                 <div class="step" id = "step-bubble10" data-step="20" data-scrollama-index="9" style="height: 546px; width: 300px;">
-                    <p>school type</p>
+                    <p>Here the clusters are colored by type of school. Although cluster 2 is a mix, clusters 
+                      1 and 5 are dominated by public schools, while 3 are overwhelmingly private non-profits 
+                      and 4 are majority private for-profits. But as we saw in the heat map above, a large 
+                      amount of debt does not alway correlate to a high chance of defaulting. Let’s color the 
+                      bubbles based on the average default rate for students.
+                      </p>
                   </div>
 
                 <div class="step" id = "step-bubble11" data-step="21" data-scrollama-index="10" style="height: 546px; width: 300px;">
-                    <p>default rate</p>
+                    <p>This tells the same story. Although the elite universities in cluster 3 have some of the 
+                      highest debt out of college, their default rates are some of the lowest. While students 
+                      attending the trade schools and for-profit colleges in clusters 1 and 4 have extremely 
+                      high rates of default. We already know two of the reasons this may be based off our analysis
+                      </p>
                   </div>
 
                 <div class="step" id = "step-bubble12" data-step="22" data-scrollama-index="11" style="height: 546px; width: 300px;">
-                    <p>Color on aid</p>
+                    <p>Students at elite universities get much more aid than students at other schools</p>
                   </div>
 
                 <div class="step" id = "step-bubble13" data-step="23" data-scrollama-index="12" style="height: 546px; width: 300px;">
-                    <p>Color on earnings</p>
+                    <p>And cluster 1 and 3 schools have by far the lowest median earnings</p>
                   </div>
 
               </article>
         
               <figure>
-                <div id="legend1" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; "> </div>
-                <div id="legend2" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; "> </div>
-                <div id="legend3" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; "> </div>
-                <svg id="my_dataviz2" position=sticky top=10px id="my_dataviz2" style="top:40; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
-                <svg id="my_dataviz" position=sticky top=10px id="my_dataviz" style="top:40; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
+                <svg id="SchoolTypeLegend" style="position: sticky; top: 0; height: 100px; width: 100%;  opacity: 0; "></svg>
+                <svg id="ClusterLegend" style="position: sticky; top: 0; height: 100px; width: 100%;  opacity: 0; "></svg>
+                <div id="legend1" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0; "> </div>
+                <div id="legend2" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;"> </div>
+                <div id="legend3" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;"> </div>
+                <svg id="my_dataviz2" position=sticky top=10px id="my_dataviz2" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
+                <svg id="my_dataviz" position=sticky top=10px id="my_dataviz" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
                 
                 <svg id="bubblechart" height="600" position=sticky style="width: 100%; top: 40px"></svg>
               </figure>
@@ -1715,6 +1748,11 @@ d3.csv("delinquency.csv", function (error, data) {
 
     function bubble2() {
 
+      simulation.restart();
+
+      document.getElementById("ClusterLegend").style.opacity="1"
+      document.getElementById("SchoolTypeLegend").style.opacity="0"
+
       var color = d3.scaleOrdinal(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]);
 
       var x = d3.scaleOrdinal()
@@ -1733,6 +1771,8 @@ d3.csv("delinquency.csv", function (error, data) {
   }
 
   function bubble3() {
+
+  document.getElementById("ClusterLegend").style.opacity="0"
 
   simulation.stop()
 
@@ -1793,6 +1833,11 @@ d3.select("#bubblechart").selectAll("circle")
 
 function bubble7(){
 
+  document.getElementById("ClusterLegend").style.opacity="1"
+  document.getElementById("SchoolTypeLegend").style.opacity="0"
+  document.getElementById("my_dataviz").style.opacity="0"
+  document.getElementById("my_dataviz2").style.opacity="0"
+
   var ResetSchools = ["University of Wisconsin-Madison", "Northwestern University", "Harvard University", "Yale University", "Cornell University", "Princeton University", "Dartmouth College", "Columbia University in the City of New York", "Brown University", "University of Pennsylvania"]
 
   d3.select("#bubblechart").selectAll("circle")
@@ -1819,7 +1864,9 @@ function bubble7(){
 
 function bubble8() {
 
+
   document.getElementById("my_dataviz").style.opacity="1"
+  document.getElementById("my_dataviz2").style.opacity="0"
 
   simulation.restart()
 
@@ -1851,6 +1898,8 @@ function bubble8() {
 function bubble9(){
 
   
+  document.getElementById("ClusterLegend").style.opacity="1"
+  document.getElementById("SchoolTypeLegend").style.opacity="0"
   document.getElementById("my_dataviz").style.opacity="0"
   document.getElementById("my_dataviz2").style.opacity="1"
 
@@ -1883,69 +1932,25 @@ function bubble9(){
 
 function bubble10() { 
 
+  document.getElementById("ClusterLegend").style.opacity="0"
+  document.getElementById("SchoolTypeLegend").style.opacity="1"
+  document.getElementById("legend1").style.opacity="0"
+  document.getElementById("legend2").style.opacity="0"
+  document.getElementById("legend3").style.opacity="0"
+
   var color = d3.scaleOrdinal(["#34B4B2", "#F19145","#F1D678"]);
 
   d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return color(+d["CONTROL"]); })
 
   }
 
-// function bubble4() { 
-//   nodePadding = .2
-//   simulation.restart();
-
-//   function types(d){
-//       d.size = +d["MD_EARN_WNE_P10"] / sizeDivisor;
-//       d.size < 2 ? d.radius = 3 : d.radius = d.size;
-//       return d;
-//     }
-
-//     var x = d3.scaleOrdinal()
-//         .domain([1, 2, 3, 4, 5])
-//         .range([1*width/7, 2*width/7,3*width/7,4*width/7,5*width/7])
-
-  
-//   simulation.restart()
-//   d3.select("#bubblechart").selectAll("circle").style("opacity", .9)
-//   d3.select("#bubblechart").selectAll("circle").attr("r", function (d) {return +d["MD_EARN_WNE_P10"]/8000})
-
-//   simulation
-//       .alpha(.5)
-//       .force("forceX", d3.forceX().strength(.25).x(function(d){ return x(d.cluster) }))
-//       .force("forceY", d3.forceY().strength(.15).y(height * .5))
-//       .force("charge", d3.forceManyBody().strength(-6))
-//       .force("collide", d3.forceCollide().strength(1).radius(function(d){ return +d["MD_EARN_WNE_P10"]/8000; }).iterations(1))
-
-//   setTimeout(function(){ simulation.stop(); }, 5000)
-
-//   }
-
-  // function bubble6() { 
-
-  //   var x = d3.scaleOrdinal()
-  //       .domain([1, 2, 3, 4, 5])
-  //       .range([1*width/7, 2*width/7,3*width/7,4*width/7,5*width/7])
-
-  
-  // simulation.restart()
-  // d3.select("#bubblechart").selectAll("circle").style("opacity", .9)
-  // d3.select("#bubblechart").selectAll("circle").attr("r", function (d) {d.size = +d["CDR3"] *25;
-  //     d.size < 1 ? d.radius = 1 : d.radius = d.size;
-  //     return d.radius;})
-
-  // simulation
-  //     .alpha(.005)
-  //     .force("forceX", d3.forceX().strength(.35).x(function(d){ return x(d.cluster) }))
-  //     .force("forceY", d3.forceY().strength(.25).y(height * .5))
-  //     .force("charge", d3.forceManyBody().strength(3))
-  //     .force("collide", d3.forceCollide().strength(1).radius(function(d){ d.size = +d["CDR3"] * 25;
-  //     d.size < 1 ? d.radius = 1 : d.radius = d.size;
-  //     return d.radius; }).iterations(1))
-
-  // setTimeout(function(){ simulation.stop(); }, 5000)
-
-  // }
-
   function bubble11() {
+
+    document.getElementById("ClusterLegend").style.opacity="0"
+    document.getElementById("SchoolTypeLegend").style.opacity="0"
+    document.getElementById("legend1").style.opacity="1"
+    document.getElementById("legend2").style.opacity="0"
+    document.getElementById("legend3").style.opacity="0"
 
     var colorScale = d3.scaleSequential(d3.interpolateYlOrRd).domain([0,.3])
 
@@ -1955,6 +1960,10 @@ function bubble10() {
 
   function bubble12() { 
 
+    document.getElementById("legend1").style.opacity="0"
+    document.getElementById("legend2").style.opacity="1"
+    document.getElementById("legend3").style.opacity="0"
+
   var colorScale = d3.scaleSequential(d3.interpolateGreens).domain([0,40000])
 
   d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return colorScale(+d['Average amount of federal  state  local or institutional grant aid awarded (SFA1516)']); })
@@ -1962,6 +1971,10 @@ function bubble10() {
 }
 
 function bubble13() { 
+
+  document.getElementById("legend1").style.opacity="0"
+  document.getElementById("legend2").style.opacity="0"
+  document.getElementById("legend3").style.opacity="1"
 
 var colorScale = d3.scaleSequential(d3.interpolateGreens).domain([0,100000])
 
@@ -2135,8 +2148,8 @@ svg
 
 
 
-    // append the svg object to the body of the page
-    var legendheight = 60
+// append the svg object to the body of the page
+var legendheight = 60
 var legendwidth = 150
 var svg = d3.select("#my_dataviz2")
   .append("svg")
@@ -2197,10 +2210,13 @@ svg
 
     var w = 300, h = 50;
 
+
     var key1 = d3.select("#legend1")
-      .append("svg")
-      .attr("width", w+50)
-      .attr("height", h);
+    .append("svg")
+    .attr("width", w+50)
+    .attr("height", h)
+    .attr("padding", "10")
+    ;
 
     var legend1 = key1.append("defs")
       .append("svg:linearGradient")
@@ -2213,33 +2229,33 @@ svg
 
     legend1.append("stop")
       .attr("offset", "0%")
-      .attr("stop-color", "#F7FCF5")
+      .attr("stop-color", "#FFF8BC")
       .attr("stop-opacity", 1);
 
     legend1.append("stop")
       .attr("offset", "33%")
-      .attr("stop-color", "#93D290")
+      .attr("stop-color", "#FEA547")
       .attr("stop-opacity", 1);
 
     legend1.append("stop")
       .attr("offset", "66%")
-      .attr("stop-color", "#147E3A")
+      .attr("stop-color", "#D61320")
       .attr("stop-opacity", 1);
 
     legend1.append("stop")
       .attr("offset", "100%")
-      .attr("stop-color", "#004400")
+      .attr("stop-color", "#800026")
       .attr("stop-opacity", 1);
 
     key1.append("rect")
       .attr("width", w)
       .attr("height", h - 30)
       .style("fill", "url(#gradient1)")
-      .attr("transform", "translate(0,10)");
+      .attr("transform", "translate(5,10)");
 
     var y1 = d3.scaleLinear()
       .range([300, 0])
-      .domain([120, 0]);
+      .domain([35, 0]);
 
     var yAxis1 = d3.axisBottom()
       .scale(y1)
@@ -2247,7 +2263,7 @@ svg
 
     key1.append("g")
       .attr("class", "y axis")
-      .attr("transform", "translate(0,30)")
+      .attr("transform", "translate(5,30)")
       .call(yAxis1)
       .append("text")
       .attr("transform", "rotate(-90)")
@@ -2255,6 +2271,7 @@ svg
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("axis title");
+
 
 
 
@@ -2276,33 +2293,33 @@ svg
 
     legend2.append("stop")
       .attr("offset", "0%")
-      .attr("stop-color", "#FFF8BC")
+      .attr("stop-color", "#F7FCF5")
       .attr("stop-opacity", 1);
 
     legend2.append("stop")
       .attr("offset", "33%")
-      .attr("stop-color", "#FEA547")
+      .attr("stop-color", "#93D290")
       .attr("stop-opacity", 1);
 
     legend2.append("stop")
       .attr("offset", "66%")
-      .attr("stop-color", "#D61320")
+      .attr("stop-color", "#147E3A")
       .attr("stop-opacity", 1);
 
     legend2.append("stop")
       .attr("offset", "100%")
-      .attr("stop-color", "#800026")
+      .attr("stop-color", "#004400")
       .attr("stop-opacity", 1);
 
     key2.append("rect")
       .attr("width", w)
       .attr("height", h - 30)
       .style("fill", "url(#gradient2)")
-      .attr("transform", "translate(0,10)");
+      .attr("transform", "translate(5,10)");
 
     var y2 = d3.scaleLinear()
       .range([300, 0])
-      .domain([35, 0]);
+      .domain([40, 0]);
 
     var yAxis2 = d3.axisBottom()
       .scale(y2)
@@ -2310,7 +2327,7 @@ svg
 
     key2.append("g")
       .attr("class", "y axis")
-      .attr("transform", "translate(0,30)")
+      .attr("transform", "translate(5,30)")
       .call(yAxis2)
       .append("text")
       .attr("transform", "rotate(-90)")
@@ -2322,14 +2339,13 @@ svg
 
 
 
-
-
-      var key = d3.select("#legend3")
+      
+    var key3 = d3.select("#legend3")
       .append("svg")
       .attr("width", w+50)
       .attr("height", h);
 
-    var legend = key.append("defs")
+    var legend3 = key3.append("defs")
       .append("svg:linearGradient")
       .attr("id", "gradient3")
       .attr("x1", "0%")
@@ -2338,50 +2354,81 @@ svg
       .attr("y2", "100%")
       .attr("spreadMethod", "pad");
 
-    legend.append("stop")
+    legend3.append("stop")
       .attr("offset", "0%")
       .attr("stop-color", "#F7FCF5")
       .attr("stop-opacity", 1);
 
-    legend.append("stop")
+    legend3.append("stop")
       .attr("offset", "33%")
       .attr("stop-color", "#93D290")
       .attr("stop-opacity", 1);
 
-    legend.append("stop")
+    legend3.append("stop")
       .attr("offset", "66%")
       .attr("stop-color", "#147E3A")
       .attr("stop-opacity", 1);
 
-    legend.append("stop")
+    legend3.append("stop")
       .attr("offset", "100%")
       .attr("stop-color", "#004400")
       .attr("stop-opacity", 1);
 
-    key.append("rect")
+    key3.append("rect")
       .attr("width", w)
       .attr("height", h - 30)
       .style("fill", "url(#gradient3)")
-      .attr("transform", "translate(0,10)");
+      .attr("transform", "translate(5,10)");
 
-    var y = d3.scaleLinear()
+    var y3 = d3.scaleLinear()
       .range([300, 0])
-      .domain([40, 0]);
+      .domain([120, 0]);
 
-    var yAxis = d3.axisBottom()
-      .scale(y)
+    var yAxis3 = d3.axisBottom()
+      .scale(y3)
       .ticks(5);
 
-    key.append("g")
+    key3.append("g")
       .attr("class", "y axis")
-      .attr("transform", "translate(0,30)")
-      .call(yAxis)
+      .attr("transform", "translate(5,30)")
+      .call(yAxis3)
       .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("axis title");
+
+
+
+    // select the svg area
+    var SchoolTypesvg = d3.select("#SchoolTypeLegend")
+
+    // Handmade legend
+    SchoolTypesvg.append("circle").attr("cx",20).attr("cy",13).attr("r", 6).style("fill", "#F19145")
+    SchoolTypesvg.append("circle").attr("cx",20).attr("cy",28).attr("r", 6).style("fill", "#34B4B2")
+    SchoolTypesvg.append("circle").attr("cx",20).attr("cy",43).attr("r", 6).style("fill", "#F1D678")
+    SchoolTypesvg.append("text").attr("x", 30).attr("y", 13).text("Public").style("font-size", "15px").attr("alignment-baseline","middle")
+    SchoolTypesvg.append("text").attr("x", 30).attr("y", 28).text("Private Non Profit").style("font-size", "15px").attr("alignment-baseline","middle")
+    SchoolTypesvg.append("text").attr("x", 30).attr("y", 43).text("Private For Profit").style("font-size", "15px").attr("alignment-baseline","middle")
+
+    // select the svg area
+    var Clustersvg = d3.select("#ClusterLegend")
+
+    // Handmade legend
+    Clustersvg.append("circle").attr("cx",20).attr("cy",13).attr("r", 6).style("fill", "#8da0cb")
+    Clustersvg.append("circle").attr("cx",20).attr("cy",28).attr("r", 6).style("fill", "#a6d854")
+    Clustersvg.append("circle").attr("cx",20).attr("cy",43).attr("r", 6).style("fill", "#fc8d62")
+    Clustersvg.append("circle").attr("cx",20).attr("cy",58).attr("r", 6).style("fill", "#e78ac3")
+    Clustersvg.append("circle").attr("cx",20).attr("cy",73).attr("r", 6).style("fill", "#66c2a5")
+    Clustersvg.append("text").attr("x", 30).attr("y", 13).text("Cluster 1 - Trade Schools").style("font-size", "15px").attr("alignment-baseline","middle")
+    Clustersvg.append("text").attr("x", 30).attr("y", 28).text("Cluster 2 - Mid-level Regional Schools").style("font-size", "15px").attr("alignment-baseline","middle")
+    Clustersvg.append("text").attr("x", 30).attr("y", 43).text("Cluster 3 - Elite Universities").style("font-size", "15px").attr("alignment-baseline","middle")
+    Clustersvg.append("text").attr("x", 30).attr("y", 58).text("Cluster 4 - High Risk For Profit Schools").style("font-size", "15px").attr("alignment-baseline","middle")
+    Clustersvg.append("text").attr("x", 30).attr("y", 73).text("Cluster 5 - Large Public Colleges").style("font-size", "15px").attr("alignment-baseline","middle")
+
+
+
 
 
 
