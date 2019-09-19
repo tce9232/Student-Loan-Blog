@@ -7,7 +7,6 @@
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
   <script src="https://unpkg.com/scrollama"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
@@ -42,14 +41,6 @@ html, body{
 
 }
 
-h2{
-
-  line-height: 1.25;
-  padding-top: 45px;
-  font-weight: 300;
-
-}
-
 svg{
 
   padding: 20px;
@@ -62,49 +53,6 @@ text{
 
   font-size: 12px;
   position: center;
-
-}
-
-strong{
-
-  font-weight: 600;
-
-}
-
-#domain{
-  opacity:0;
-}
-
-#graphic {
-
-  max-width:  1440px;
-  width: 100%;
-  position:   relative; 
-  height:  100%;
-  position:  relative; 
-  margin:auto;
-
-}
-
-.container {
-
-  height: 100%;
-  max-width: 640px;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  height: 100%;
-  line-height: 1.5;
-  left: 500px;
-
-}
-
-.container div {
-
-  height: 100%;
-  display: block;
-  padding: 0 45px;
 
 }
 
@@ -189,12 +137,6 @@ path {
 
 }
 
-.debt_scroll {
-
-  position: relative;
-
-}
-
 .debt_container {
 
   position: sticky;
@@ -245,36 +187,13 @@ path {
 
 }
 
-  .step {
-    
-
-  }
+.step {
+  
+}
 
 .hidden-step {
 
   opacity: 0;
-  margin: 2rem auto;
-  background-color: #ffffff;
-  border: 1px solid #c9c9c9;
-  box-shadow: 0 1rem 2rem rgba(201, 201, 201, .3);
-  padding: 2rem 1rem;
-
-}
-
-.step-text-container {
-
-  background-color: #ffffff;
-  border: 1px solid #c9c9c9;
-  padding: 2rem 1rem;
-  box-shadow: 0 1rem 2rem rgba(201, 201, 201, .3);
-
-}
-
-.step-prose {
-
-  text-align: center;
-  font-size: 1rem;
-  margin: 0;
 
 }
 
@@ -430,40 +349,6 @@ p, ul{
 
 }
 
-img{
-
-	border: 0;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  top: 0
-
-}
-
-h1, #pixels{
-
-	font-family:"Museo 900", Verdana, serif;
-	font-size-adjust:0.40;
-	font-weight:700;
-	font-style:normal;
-
-}
-
-h2{
-
-	font-family:"Beau Sans Pro Book", Verdana, sans-serif;
-	font-size-adjust:0.531;
-	font-weight:500;
-	font-style:normal;
-
-}
-
-#header h1, #pixels{
-
-	color: #48941A;
-
-}
-
 .float-left{
 
 	float: left;	
@@ -494,23 +379,9 @@ h2{
 
 }
 
-#navmtn{
-
-	list-style: none;
-	position: fixed;
-	right: 20px;
-
-}
-
 #nav li{
 
 	margin: 0 0 15px 0;	
-
-}
-
-#header{
-
-	width: 100%;
 
 }
 
@@ -531,17 +402,6 @@ h2{
 	height: 1800px;
 	margin: 0 auto;
 	overflow: hidden;
-
-}
-
-#second .bg{
-
-	height: 2200px;
-	margin: 0 auto;
-	padding: 0;
-	position: absolute;
-	width: 900px;
-	z-index: 800;
 
 }
 
@@ -602,55 +462,18 @@ padding: 100px 0 0 0;
 
 }
 
-.graphic-surgery--inline {
-
-  display: block;
-
-}
-
-.graphic-surgery--inline .inline-stack {
-
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: 58rem;
-  margin: 0 auto;
-
-}
-
-.graphic-surgery--inline .stack-item {
-
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 1em 0 2em;
-
-}
-
-.ct-chart {
-
-  text-align: center;
-  padding: 1rem;
-  position: sticky;
-  height: 300px;
-  width: 500px;
-}
-
 img {
 
   display: block;
   object-fit: cover;
   position: sticky;
   top: 0;
+  border: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 
 }
-
 
   </style>
 
@@ -735,7 +558,7 @@ img {
 
             data-scrollama-index="4" style="height: 125px;">
 
-                <p class= "step-prose">
+                <p>
 
                   This mountain represents the currently $1.6 trillion dollars of existing student debt
 
@@ -756,7 +579,7 @@ img {
             data-scrollama-index="5" style="height: 125px;">
 
 
-                <p class= "step-prose">
+                <p>
 
                  This seems like an unimaginable amount of money 
 
@@ -771,7 +594,7 @@ img {
 
             <div class="step boxed" data-step="7" id="step-flc3"
             data-scrollama-index="6" style="height: 125px;">
-              <div class= "step-prose">
+              <div>
                 <p>
                   So how did we get here..?
                 </p>
@@ -784,7 +607,7 @@ img {
 
             <div class="step boxed" data-step="7" id="step-flc4"
             data-scrollama-index="6" style="height: 125px;">
-              <div class= "step-prose">
+              <div>
                 <p>
                   This is the average price of tuition in the United States at public and private schools since 1988
                 </p>
@@ -797,7 +620,7 @@ img {
 
             <div class="step boxed" data-step="7" id="step-flc5"
             data-scrollama-index="6" style="height: 125px;">
-              <div class= "step-prose">
+              <div>
                 <p>
                   This line represents the maximum Pell Grant awarded to students
                 </p>
@@ -810,7 +633,7 @@ img {
 
             <div class="step boxed" data-step="7" id="step-flc5"
             data-scrollama-index="6" style="height: 125px;">
-              <div class= "step-prose">
+              <div>
                 <p>
                   As you can see, the Pell Grants have failed to keep up with rising tuition, which causes 
                   people to take out more in loans to make up the difference
@@ -932,7 +755,7 @@ img {
 
 
       <section id="scrolly">
-        <div class="debt_scroll">
+        <div>
           <figure class="debt_container">
 
             <img src="baby.png" id="baby"
@@ -1012,7 +835,7 @@ img {
           <div class="scrolly">
             <div class="step" data-step="5" id="step-emoji1"
             data-scrollama-index="4" style="height: 125px;">
-              <div class= "step-prose">
+              <div>
                 <p>
                   10% of people said student debt has kept them from having a baby when they wanted
                 </p>
@@ -1021,7 +844,7 @@ img {
             <div class="hidden-step" data-step="6" data-scrollama-index="4" style="height: 325px;"></div>
 
             <div class="step" data-step="6" id="step-emoji2" data-scrollama-index="5" style="height: 125px;">
-              <div class= "step-prose">
+              <div>
                 <p>
                   20% of people haven't been able to change jobs because of their student debt burden
                 </p>
@@ -1030,7 +853,7 @@ img {
             <div class="hidden-step" data-step="7" data-scrollama-index="5" style="height: 325px;"></div>
 
             <div class="step" data-step="7" id="step-emoji3" data-scrollama-index="6" style="height: 125px;">
-              <div class= "step-prose">
+              <div>
                 <p>
                   30% have delayed saving for retirement 
                 </p>
@@ -1039,7 +862,7 @@ img {
 
             <div class="hidden-step" data-step="8" data-scrollama-index="6" style="height: 325px;"></div>
             <div class="step" data-step="8" id="step-emoji4" data-scrollama-index="6" style="height: 125px;">
-              <div class= "step-prose">
+              <div>
                 <p>
                   Nearly half of survey respondants said their student debt prevented them from buying a home
                 </p>
@@ -1767,6 +1590,9 @@ d3.csv("delinquency.csv", function (error, data) {
       .force("forceY", d3.forceY().strength(.2).y(height * .5))
       .force("charge", d3.forceManyBody().strength(-6))
       .force("collide", d3.forceCollide().strength(1).radius(function(d){ return 4; }).iterations(1))
+
+      setTimeout(function(){ simulation.stop(); }, 3500)
+
 
   }
 
@@ -2500,6 +2326,8 @@ sizeDivisor = 3000, nodePadding = 1;
           //     .on("end", dragended));
           
     });
+
+    setTimeout(function(){ simulation.stop(); }, 8000)
 
     // function dragstarted(d) {
     //   if (!d3.event.active) simulation.alphaTarget(.03).restart();
