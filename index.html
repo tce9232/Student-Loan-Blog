@@ -235,6 +235,14 @@ path {
 
 }
 
+#emojiscrolly {
+
+position: relative;
+background-color: #ffffff;
+padding: 1rem;
+
+}
+
 #firstscrolly {
 
   position: relative;
@@ -498,7 +506,7 @@ img {
       </section>
       <p class="prose">
         As the end of my Analytics 
-        program starts coming into focus, and I start feeling the graduate program version of the "Sunday scaries". 
+        program comes into focus, I start feeling the graduate program version of the "Sunday scaries". 
         However, these are not caused by capstone projects, finding a full-time job, or even the threat of another Chicago winter. This is a fear that haunt
          71% of all university graduates nationwide--student loans. [https://www.studentdebtrelief.us/student-loans/student-debt-statistics/].
       <br/>
@@ -856,7 +864,7 @@ img {
       </body>
 
 
-      <section id="scrolly">
+      <section id="emojiscrolly">
         <div>
           <figure class="debt_container">
 
@@ -934,7 +942,7 @@ img {
 
           
 
-          <div class="scrolly">
+          <div class="emojiscrolly">
             <div class="step" data-step="5" id="step-emoji1"
             data-scrollama-index="4" style="height: 125px;">
               <div>
@@ -1085,7 +1093,7 @@ img {
              
         </body>
 
-      <section id="scrolly">
+      <section id="bubblescrolly">
           <section class="img" id="bubblescrolly">
               <article>
 
@@ -1181,7 +1189,7 @@ img {
                 <svg id="my_dataviz2" position=sticky top=10px id="my_dataviz2" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
                 <svg id="my_dataviz" position=sticky top=10px id="my_dataviz" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
                 
-                <svg id="bubblechart" height="600" position=sticky style="width: 100%; top: 40px"></svg>
+                <svg id="bubblechart" height="600" position=sticky style="width: 120%; top: 40px"></svg>
               </figure>
 
             </section>
@@ -1212,24 +1220,35 @@ img {
             please know that this. is. not. normal. 
             <br/>
             <br/>
-            Paragraph about higher ed in other countries
+            The UK has a similar student debt problem, but their tuition is capped at £9,000 a year. In Germany, tuition has been 
+            completely abolished. In fact, there are more than 40 countries around the world that offer free public higher education
+            including Finland, Sweden, Norway, Greece, Brazil and Turkey. Study at any of these schools (and some even offer programs in English)
+            and all you're expected to pay is your cost of living. 
             <br/>
             <br/>
-            Paragraph about how US students are able to handle debt better/worse given their situation
+            This is not to say that the United States education system is homogenius. As we've seen, your financial situation after leaving 
+            college can vary widely. Going to an elite school will cost you more, but you're unlikely to feel as much of a pinch 
+            post-graduation as a person that enrolled in a relatively inexpensive trade school. And regardless of what school you attend,
+            women and people of color are the most effected by debt across the board.
             <br/>
             <br/>
-            Semi-recap paragraph about how colleges could easily lower tuition in our current system
+            So what can be done about this besides enrolling in a Greek college? As US tuitions continue to rise, know that something can be
+            done to address this, but the powers at be simply choose not to. We are going on three decades of public school funding cuts that 
+            have not only left our colleges and universities desperate for corporate cash and private donations, but have also devastated 
+            our K-12 system. We also have giant universities that act as if they're banks or real estate companies, stock-piling cash and 
+            gobbling up property instead of reinvesting in their students.
             <br/>
             <br/>
-            Proposal for new system where college is guaranteed debt free for all
+            As we look towards the future of the US higher education system, we need to ask ourselves, do we consider education a human right? 
+            Should access to a proper education depend on you or your family's financial situation? How long can we continue to allow the 
+            country's elite to launder their wealth and privledge into a degree at a prestigious school, while the working class goes into 
+            debt after getting a technical degree? The United States of America, the wealthiest country in the history of the world, needs 
+            to guarantee a tuition and debt free higher education to anybody that wants it.
             <br/>
             <br/>
-            conclusion
-            <br/>
-            <br/>
-            <!-- So, that's it. You graduated! You're done! Now can take your skills, experience and connections you've made
-            during your studies and apply them in the real world. Making a real paycheck from a real 
-            corporation or entity.  -->
+            So to all those that plan on graduating this year, including all of my classmates, congratulations. We've earned every ounce of
+            that diploma, and we'll all move on to bigger and better things. Wonderful opportunities and career pathes. Unfortunately, we also need
+            to join the other 44 million Americans feeding that giant mountain of debt. Because now, it's payback time. 
             
           </p>
 
@@ -1264,6 +1283,7 @@ img {
 		var scroller = scrollama();
     var scrollerleft = scrollama();
     var firstscroller = scrollama();
+    var emojiscroller = scrollama();
 
     var options = {
 
@@ -1377,7 +1397,6 @@ d3.csv("tuition.csv", function (error, data) {
     d.Public = +d.Public
     d.MaxPellGrant = +d.MaxPellGrant
     d.EdApprPerFTE = +d.EdApprPerFTE
-    console.log(d)
   })
   // Scale the range of the data
     x.domain([1985, 2020]);
@@ -1447,7 +1466,6 @@ d3.csv("delinquency.csv", function (error, data) {
     d.Year = +d.Year;
     d.Mortgage = +d.Mortgage;
     d.Auto = +d.Auto;
-    console.log(d)
   })
   // Scale the range of the data
     x.domain([2003, 2020]);
@@ -1611,6 +1629,7 @@ d3.csv("delinquency.csv", function (error, data) {
     }
 
     function slc1() {
+      console.log("made it here")
       document.getElementById("slcpath1").style.opacity=1 
       document.getElementById("slcpath1").classList.add("path-animate")
       document.getElementById("secondlinechart").style.opacity=1
@@ -2049,16 +2068,24 @@ d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return 
 			})
         .onStepEnter(handleStepEnter)
 
-      scroller.setup({
+      scrollerleft.setup({
 				step: '#scrollyleft article .step',
         offset: 0.5,
-        progress: true,
+
 				debug: false,
 			})
         .onStepEnter(handleStepEnter)
 
         scroller.setup({
 				step: '#bubblescrolly article .step',
+        offset: 0.5,
+        progress: true,
+				debug: false,
+			})
+				.onStepEnter(handleStepEnter)
+
+        emojiscroller.setup({
+				step: '#emojiscrolly article .step',
         offset: 0.5,
         progress: true,
 				debug: false,
@@ -2433,7 +2460,7 @@ svg
 
 
 
-    var bubblewidth = width, bubbleheight = height;
+    var bubblewidth = width+100, bubbleheight = height;
     var svg = d3.select("#bubblechart").append("svg").attr("width", bubblewidth).attr("height", bubbleheight);
  
 var color = d3.scaleOrdinal(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]);
@@ -2452,8 +2479,6 @@ sizeDivisor = 3000, nodePadding = 1;
 
   d3.csv("CollegeClusters.csv", types, function (error, data) {
     if (error) throw error;
-
-    console.log(data)
  
     simulation
           .nodes(data)
