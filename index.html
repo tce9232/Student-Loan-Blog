@@ -819,6 +819,7 @@ img {
         </article>
 
         <figure>
+            <svg id="slcLegend" style="position: sticky; top: 0; height: 100px; width: 100%;  opacity: 0; transform: translate(70px, 40px);"></svg>
           <svg id="secondlinechart" width=width height="700" position=sticky top=0 opacity=1></svg>
         </figure>
       </section>
@@ -1486,7 +1487,7 @@ d3.csv("delinquency.csv", function (error, data) {
       .attr("class", "line")
       .attr("d", chart2line2)
       .attr("opacity", 0)
-      .attr("stroke", "#0DB788");
+      .attr("stroke", "#B977DA");
 
     slc.append("path")
       .data([data])
@@ -1494,7 +1495,7 @@ d3.csv("delinquency.csv", function (error, data) {
       .attr("class", "line")
       .attr("d", chart2line3)
       .attr("opacity", 0)
-      .attr("stroke", "black");
+      .attr("stroke", "#50A77E");
 
     slc.append("path")
       .data([data])
@@ -1502,7 +1503,7 @@ d3.csv("delinquency.csv", function (error, data) {
       .attr("class", "line")
       .attr("d", chart2line4)
       .attr("opacity", 0)
-      .attr("stroke", "black");
+      .attr("stroke", "#00A6FF");
 
     slc.append("path")
       .data([data])
@@ -1629,7 +1630,8 @@ d3.csv("delinquency.csv", function (error, data) {
     }
 
     function slc1() {
-      console.log("made it here")
+      
+      document.getElementById("slcLegend").style.opacity="1"
       document.getElementById("slcpath1").style.opacity=1 
       document.getElementById("slcpath1").classList.add("path-animate")
       document.getElementById("secondlinechart").style.opacity=1
@@ -1638,11 +1640,23 @@ d3.csv("delinquency.csv", function (error, data) {
     }
 
     function slc2() {
+      var slcsvg = d3.select("#slcLegend")
+      slcsvg.append("circle").attr("cx",20).attr("cy",28).attr("r", 6).style("fill", "#B977DA")
+      slcsvg.append("text").attr("x", 30).attr("y", 28).text("Credit Cards").style("font-size", "15px").attr("alignment-baseline","middle")
+
+
       document.getElementById("slcpath2").style.opacity=1
       document.getElementById("slcpath2").classList.add("path-animate")
     }
 
     function slc3() {
+      var slcsvg = d3.select("#slcLegend")
+      slcsvg.append("circle").attr("cx",20).attr("cy",43).attr("r", 6).style("fill", "#50A77E")
+      slcsvg.append("text").attr("x", 30).attr("y", 43).text("Automobile").style("font-size", "15px").attr("alignment-baseline","middle")
+      slcsvg.append("circle").attr("cx",20).attr("cy",58).attr("r", 6).style("fill", "#00A6FF")
+      slcsvg.append("text").attr("x", 30).attr("y", 58).text("Revolving Debt").style("font-size", "15px").attr("alignment-baseline","middle")
+
+
       document.getElementById("slcpath3").style.opacity=1
       document.getElementById("slcpath3").classList.add("path-animate")
       document.getElementById("slcpath4").style.opacity=1
@@ -1650,6 +1664,10 @@ d3.csv("delinquency.csv", function (error, data) {
 }
 
     function slc4() {
+      var slcsvg = d3.select("#slcLegend")
+      slcsvg.append("circle").attr("cx",20).attr("cy",73).attr("r", 6).style("fill", "red")
+      slcsvg.append("text").attr("x", 30).attr("y", 73).text("Student Loans").style("font-size", "15px").attr("alignment-baseline","middle")
+
       TweenMax.to(document.getElementById("slcpath1"), 1, {opacity:.1});
       TweenMax.to(document.getElementById("slcpath2"), 1, {opacity:.1});
       TweenMax.to(document.getElementById("slcpath3"), 1, {opacity:.1});
@@ -2451,8 +2469,14 @@ svg
     flcsvg.append("text").attr("x", 30).attr("y", 28).text("Avg Public School Tuition").style("font-size", "15px").attr("alignment-baseline","middle")
     
 
+    // select the svg area
+    var slcsvg = d3.select("#slcLegend")
 
+    // Handmade legend
+    slcsvg.append("circle").attr("cx",20).attr("cy",13).attr("r", 6).style("fill", "#00568A")
+    slcsvg.append("text").attr("x", 30).attr("y", 13).text("Mortgages").style("font-size", "15px").attr("alignment-baseline","middle")
 
+    
 
 
 
