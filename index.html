@@ -272,7 +272,7 @@ div.tooltip {
   position: absolute;			
   text-align: left;			
   width: 200px;					
-  height: 80px;					
+  height: 125px;					
   padding: 2px;				
   font: 12px sans-serif;		
   background: lightsteelblue;	
@@ -1190,6 +1190,8 @@ img {
                 <div class="step" id = "step-bubble13" data-step="23" data-scrollama-index="12" style="height: 546px; width: 300px;">
                     <p>And cluster 1 and 3 schools have by far the lowest median earnings</p>
                   </div>
+
+                  <div class="hidden-step" data-step="6" data-scrollama-index="4" style="height: 325px;"></div>
 
               </article>
         
@@ -2539,7 +2541,7 @@ sizeDivisor = 3000, nodePadding = 1;
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html(d["Institution Name"] + "<br/>"  + "Aid" + +d['Average amount of federal  state  local or institutional grant aid awarded (SFA1516)'] + "<br/>" + "Net Cost: " + +d["net cost"] + "<br/>"  + "Median Earnings: " + +d["MD_EARN_WNE_P10"]+ "<br/>"  + "Median Debt: " + +d["GRAD_DEBT_MDN_SUPP"]+ "<br/>"  + "Control: " + +d["CONTROL"]+ "<br/>"  + "Default Rare: " + +d["CDR3"])	
+            div	.html(d["Institution Name"] + "<br/>"  + "Avg Grant Aid: " + +d['Average amount of federal  state  local or institutional grant aid awarded (SFA1516)'] + "<br/>" + "Avg Loans: " + +d["Average amount of federal student loans awarded to full-time first-time undergraduates (SFA1516)"] + "<br/>" + "Number of Undergrads: " + +d["UGDS"] + "<br/>"  + "Median Debt: " + +d["GRAD_DEBT_MDN_SUPP"]+ "<br/>"  + "Median Earnings: " + +d["MD_EARN_WNE_P10"]+ "<br/>"  + "Default Rate: " + +d["CDR3"]+ "<br/>"  + "Net Cost: " + +d["net cost"])	
                 .style("left", (d3.event.pageX + 10) + "px")		
                 .style("top", (d3.event.pageY - 80) + "px");	
             })					
