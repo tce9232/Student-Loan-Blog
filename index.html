@@ -400,6 +400,7 @@ p, ul{
 	height: 1500px;
 	margin: 0 auto;
 	padding: 0;
+  background-size: cover;
 
 }
 
@@ -410,6 +411,7 @@ p, ul{
 	height: 1800px;
 	margin: 0 auto;
 	overflow: hidden;
+  background-size: cover;
 
 }
 
@@ -419,6 +421,7 @@ p, ul{
 	color: white;
 	height: 200VH;
 	padding: 100px 0 0 0;	
+  background-size: cover;
 
 }
 
@@ -428,6 +431,7 @@ background: url(women.jpg) 50% 0 no-repeat fixed;
 color: white;
 height: 250VH;
 padding: 100px 0 0 0;	
+background-size: cover;
 
 }
 
@@ -764,11 +768,6 @@ img {
           But have these tuition increases which come in the wake of shrinking government funds and endowment hoarding 
           really effecting students post graduation? They still get an advanced degree which they can use to land a great job in exchange for this huge 
           debt burden. So what's the problem here?
-          <br>
-          <br>
-          One in seven Americans owes a portion of that giant mountain of debt you saw in the beginning. That's 44 million
-          people. And out of those people, 8 million of them are in default. Let's take a look at 
-          how that compares to rates of default for other debt around the housing crisis.
         </p>
         <p class="prose">
           
@@ -779,7 +778,18 @@ img {
       <section class="img" id="scrollyleft">
 
         <article>
-          <div class="step" id = "step-slc1" data-step="1" data-scrollama-index="0" style="height: 546px; width: 300px;">
+            <div class="hidden-step" data-step="1"
+            data-scrollama-index="6" style="height: 225px;">
+            </div>
+            <div class="step" style="height: 546px; width: 300px;">
+                <p>One in seven Americans owes a portion of that giant mountain of debt you saw in the beginning. That's 44 million
+                    people. And out of those people, 8 million of them are in default. Let's take a look at 
+                    how that compares to rates of default for other debt around the housing crisis.</p>
+              </div>
+            <div class="hidden-step" data-step="1"
+            data-scrollama-index="6" style="height: 325px;">
+            </div>
+          <div class="step" id = "step-slc1" data-step="1" data-scrollama-index="0" style="height: 400px; width: 300px;">
             <p>Here's what the rate of default on mortgages was in the United States around the time of the housing crisis </p>
           </div>
           <div class="step" style="height: 546px; width: 300px;">
@@ -1668,10 +1678,10 @@ d3.csv("delinquency.csv", function (error, data) {
       slcsvg.append("circle").attr("cx",20).attr("cy",73).attr("r", 6).style("fill", "red")
       slcsvg.append("text").attr("x", 30).attr("y", 73).text("Student Loans").style("font-size", "15px").attr("alignment-baseline","middle")
 
-      TweenMax.to(document.getElementById("slcpath1"), 1, {opacity:.1});
-      TweenMax.to(document.getElementById("slcpath2"), 1, {opacity:.1});
-      TweenMax.to(document.getElementById("slcpath3"), 1, {opacity:.1});
-      TweenMax.to(document.getElementById("slcpath4"), 1, {opacity:.1});
+      TweenMax.to(document.getElementById("slcpath1"), 1, {opacity:.25});
+      TweenMax.to(document.getElementById("slcpath2"), 1, {opacity:.25});
+      TweenMax.to(document.getElementById("slcpath3"), 1, {opacity:.25});
+      TweenMax.to(document.getElementById("slcpath4"), 1, {opacity:.25});
 
       document.getElementById("slcpath5").style.opacity=1
       document.getElementById("slcpath5").classList.add("path-animate")
