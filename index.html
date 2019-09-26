@@ -1232,6 +1232,7 @@ img {
                 <div id="legend3" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
                 <div id="legend4" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
                 <div id="legend5" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
+
                 <svg id="my_dataviz2" position=sticky top=10px id="my_dataviz2" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
                 <svg id="my_dataviz" position=sticky top=10px id="my_dataviz" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
                 
@@ -1374,7 +1375,7 @@ var slcheight = slcpositionInfo.height - 200;
 
 
 // set the ranges
-var x = d3.scaleLinear().range([0, width]);
+var x = d3.scaleLinear().range([0, width-200]);
 var y = d3.scaleLinear().range([height, 0]);
 
 // define the lines
@@ -2221,7 +2222,7 @@ var size = d3.scaleSqrt()
 var valuesToShow = [5000, 100000]
 var xCircle = 40
 var xLabel = 80
-var yCircle = 40
+var yCircle = 60
 svg
   .selectAll("legend")
   .data(valuesToShow)
@@ -2279,9 +2280,9 @@ var size = d3.scaleSqrt()
 
 // Add legend: circles
 var valuesToShow = [1000, 80000]
-var xCircle = 40
+var xCircle = 60
 var xLabel = 80
-var yCircle = 40
+var yCircle = 50
 svg
   .selectAll("legend")
   .data(valuesToShow)
@@ -2639,8 +2640,11 @@ svg
 
 
     
+    var mydataviz = d3.select("#my_dataviz")
+    mydataviz.append("text").attr("x", 20).attr("y", 15).text("Number of Undergrads").style("font-size", "15px").attr("alignment-baseline","middle")
 
-
+    var mydataviz2 = d3.select("#my_dataviz2")
+    mydataviz2.append("text").attr("x", 20).attr("y", 15).text("Amount of Debt").style("font-size", "15px").attr("alignment-baseline","middle")
 
     // select the svg area
     var SchoolTypesvg = d3.select("#SchoolTypeLegend")
