@@ -1831,8 +1831,7 @@ d3.csv("delinquency.csv", function (error, data) {
 
   simulation.stop()
 
-  d3.select("#bubblechart").selectAll("circle").attr("fill", "#838383")
-  d3.select("#bubblechart").selectAll("circle").attr("opacity", .1)
+  d3.select("#bubblechart").selectAll("circle").attr("fill", "#838383").attr("opacity", .1)
 
   var Wisconsin = ["University of Wisconsin-Madison"]
 
@@ -2324,7 +2323,7 @@ svg
 
 
 
-    var w = 300, h = 50;
+    var w = 300, h = 100;
 
 
     var key1 = d3.select("#legend1")
@@ -2333,6 +2332,7 @@ svg
     .attr("height", h)
     .attr("padding", "10")
     ;
+    key1.append("text").attr("x", 5).attr("y", 30).text("Default Rate (%)").style("font-size", "15px").attr("alignment-baseline","left")
 
     var legend1 = key1.append("defs")
       .append("svg:linearGradient")
@@ -2365,7 +2365,8 @@ svg
 
     key1.append("rect")
       .attr("width", w)
-      .attr("height", h - 30)
+      .attr("height", h - 90)
+      .attr("y",25)
       .style("fill", "url(#gradient1)")
       .attr("transform", "translate(5,10)");
 
@@ -2379,7 +2380,7 @@ svg
 
     key1.append("g")
       .attr("class", "y axis")
-      .attr("transform", "translate(5,30)")
+      .attr("transform", "translate(5,45)")
       .call(yAxis1)
       .append("text")
       .attr("transform", "rotate(-90)")
@@ -2396,7 +2397,11 @@ svg
       var key2 = d3.select("#legend2")
       .append("svg")
       .attr("width", w+50)
-      .attr("height", h);
+      .attr("height", h)
+      .attr("padding", "10")
+      ;
+
+      key2.append("text").attr("x", 5).attr("y", 30).text("Amount of Aid Awarded ($1000s)").style("font-size", "15px").attr("alignment-baseline","left")
 
     var legend2 = key2.append("defs")
       .append("svg:linearGradient")
@@ -2429,7 +2434,8 @@ svg
 
     key2.append("rect")
       .attr("width", w)
-      .attr("height", h - 30)
+      .attr("height", h - 90)
+      .attr("y",25)
       .style("fill", "url(#gradient2)")
       .attr("transform", "translate(5,10)");
 
@@ -2443,7 +2449,7 @@ svg
 
     key2.append("g")
       .attr("class", "y axis")
-      .attr("transform", "translate(5,30)")
+      .attr("transform", "translate(5,45)")
       .call(yAxis2)
       .append("text")
       .attr("transform", "rotate(-90)")
@@ -2459,7 +2465,10 @@ svg
     var key3 = d3.select("#legend3")
       .append("svg")
       .attr("width", w+50)
-      .attr("height", h);
+      .attr("height", h)
+      .attr("padding", "10");
+
+    key3.append("text").attr("x", 5).attr("y", 30).text("Median Earnings Post-Graduation ($1000s)").style("font-size", "15px").attr("alignment-baseline","left")
 
     var legend3 = key3.append("defs")
       .append("svg:linearGradient")
@@ -2492,7 +2501,8 @@ svg
 
     key3.append("rect")
       .attr("width", w)
-      .attr("height", h - 30)
+      .attr("height", h - 90)
+      .attr("y",25)
       .style("fill", "url(#gradient3)")
       .attr("transform", "translate(5,10)");
 
@@ -2506,7 +2516,7 @@ svg
 
     key3.append("g")
       .attr("class", "y axis")
-      .attr("transform", "translate(5,30)")
+      .attr("transform", "translate(5,45)")
       .call(yAxis3)
       .append("text")
       .attr("transform", "rotate(-90)")
@@ -2520,7 +2530,10 @@ svg
     var key4 = d3.select("#legend4")
       .append("svg")
       .attr("width", w+50)
-      .attr("height", h);
+      .attr("height", h)
+      .attr("padding", "10");
+
+    key4.append("text").attr("x", 5).attr("y", 30).text("Percent of Male Students").style("font-size", "15px").attr("alignment-baseline","left")
 
     var legend4 = key4.append("defs")
       .append("svg:linearGradient")
@@ -2553,7 +2566,8 @@ svg
 
     key4.append("rect")
       .attr("width", w)
-      .attr("height", h - 30)
+      .attr("height", h - 90)
+      .attr("y",25)
       .style("fill", "url(#gradient4)")
       .attr("transform", "translate(5,10)");
 
@@ -2567,7 +2581,7 @@ svg
 
     key4.append("g")
       .attr("class", "y axis")
-      .attr("transform", "translate(5,30)")
+      .attr("transform", "translate(5,45)")
       .call(yAxis4)
       .append("text")
       .attr("transform", "rotate(-90)")
@@ -2578,10 +2592,13 @@ svg
 
 
 
-      var key5 = d3.select("#legend5")
-      .append("svg")
-      .attr("width", w+50)
-      .attr("height", h);
+    var key5 = d3.select("#legend5")
+    .append("svg")
+    .attr("width", w+50)
+    .attr("height", h)
+    .attr("padding", "10");
+
+    key5.append("text").attr("x", 5).attr("y", 30).text("Percent of Black Students").style("font-size", "15px").attr("alignment-baseline","left")
 
     var legend5= key5.append("defs")
       .append("svg:linearGradient")
@@ -2614,7 +2631,8 @@ svg
 
     key5.append("rect")
       .attr("width", w)
-      .attr("height", h - 30)
+      .attr("height", h - 90)
+      .attr("y",25)
       .style("fill", "url(#gradient5)")
       .attr("transform", "translate(5,10)");
 
@@ -2628,7 +2646,7 @@ svg
 
     key5.append("g")
     .attr("class", "y axis")
-    .attr("transform", "translate(5,30)")
+    .attr("transform", "translate(5,45)")
     .call(yAxis5)
     .append("text")
     .attr("transform", "rotate(-90)")
@@ -2637,14 +2655,13 @@ svg
     .style("text-anchor", "end")
     .text("axis title");
 
-
-
+    
     
     var mydataviz = d3.select("#my_dataviz")
     mydataviz.append("text").attr("x", 20).attr("y", 15).text("Number of Undergrads").style("font-size", "15px").attr("alignment-baseline","middle")
 
     var mydataviz2 = d3.select("#my_dataviz2")
-    mydataviz2.append("text").attr("x", 20).attr("y", 15).text("Amount of Debt").style("font-size", "15px").attr("alignment-baseline","middle")
+    mydataviz2.append("text").attr("x", 20).attr("y", 15).text("Amount of Debt ($)").style("font-size", "15px").attr("alignment-baseline","middle")
 
     // select the svg area
     var SchoolTypesvg = d3.select("#SchoolTypeLegend")
@@ -2723,7 +2740,10 @@ sizeDivisor = 3000, nodePadding = 1;
     simulation
           .nodes(data)
           .force("collide", d3.forceCollide().strength(1).radius(function(d){ return 4; }).iterations(1))
-          .alpha(.15)
+          .force("forceX", d3.forceX().strength(.1).x(width * .5))
+          .force("forceY", d3.forceY().strength(.1).y(height * .5))
+          .alpha(1)
+          .alphaTarget(.8)
           .on("tick", function(d){
             node
                 .attr("cx", function(d){ return d.x; })
