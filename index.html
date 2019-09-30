@@ -96,6 +96,14 @@ path {
 
 }
 
+h3 {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
 .prose {
 
   max-width: 40rem;
@@ -268,6 +276,15 @@ padding: 1rem;
   background-color: #ffffff;
   padding: 1rem;
   display: flex;
+
+}
+
+#hatscrolly {
+
+position: relative;
+background-color: #ffffff;
+padding: 1rem;
+display: flex;
 
 }
 
@@ -488,6 +505,21 @@ img {
   margin-left: auto;
   margin-right: auto;
 
+}
+
+.path-hat {
+  stroke-dasharray: 1000;
+  animation: draw 5s;
+}
+
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 2000
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
   </style>
@@ -1301,6 +1333,31 @@ img {
             
           </p>
 
+          <section id="hatscrolly" style="position: relative;
+                                          max-width: 40rem;
+                                          margin: 0 auto;">
+              <article> 
+              <div class="step" data-step="5" id="step-hat">
+                
+                  <svg id="gradhat"  style="opacity: 0; 
+                                            position: relative;
+                                            margin: 0 auto;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="640" height="500"><defs><path d="M320 324.6L77.47 242.99l239.08-80.46 244.83 82.76L320 324.6z" id="a"/><path d="M147.59 386.67l8.04 9.19v72.42h-29.88v-72.42l6.89-9.19V274.02l14.95 3.45v109.2z" id="b"/><path d="M318.85 397.15c48.85 0 98.08-14.06 147.7-42.16-.15-4.4-.92-26.41-2.3-66.02l-145.4 49.42-145.4-45.98v62.58c64.37 28.11 112.83 42.16 145.4 42.16z" id="c"/><path d="M133.34 397.15v71.13" id="e"/><path d="M140.69 397.15v71.13" id="f"/><path d="M147.59 397.15v71.13" id="h"/><path d="M129.15 397.15v71.13" id="i"/><path d="M151.47 397.15v71.13" id="j"/><path d="M144.17 397.15v71.13" id="k"/><path d="M137.21 397.15v71.13" id="l"/></defs><use xlink:href="#a" fill-opacity="0"/><use xlink:href="#a" fill-opacity="0" stroke="#000"/><use xlink:href="#b" fill-opacity="0"/><use xlink:href="#b" fill-opacity="0" stroke="#000"/><use xlink:href="#c" fill-opacity="0"/><use xlink:href="#c" fill-opacity="0" stroke="#000"/><use xlink:href="#d" fill-opacity="0" stroke="#000"/><use xlink:href="#e" fill-opacity="0" stroke="#000"/><use xlink:href="#f" fill-opacity="0" stroke="#000"/><use xlink:href="#g" fill-opacity="0" stroke="#000"/><use xlink:href="#h" fill-opacity="0" stroke="#000"/><use xlink:href="#i" fill-opacity="0" stroke="#000"/><g><use xlink:href="#j" fill-opacity="0" stroke="#000"/></g><g><use xlink:href="#k" fill-opacity="0" stroke="#000"/></g><g><use xlink:href="#l" fill-opacity="0" stroke="#000"/></g></svg>
+                
+              </div>
+            </article>
+          </section>
+
+          
+
+          <h3>Credits</h3>
+
+          <p class="prose">Thanks to everyone who provided feedback and insight along the way, with special thanks to:
+              <br/>
+              <br/>
+              Hilal Kasikci, Jeremiah Lant, Kobzyev Kyrylo, Will Wallo, Torie Palacios, Marcus Thuillier, Andrew Brandt and Bridget Callaghan
+              
+          </p>
+
         </body> 
     
       <head>
@@ -1331,6 +1388,7 @@ img {
     var scrollerleft = scrollama();
     var firstscroller = scrollama();
     var emojiscroller = scrollama();
+    var hatscroller = scrollama();
 
     var options = {
 
@@ -1352,7 +1410,7 @@ img {
 
 // set the dimensions and margins of the graph
 
-var margin = {top: 40, right: 40, bottom: 20, left: 60},
+var margin = {top: 40, right: 40, bottom: 40, left: 80},
     width = 1250 - margin.left - margin.right,
     height = 650 - margin.top - margin.bottom;
 
@@ -1491,18 +1549,20 @@ d3.csv("Data/tuition.csv", function (error, data) {
     flc.append("text")             
       .attr("transform",
             "translate(" + (width/2) + " ," + 
-                           (height + margin.top - 20) + ")")
+                           (height + margin.top - 10) + ")")
       .style("text-anchor", "middle")
+      .style("font-size", 15)
       .text("Year");
 
 // Add Y Axis Label
     flc.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left )
+      .attr("y", 0 - margin.left + 10)
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
+      .style("font-size", 15)
       .style("text-anchor", "middle")
-      .text("US Dollars (Current Value)");  
+      .text("U.S. Dollars (Current Value)");  
 })
 
 d3.csv("Data/delinquency.csv", function (error, data) {
@@ -1572,17 +1632,19 @@ d3.csv("Data/delinquency.csv", function (error, data) {
   slc.append("text")             
         .attr("transform",
               "translate(" + (width/2) + " ," + 
-                            (height + margin.top - 10) + ")")
+                            (height + margin.top ) + ")")
         .style("text-anchor", "middle")
+        .style("font-size", 15)
         .text("Year");
 
   // Add Y Axis Label
       slc.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin.left + 10)
+        .attr("y", 0 - margin.left + 30)
         .attr("x",0 - (height / 2))
         .attr("dy", "1em")
         .style("text-anchor", "middle")
+        .style("font-size", 15)
         .text("Default Rate (%)");  
 })
 
@@ -2085,6 +2147,11 @@ d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return 
 
 }
 
+function hat(){
+  document.getElementById("gradhat").style.opacity="1"
+  document.getElementById("gradhat").classList.add("path-hat")
+}
+
 
 
     // scrollama event handlers
@@ -2120,7 +2187,8 @@ d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return 
       if(response.element.id == 'step-bubble12') {bubble12()} 
       if(response.element.id == 'step-bubble13') {bubble13()} 
       if(response.element.id == 'step-bubble14') {bubble14()} 
-      if(response.element.id == 'step-bubble15') {bubble15()} 
+      if(response.element.id == 'step-bubble15') {bubble15()}
+      if(response.element.id == 'step-hat') {hat()} 
     }
 
     function handleResize() {
@@ -2187,6 +2255,14 @@ d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return 
 
         emojiscroller.setup({
 				step: '#emojiscrolly article .step',
+        offset: 0.5,
+        progress: true,
+				debug: false,
+			})
+				.onStepEnter(handleStepEnter)
+
+        hatscroller.setup({
+				step: '#hatscrolly article .step',
         offset: 0.5,
         progress: true,
 				debug: false,
@@ -2331,7 +2407,7 @@ svg
     .attr("height", h)
     .attr("padding", "10")
     ;
-    key1.append("text").attr("x", 5).attr("y", 30).text("Default Rate (%)").style("font-size", "15px").attr("alignment-baseline","left")
+    key1.append("text").attr("x", 5).attr("y", 30).text("Default Rate Within Three Years of Graduation (%)").style("font-size", "15px").attr("alignment-baseline","left")
 
     var legend1 = key1.append("defs")
       .append("svg:linearGradient")
@@ -2400,7 +2476,7 @@ svg
       .attr("padding", "10")
       ;
 
-      key2.append("text").attr("x", 5).attr("y", 30).text("Amount of Aid Awarded ($1000s)").style("font-size", "15px").attr("alignment-baseline","left")
+      key2.append("text").attr("x", 5).attr("y", 30).text("Amount of Aid Awarded ($1,000s)").style("font-size", "15px").attr("alignment-baseline","left")
 
     var legend2 = key2.append("defs")
       .append("svg:linearGradient")
@@ -2467,7 +2543,7 @@ svg
       .attr("height", h)
       .attr("padding", "10");
 
-    key3.append("text").attr("x", 5).attr("y", 30).text("Median Earnings Post-Graduation ($1000s)").style("font-size", "15px").attr("alignment-baseline","left")
+    key3.append("text").attr("x", 5).attr("y", 30).text("Median Earnings Post-Graduation ($1,000s)").style("font-size", "15px").attr("alignment-baseline","left")
 
     var legend3 = key3.append("defs")
       .append("svg:linearGradient")
@@ -2660,7 +2736,7 @@ svg
     mydataviz.append("text").attr("x", 20).attr("y", 15).text("Number of Undergrads").style("font-size", "15px").attr("alignment-baseline","middle")
 
     var mydataviz2 = d3.select("#my_dataviz2")
-    mydataviz2.append("text").attr("x", 20).attr("y", 15).text("Amount of Debt ($)").style("font-size", "15px").attr("alignment-baseline","middle")
+    mydataviz2.append("text").attr("x", 20).attr("y", 15).text("Average Debt ($)").style("font-size", "15px").attr("alignment-baseline","middle")
 
     // select the svg area
     var SchoolTypesvg = d3.select("#SchoolTypeLegend")
