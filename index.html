@@ -1435,7 +1435,7 @@ var slc = d3.select("#secondlinechart")
   .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("tuition.csv", function (error, data) {
+d3.csv("Data/tuition.csv", function (error, data) {
   if (error) throw error;
   // format data
   data.forEach(function(d) {
@@ -1505,7 +1505,7 @@ d3.csv("tuition.csv", function (error, data) {
       .text("US Dollars (Current Value)");  
 })
 
-d3.csv("delinquency.csv", function (error, data) {
+d3.csv("Data/delinquency.csv", function (error, data) {
   if (error) throw error;
 
   // format data
@@ -2731,7 +2731,7 @@ var div = d3.select("body").append("div")
 
 sizeDivisor = 3000, nodePadding = 1;
 
-  d3.csv("CollegeClusters.csv", types, function (error, data) {
+  d3.csv("Data/CollegeClusters.csv", types, function (error, data) {
     if (error) throw error;
 
     console.log(data)
