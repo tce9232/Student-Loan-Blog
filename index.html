@@ -1481,7 +1481,7 @@ d3.csv("Data/tuition.csv", function (error, data) {
 // Add the X Axis
    flc.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).tickPadding([0]));
+        .call(d3.axisBottom(x).tickPadding([0]).tickFormat(d3.format("d")));
 
     // Add the Y Axis
     flc.append("g")
@@ -1562,7 +1562,7 @@ d3.csv("Data/delinquency.csv", function (error, data) {
 // Add the X Axis
     slc.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x).tickFormat(d3.format("d")));
 
     // Add the Y Axis
     slc.append("g")
