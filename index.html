@@ -522,6 +522,15 @@ img {
   }
 }
 
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
   </style>
 
 </head>
@@ -1254,29 +1263,36 @@ img {
                     </p>
                   </div>
 
+                <div class="step" id = "step-bubble16" data-step="26" data-scrollama-index="15" style="height: 546px; width: 300px;">
+                  <p>There are plenty of interesting ways to combine these College Scorecard attributes in order to show patterns in 
+                    the data, so I want to give the reader an opportunity to do it themselves. Below, you can choose your own attributes for the size 
+                    and color of the bubbles. In addition to the attributes I've already described, there's also a color feature included called 
+                    "change in grant aid," which is the amount of additional grant aid per student a school has received since the recession. 
+                    A negative value represents a decrease in grant aid per student. 
+                  </p>
+                </div>
+
                   <div class="step" id = "step-bubble16">
 
                     
                     <div >
-                      <h3>Set Bubble Attributes</h3>
+                      <h3 style="text-align: left">Set Bubble Attributes</h3>
                       <div >
-                          <label>Size:  &nbsp &nbsp </label>
-                          <select class="size">
+                          <p>Size:  &nbsp &nbsp 
+                          <select class="size" style="background-color: white;">
                             <option>Avg Debt</option><option>Net Cost</option><option>Median Earnings</option><option>Number of Undergrads</option><option>Average Aid Provided</option><option>Average Loans Taken Out</option><option>None</option>
                           </select>
-                      </div>
-                  </div>
-                  <div >
-                    <div >
-                        <label>Color:&nbsp</label>
-                        <select class="color">
-                          <option>Percent of Black Students</option><option>Percent of Male Students</option><option>School Type</option><option>Default Rate</option><option>Median Earnings</option><option>Change in Grant Aid</option><option>None</option>
+                          <br/>
+                          Color:&nbsp
+                        <select class="color" style="background-color: white;">
+                          <option>Percent of Black Students</option><option>Percent of Male Students</option><option>School Type</option><option>Default Rate</option><option>Median Earnings</option><option>Change in Grant Aid</option><option>Net Cost</option><option>None</option>
                         </select>
+                        </p>
                     </div>
                   </div>
                     <div>
                         <h3>Find College by Name:</h3>
-                        <input type="text" placeholder="Enter player name..." />
+                        <input type="text" placeholder="Enter school name..." />
                     </div>
                 </div>
 
@@ -1293,6 +1309,7 @@ img {
                 <div id="genderlegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
                 <div id="racelegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
                 <div id="aidchangelegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
+                <div id="netcostlegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
 
                 <svg id="my_dataviz6" position=sticky top=10px id="my_dataviz6" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
                 <svg id="my_dataviz5" position=sticky top=10px id="my_dataviz5" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
@@ -1887,6 +1904,7 @@ d3.csv("Data/delinquency.csv", function (error, data) {
 }
 
     function bubble1() {
+      document.getElementById("ClusterLegend").style.opacity="0"
       //bubble1
   }
 
@@ -1991,10 +2009,21 @@ function bubble7(){
 
   simulation.restart()
 
-  document.getElementById("ClusterLegend").style.opacity="1"
-  document.getElementById("SchoolTypeLegend").style.opacity="0"
-  document.getElementById("my_dataviz").style.opacity="0"
-  document.getElementById("my_dataviz2").style.opacity="0"
+document.getElementById("ClusterLegend").style.opacity="1"
+document.getElementById("SchoolTypeLegend").style.opacity="0"
+document.getElementById("defaultlegend").style.opacity="0"
+document.getElementById("aidlegend").style.opacity="0"
+document.getElementById("earningslegend").style.opacity="0"
+document.getElementById("genderlegend").style.opacity="0"
+document.getElementById("racelegend").style.opacity="0"
+document.getElementById("aidchangelegend").style.opacity="0"
+document.getElementById("netcostlegend").style.opacity="0"
+document.getElementById("my_dataviz").style.opacity="0"
+document.getElementById("my_dataviz2").style.opacity="0"
+document.getElementById("my_dataviz3").style.opacity="0"
+document.getElementById("my_dataviz4").style.opacity="0"
+document.getElementById("my_dataviz5").style.opacity="0"
+document.getElementById("my_dataviz6").style.opacity="0"
 
   var ResetSchools = ["University of Wisconsin-Madison", "Northwestern University", "Harvard University", "Yale University", "Cornell University", "Princeton University", "Dartmouth College", "Columbia University in the City of New York", "Brown University", "University of Pennsylvania"]
 
@@ -2025,8 +2054,21 @@ function bubble7(){
 function bubble8() {
 
 
-  document.getElementById("my_dataviz").style.opacity="1"
-  document.getElementById("my_dataviz2").style.opacity="0"
+document.getElementById("ClusterLegend").style.opacity="0"
+document.getElementById("SchoolTypeLegend").style.opacity="0"
+document.getElementById("defaultlegend").style.opacity="0"
+document.getElementById("aidlegend").style.opacity="0"
+document.getElementById("earningslegend").style.opacity="0"
+document.getElementById("genderlegend").style.opacity="0"
+document.getElementById("racelegend").style.opacity="0"
+document.getElementById("aidchangelegend").style.opacity="0"
+document.getElementById("netcostlegend").style.opacity="0"
+document.getElementById("my_dataviz").style.opacity="1"
+document.getElementById("my_dataviz2").style.opacity="0"
+document.getElementById("my_dataviz3").style.opacity="0"
+document.getElementById("my_dataviz4").style.opacity="0"
+document.getElementById("my_dataviz5").style.opacity="0"
+document.getElementById("my_dataviz6").style.opacity="0"
 
   simulation.restart()
 
@@ -2058,10 +2100,21 @@ function bubble8() {
 function bubble9(){
 
   
-  document.getElementById("ClusterLegend").style.opacity="1"
-  document.getElementById("SchoolTypeLegend").style.opacity="0"
-  document.getElementById("my_dataviz").style.opacity="0"
-  document.getElementById("my_dataviz2").style.opacity="1"
+document.getElementById("ClusterLegend").style.opacity="1"
+document.getElementById("SchoolTypeLegend").style.opacity="0"
+document.getElementById("defaultlegend").style.opacity="0"
+document.getElementById("aidlegend").style.opacity="0"
+document.getElementById("earningslegend").style.opacity="0"
+document.getElementById("genderlegend").style.opacity="0"
+document.getElementById("racelegend").style.opacity="0"
+document.getElementById("aidchangelegend").style.opacity="0"
+document.getElementById("netcostlegend").style.opacity="0"
+document.getElementById("my_dataviz").style.opacity="0"
+document.getElementById("my_dataviz2").style.opacity="1"
+document.getElementById("my_dataviz3").style.opacity="0"
+document.getElementById("my_dataviz4").style.opacity="0"
+document.getElementById("my_dataviz5").style.opacity="0"
+document.getElementById("my_dataviz6").style.opacity="0"
 
 
   d3.select("#bubblechart").selectAll("circle").attr("r", function(d){
@@ -2092,13 +2145,21 @@ function bubble9(){
 
 function bubble10() { 
 
-  document.getElementById("ClusterLegend").style.opacity="0"
-  document.getElementById("SchoolTypeLegend").style.opacity="1"
-  document.getElementById("defaultlegend").style.opacity="0"
-  document.getElementById("aidlegend").style.opacity="0"
-  document.getElementById("earningslegend").style.opacity="0"
-  document.getElementById("genderlegend").style.opacity="0"
-  document.getElementById("racelegend").style.opacity="0"
+document.getElementById("ClusterLegend").style.opacity="0"
+document.getElementById("SchoolTypeLegend").style.opacity="1"
+document.getElementById("defaultlegend").style.opacity="0"
+document.getElementById("aidlegend").style.opacity="0"
+document.getElementById("earningslegend").style.opacity="0"
+document.getElementById("genderlegend").style.opacity="0"
+document.getElementById("racelegend").style.opacity="0"
+document.getElementById("aidchangelegend").style.opacity="0"
+document.getElementById("netcostlegend").style.opacity="0"
+document.getElementById("my_dataviz").style.opacity="0"
+document.getElementById("my_dataviz2").style.opacity="1"
+document.getElementById("my_dataviz3").style.opacity="0"
+document.getElementById("my_dataviz4").style.opacity="0"
+document.getElementById("my_dataviz5").style.opacity="0"
+document.getElementById("my_dataviz6").style.opacity="0"
 
   var color = d3.scaleOrdinal(["#34B4B2", "#F19145","#F1D678"]);
 
@@ -2108,13 +2169,21 @@ function bubble10() {
 
   function bubble11() {
 
-    document.getElementById("ClusterLegend").style.opacity="0"
-    document.getElementById("SchoolTypeLegend").style.opacity="0"
-    document.getElementById("defaultlegend").style.opacity="1"
-    document.getElementById("aidlegend").style.opacity="0"
-    document.getElementById("earningslegend").style.opacity="0"
-    document.getElementById("genderlegend").style.opacity="0"
-    document.getElementById("racelegend").style.opacity="0"
+document.getElementById("ClusterLegend").style.opacity="0"
+document.getElementById("SchoolTypeLegend").style.opacity="0"
+document.getElementById("defaultlegend").style.opacity="1"
+document.getElementById("aidlegend").style.opacity="0"
+document.getElementById("earningslegend").style.opacity="0"
+document.getElementById("genderlegend").style.opacity="0"
+document.getElementById("racelegend").style.opacity="0"
+document.getElementById("aidchangelegend").style.opacity="0"
+document.getElementById("netcostlegend").style.opacity="0"
+document.getElementById("my_dataviz").style.opacity="0"
+document.getElementById("my_dataviz2").style.opacity="1"
+document.getElementById("my_dataviz3").style.opacity="0"
+document.getElementById("my_dataviz4").style.opacity="0"
+document.getElementById("my_dataviz5").style.opacity="0"
+document.getElementById("my_dataviz6").style.opacity="0"
 
     var colorScale = d3.scaleSequential(d3.interpolateYlOrRd).domain([0,.3])
 
@@ -2124,11 +2193,21 @@ function bubble10() {
 
   function bubble12() { 
 
-    document.getElementById("defaultlegend").style.opacity="0"
-    document.getElementById("aidlegend").style.opacity="1"
-    document.getElementById("earningslegend").style.opacity="0"
-    document.getElementById("genderlegend").style.opacity="0"
-    document.getElementById("racelegend").style.opacity="0"
+document.getElementById("ClusterLegend").style.opacity="0"
+document.getElementById("SchoolTypeLegend").style.opacity="0"
+document.getElementById("defaultlegend").style.opacity="0"
+document.getElementById("aidlegend").style.opacity="1"
+document.getElementById("earningslegend").style.opacity="0"
+document.getElementById("genderlegend").style.opacity="0"
+document.getElementById("racelegend").style.opacity="0"
+document.getElementById("aidchangelegend").style.opacity="0"
+document.getElementById("netcostlegend").style.opacity="0"
+document.getElementById("my_dataviz").style.opacity="0"
+document.getElementById("my_dataviz2").style.opacity="1"
+document.getElementById("my_dataviz3").style.opacity="0"
+document.getElementById("my_dataviz4").style.opacity="0"
+document.getElementById("my_dataviz5").style.opacity="0"
+document.getElementById("my_dataviz6").style.opacity="0"
 
   var colorScale = d3.scaleSequential(d3.interpolateGreens).domain([0,40000])
 
@@ -2138,11 +2217,21 @@ function bubble10() {
 
 function bubble13() { 
 
-  document.getElementById("defaultlegend").style.opacity="0"
-  document.getElementById("aidlegend").style.opacity="0"
-  document.getElementById("earningslegend").style.opacity="1"
-  document.getElementById("genderlegend").style.opacity="0"
-  document.getElementById("racelegend").style.opacity="0"
+document.getElementById("ClusterLegend").style.opacity="0"
+document.getElementById("SchoolTypeLegend").style.opacity="0"
+document.getElementById("defaultlegend").style.opacity="0"
+document.getElementById("aidlegend").style.opacity="0"
+document.getElementById("earningslegend").style.opacity="1"
+document.getElementById("genderlegend").style.opacity="0"
+document.getElementById("racelegend").style.opacity="0"
+document.getElementById("aidchangelegend").style.opacity="0"
+document.getElementById("netcostlegend").style.opacity="0"
+document.getElementById("my_dataviz").style.opacity="0"
+document.getElementById("my_dataviz2").style.opacity="1"
+document.getElementById("my_dataviz3").style.opacity="0"
+document.getElementById("my_dataviz4").style.opacity="0"
+document.getElementById("my_dataviz5").style.opacity="0"
+document.getElementById("my_dataviz6").style.opacity="0"
 
 var colorScale = d3.scaleSequential(d3.interpolateGreens).domain([0,100000])
 
@@ -2152,11 +2241,21 @@ d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return 
 
 function bubble14() { 
 
+document.getElementById("ClusterLegend").style.opacity="0"
+document.getElementById("SchoolTypeLegend").style.opacity="0"
 document.getElementById("defaultlegend").style.opacity="0"
 document.getElementById("aidlegend").style.opacity="0"
 document.getElementById("earningslegend").style.opacity="0"
 document.getElementById("genderlegend").style.opacity="1"
 document.getElementById("racelegend").style.opacity="0"
+document.getElementById("aidchangelegend").style.opacity="0"
+document.getElementById("netcostlegend").style.opacity="0"
+document.getElementById("my_dataviz").style.opacity="0"
+document.getElementById("my_dataviz2").style.opacity="1"
+document.getElementById("my_dataviz3").style.opacity="0"
+document.getElementById("my_dataviz4").style.opacity="0"
+document.getElementById("my_dataviz5").style.opacity="0"
+document.getElementById("my_dataviz6").style.opacity="0"
 
 var colorScale = d3.scaleLinear().domain([0,1]).range(["pink", "blue"])
 
@@ -2166,59 +2265,27 @@ d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return 
 
 function bubble15() { 
 
+document.getElementById("ClusterLegend").style.opacity="0"
+document.getElementById("SchoolTypeLegend").style.opacity="0"
 document.getElementById("defaultlegend").style.opacity="0"
 document.getElementById("aidlegend").style.opacity="0"
 document.getElementById("earningslegend").style.opacity="0"
 document.getElementById("genderlegend").style.opacity="0"
 document.getElementById("racelegend").style.opacity="1"
+document.getElementById("aidchangelegend").style.opacity="0"
+document.getElementById("netcostlegend").style.opacity="0"
+document.getElementById("my_dataviz").style.opacity="0"
+document.getElementById("my_dataviz2").style.opacity="1"
+document.getElementById("my_dataviz3").style.opacity="0"
+document.getElementById("my_dataviz4").style.opacity="0"
+document.getElementById("my_dataviz5").style.opacity="0"
+document.getElementById("my_dataviz6").style.opacity="0"
 
 var colorScale = d3.scaleSequential(d3.interpolateGreys).domain([0,1])
 
 d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return colorScale(+d.UGDS_BLACK); })
 
 }
-
-
-$( ".state" ).change(function() {
-
-  var state = $("select.state option:selected").text()
-
-  d3.select("#bubblechart").selectAll("circle")
-    .filter(function(d) {
-      return state.indexOf(d["State abbreviation (HD2016)"]) > -1;
-   })
-    .style("opacity", .9)
-
-});
-
-
-$( ".type" ).change(function() {
-
-var type = $("select.type option:selected").text()
-if (type == "Public"){type = "1"} 
-else if (type == "Private Non-Profit"){type = "2"}
-else if (type == "Private For Profit"){type = "3"};
-
-console.log(type)
-
-d3.select("#bubblechart").selectAll("circle")
-  .filter(function(d) {
-    return d;
- })
-  .attr("r", 0)
-  .style("opacity", .1)
-
-d3.select("#bubblechart").selectAll("circle")
-  .filter(function(d) {
-    return type.indexOf(d["CONTROL"]) > -1;
- })
-  .attr("r", 3)
-  .style("opacity", .9)
-
-simulation.restart();
-
-});
-
 
 $( ".size" ).change(function() {
 
@@ -2306,6 +2373,7 @@ document.getElementById("earningslegend").style.opacity="0"
 document.getElementById("genderlegend").style.opacity="0"
 document.getElementById("racelegend").style.opacity="0"
 document.getElementById("aidchangelegend").style.opacity="0"
+document.getElementById("netcostlegend").style.opacity="0"
 
 var bubblecolor = $("select.color option:selected").text()
 if (bubblecolor == "Percent of Male Students"){bubblecolor = "UGDS_MEN"; colorScale = d3.scaleLinear().domain([0,1]).range(["pink", "blue"]); document.getElementById("genderlegend").style.opacity="1"}
@@ -2314,6 +2382,7 @@ else if (bubblecolor == "School Type"){bubblecolor = "CONTROL"; colorScale = d3.
 else if (bubblecolor == "Default Rate"){bubblecolor = "CDR3"; colorScale = d3.scaleSequential(d3.interpolateYlOrRd).domain([0,.3]); document.getElementById("defaultlegend").style.opacity="1"}
 else if (bubblecolor == "Median Earnings"){bubblecolor = "MD_EARN_WNE_P10"; colorScale = d3.scaleSequential(d3.interpolateGreens).domain([0,100000]); document.getElementById("earningslegend").style.opacity="1"}
 else if (bubblecolor == "Change in Grant Aid"){bubblecolor = "Change_in_grant_aid"; colorScale = d3.scaleSequential(d3.interpolatePiYG).domain([-10000,10000]); document.getElementById("aidchangelegend").style.opacity="1"}
+else if (bubblecolor == "Net Cost"){bubblecolor = "net cost"; colorScale = d3.scaleSequential(d3.interpolateReds).domain([0,50000]); document.getElementById("netcostlegend").style.opacity="1"}
 else if (bubblecolor == "None"){bubblecolor = "None"; d3.select("#bubblechart").selectAll("circle").attr("fill", "#65E5DC")};
 
 console.log(bubblecolor)
@@ -3202,6 +3271,70 @@ svg
     .style("text-anchor", "end")
     .text("axis title");
 
+
+    var key7 = d3.select("#netcostlegend")
+    .append("svg")
+    .attr("width", w+50)
+    .attr("height", h)
+    .attr("padding", "10");
+
+    key7.append("text").attr("x", 5).attr("y", 30).text("Net Cost").style("font-size", "15px").attr("alignment-baseline","left")
+
+    var netcostlegend= key7.append("defs")
+      .append("svg:linearGradient")
+      .attr("id", "gradient7")
+      .attr("x1", "0%")
+      .attr("y1", "100%")
+      .attr("x2", "100%")
+      .attr("y2", "100%")
+      .attr("spreadMethod", "pad");
+
+    netcostlegend.append("stop")
+      .attr("offset", "0%")
+      .attr("stop-color", "#FFF5F0")
+      .attr("stop-opacity", 1);
+
+    netcostlegend.append("stop")
+      .attr("offset", "33%")
+      .attr("stop-color", "#FCA082")
+      .attr("stop-opacity", 1);
+
+    netcostlegend.append("stop")
+      .attr("offset", "66%")
+      .attr("stop-color", "#E7362B")
+      .attr("stop-opacity", 1);
+
+    netcostlegend.append("stop")
+      .attr("offset", "100%")
+      .attr("stop-color", "#67000D")
+      .attr("stop-opacity", 1);
+
+    key7.append("rect")
+      .attr("width", w)
+      .attr("height", h - 90)
+      .attr("y",25)
+      .style("fill", "url(#gradient7)")
+      .attr("transform", "translate(5,10)");
+
+    var y7 = d3.scaleLinear()
+      .range([300, 0])
+      .domain([50000, 0]);
+
+    var yAxis7 = d3.axisBottom()
+      .scale(y7)
+      .ticks(5);
+
+    key7.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(5,45)")
+    .call(yAxis7)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("axis title");
+
     
     
     var mydataviz = d3.select("#my_dataviz")
@@ -3322,7 +3455,7 @@ sizeDivisor = 3000, nodePadding = 1;
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html(d["Institution Name"] + "<br/>"  + +d['Change_in_grant_aid'] + "<br/>"  + "Avg Grant Aid: " + +d['Average amount of federal  state  local or institutional grant aid awarded (SFA1516)'] + "<br/>" + "Avg Loans: " + +d["Average amount of federal student loans awarded to full-time first-time undergraduates (SFA1516)"] + "<br/>" + "Number of Undergrads: " + +d["UGDS"] + "<br/>"  + "Median Debt: " + +d["GRAD_DEBT_MDN_SUPP"]+ "<br/>"  + "Median Earnings: " + +d["MD_EARN_WNE_P10"]+ "<br/>"  + "Default Rate: " + +d["CDR3"]+ "<br/>"  + "Net Cost: " + +d["net cost"]+ "<br/>"  + "Proportion of men: " + +d["UGDS_MEN"]+ "<br/>"  + "Proportion of black students: " + +d["UGDS_BLACK"])	
+            div	.html(d["Institution Name"] + "<br/>"  + "Avg Grant Aid: " + +d['Average amount of federal  state  local or institutional grant aid awarded (SFA1516)'] + "<br/>" + "Avg Loans: " + +d["Average amount of federal student loans awarded to full-time first-time undergraduates (SFA1516)"] + "<br/>" + "Number of Undergrads: " + +d["UGDS"] + "<br/>"  + "Median Debt: " + +d["GRAD_DEBT_MDN_SUPP"]+ "<br/>"  + "Median Earnings: " + +d["MD_EARN_WNE_P10"]+ "<br/>"  + "Default Rate: " + +d["CDR3"]+ "<br/>"  + "Net Cost: " + +d["net cost"]+ "<br/>"  + "Proportion of men: " + +d["UGDS_MEN"]+ "<br/>"  + "Proportion of black students: " + +d["UGDS_BLACK"])	
                 .style("left", (d3.event.pageX + 10) + "px")		
                 .style("top", (d3.event.pageY - 80) + "px");	
             })					
