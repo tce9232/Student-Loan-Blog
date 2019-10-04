@@ -1254,6 +1254,32 @@ img {
                     </p>
                   </div>
 
+                  <div class="step" id = "step-bubble16">
+
+                    
+                    <div >
+                      <h3>Set Bubble Attributes</h3>
+                      <div >
+                          <label>Size:  &nbsp &nbsp </label>
+                          <select class="size">
+                            <option>Avg Debt</option><option>Net Cost</option><option>Median Earnings</option><option>Number of Undergrads</option><option>Average Aid Provided</option><option>Average Loans Taken Out</option><option>None</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div >
+                    <div >
+                        <label>Color:&nbsp</label>
+                        <select class="color">
+                          <option>Percent of Black Students</option><option>Percent of Male Students</option><option>School Type</option><option>Default Rate</option><option>Median Earnings</option><option>Change in Grant Aid</option><option>None</option>
+                        </select>
+                    </div>
+                  </div>
+                    <div>
+                        <h3>Find College by Name:</h3>
+                        <input type="text" placeholder="Enter player name..." />
+                    </div>
+                </div>
+
                   <div class="hidden-step" data-step="6" data-scrollama-index="4" style="height: 325px;"></div>
 
               </article>
@@ -1261,12 +1287,17 @@ img {
               <figure>
                 <svg id="SchoolTypeLegend" style="position: sticky; top: 0; height: 100px; width: 100%;  opacity: 0; "></svg>
                 <svg id="ClusterLegend" style="position: sticky; top: 0; height: 100px; width: 100%;  opacity: 0;"></svg>
-                <div id="legend1" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0; padding: 0px;"> </div>
-                <div id="legend2" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
-                <div id="legend3" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
-                <div id="legend4" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
-                <div id="legend5" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
+                <div id="defaultlegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0; padding: 0px;"> </div>
+                <div id="aidlegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
+                <div id="earningslegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
+                <div id="genderlegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
+                <div id="racelegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
+                <div id="aidchangelegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
 
+                <svg id="my_dataviz6" position=sticky top=10px id="my_dataviz6" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
+                <svg id="my_dataviz5" position=sticky top=10px id="my_dataviz5" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
+                <svg id="my_dataviz4" position=sticky top=10px id="my_dataviz4" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
+                <svg id="my_dataviz3" position=sticky top=10px id="my_dataviz3" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
                 <svg id="my_dataviz2" position=sticky top=10px id="my_dataviz2" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
                 <svg id="my_dataviz" position=sticky top=10px id="my_dataviz" style="top:130; height: 60px; width: 100%; padding: 0px; opacity: 0"></svg>
                 
@@ -1877,7 +1908,7 @@ d3.csv("Data/delinquency.csv", function (error, data) {
       simulation
       .alpha(.5)
       .force("forceX", d3.forceX().strength(.4).x(function(d){ return x(d.cluster) }))
-      .force("forceY", d3.forceY().strength(.2).y(height * .5))
+      .force("forceY", d3.forceY().strength(.25).y(height * .5))
       .force("charge", d3.forceManyBody().strength(-6))
       .force("collide", d3.forceCollide().strength(1).radius(function(d){ return 4; }).iterations(1))
 
@@ -2000,7 +2031,7 @@ function bubble8() {
   simulation.restart()
 
   d3.select("#bubblechart").selectAll("circle").attr("r", function(d){
-      +d.UGDS / 3500;
+      d.size = +d.UGDS / 3500;
       d.size < 2 ? d.radius = 2 : d.radius = d.size;
       return d.radius;
     })
@@ -2063,11 +2094,11 @@ function bubble10() {
 
   document.getElementById("ClusterLegend").style.opacity="0"
   document.getElementById("SchoolTypeLegend").style.opacity="1"
-  document.getElementById("legend1").style.opacity="0"
-  document.getElementById("legend2").style.opacity="0"
-  document.getElementById("legend3").style.opacity="0"
-  document.getElementById("legend4").style.opacity="0"
-  document.getElementById("legend5").style.opacity="0"
+  document.getElementById("defaultlegend").style.opacity="0"
+  document.getElementById("aidlegend").style.opacity="0"
+  document.getElementById("earningslegend").style.opacity="0"
+  document.getElementById("genderlegend").style.opacity="0"
+  document.getElementById("racelegend").style.opacity="0"
 
   var color = d3.scaleOrdinal(["#34B4B2", "#F19145","#F1D678"]);
 
@@ -2079,11 +2110,11 @@ function bubble10() {
 
     document.getElementById("ClusterLegend").style.opacity="0"
     document.getElementById("SchoolTypeLegend").style.opacity="0"
-    document.getElementById("legend1").style.opacity="1"
-    document.getElementById("legend2").style.opacity="0"
-    document.getElementById("legend3").style.opacity="0"
-    document.getElementById("legend4").style.opacity="0"
-    document.getElementById("legend5").style.opacity="0"
+    document.getElementById("defaultlegend").style.opacity="1"
+    document.getElementById("aidlegend").style.opacity="0"
+    document.getElementById("earningslegend").style.opacity="0"
+    document.getElementById("genderlegend").style.opacity="0"
+    document.getElementById("racelegend").style.opacity="0"
 
     var colorScale = d3.scaleSequential(d3.interpolateYlOrRd).domain([0,.3])
 
@@ -2093,11 +2124,11 @@ function bubble10() {
 
   function bubble12() { 
 
-    document.getElementById("legend1").style.opacity="0"
-    document.getElementById("legend2").style.opacity="1"
-    document.getElementById("legend3").style.opacity="0"
-    document.getElementById("legend4").style.opacity="0"
-    document.getElementById("legend5").style.opacity="0"
+    document.getElementById("defaultlegend").style.opacity="0"
+    document.getElementById("aidlegend").style.opacity="1"
+    document.getElementById("earningslegend").style.opacity="0"
+    document.getElementById("genderlegend").style.opacity="0"
+    document.getElementById("racelegend").style.opacity="0"
 
   var colorScale = d3.scaleSequential(d3.interpolateGreens).domain([0,40000])
 
@@ -2107,11 +2138,11 @@ function bubble10() {
 
 function bubble13() { 
 
-  document.getElementById("legend1").style.opacity="0"
-  document.getElementById("legend2").style.opacity="0"
-  document.getElementById("legend3").style.opacity="1"
-  document.getElementById("legend4").style.opacity="0"
-  document.getElementById("legend5").style.opacity="0"
+  document.getElementById("defaultlegend").style.opacity="0"
+  document.getElementById("aidlegend").style.opacity="0"
+  document.getElementById("earningslegend").style.opacity="1"
+  document.getElementById("genderlegend").style.opacity="0"
+  document.getElementById("racelegend").style.opacity="0"
 
 var colorScale = d3.scaleSequential(d3.interpolateGreens).domain([0,100000])
 
@@ -2121,11 +2152,11 @@ d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return 
 
 function bubble14() { 
 
-document.getElementById("legend1").style.opacity="0"
-document.getElementById("legend2").style.opacity="0"
-document.getElementById("legend3").style.opacity="0"
-document.getElementById("legend4").style.opacity="1"
-document.getElementById("legend5").style.opacity="0"
+document.getElementById("defaultlegend").style.opacity="0"
+document.getElementById("aidlegend").style.opacity="0"
+document.getElementById("earningslegend").style.opacity="0"
+document.getElementById("genderlegend").style.opacity="1"
+document.getElementById("racelegend").style.opacity="0"
 
 var colorScale = d3.scaleLinear().domain([0,1]).range(["pink", "blue"])
 
@@ -2135,17 +2166,160 @@ d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return 
 
 function bubble15() { 
 
-document.getElementById("legend1").style.opacity="0"
-document.getElementById("legend2").style.opacity="0"
-document.getElementById("legend3").style.opacity="0"
-document.getElementById("legend4").style.opacity="0"
-document.getElementById("legend5").style.opacity="1"
+document.getElementById("defaultlegend").style.opacity="0"
+document.getElementById("aidlegend").style.opacity="0"
+document.getElementById("earningslegend").style.opacity="0"
+document.getElementById("genderlegend").style.opacity="0"
+document.getElementById("racelegend").style.opacity="1"
 
 var colorScale = d3.scaleSequential(d3.interpolateGreys).domain([0,1])
 
 d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return colorScale(+d.UGDS_BLACK); })
 
 }
+
+
+$( ".state" ).change(function() {
+
+  var state = $("select.state option:selected").text()
+
+  d3.select("#bubblechart").selectAll("circle")
+    .filter(function(d) {
+      return state.indexOf(d["State abbreviation (HD2016)"]) > -1;
+   })
+    .style("opacity", .9)
+
+});
+
+
+$( ".type" ).change(function() {
+
+var type = $("select.type option:selected").text()
+if (type == "Public"){type = "1"} 
+else if (type == "Private Non-Profit"){type = "2"}
+else if (type == "Private For Profit"){type = "3"};
+
+console.log(type)
+
+d3.select("#bubblechart").selectAll("circle")
+  .filter(function(d) {
+    return d;
+ })
+  .attr("r", 0)
+  .style("opacity", .1)
+
+d3.select("#bubblechart").selectAll("circle")
+  .filter(function(d) {
+    return type.indexOf(d["CONTROL"]) > -1;
+ })
+  .attr("r", 3)
+  .style("opacity", .9)
+
+simulation.restart();
+
+});
+
+
+$( ".size" ).change(function() {
+
+document.getElementById("my_dataviz").style.opacity="0"
+document.getElementById("my_dataviz2").style.opacity="0"
+document.getElementById("my_dataviz3").style.opacity="0"
+document.getElementById("my_dataviz4").style.opacity="0"
+document.getElementById("my_dataviz5").style.opacity="0"
+document.getElementById("my_dataviz6").style.opacity="0"
+
+var bubblesize = $("select.size option:selected").text()
+if (bubblesize == "Number of Undergrads"){bubblesize = "UGDS"; factor = 3500; document.getElementById("my_dataviz").style.opacity="1"}
+else if (bubblesize == "Net Cost"){bubblesize = "net cost"; factor = 5000; document.getElementById("my_dataviz3").style.opacity="1"}
+else if (bubblesize == "Avg Debt"){bubblesize = "GRAD_DEBT_MDN_SUPP"; factor = 5000; document.getElementById("my_dataviz2").style.opacity="1"}
+else if (bubblesize == "Average Aid Provided"){bubblesize = "Average amount of federal  state  local or institutional grant aid awarded (SFA1516)"; factor = 4000; document.getElementById("my_dataviz5").style.opacity="1"}
+else if (bubblesize == "Average Loans Taken Out"){bubblesize = "Average amount of federal student loans awarded to full-time first-time undergraduates (SFA1516)"; factor = 1500; document.getElementById("my_dataviz6").style.opacity="1"}
+else if (bubblesize == "Median Earnings"){bubblesize = "MD_EARN_WNE_P10"; factor = 10000; document.getElementById("my_dataviz4").style.opacity="1"}
+else if (bubblesize == "None"){bubblesize = "None"};
+
+console.log(bubblesize)
+
+if (bubblesize == "None"){
+  d3.select("#bubblechart").selectAll("circle").attr("r", function(d){
+      return 4;
+    })
+
+  var x = d3.scaleOrdinal()
+    .domain([1, 2, 3, 4, 5])
+    .range([3*width/10, 4*width/10,5*width/10,6*width/10,7*width/10])
+
+  simulation
+    .alpha(.1)
+    .force("forceX", d3.forceX().strength(.4).x(function(d){ return x(d.cluster) }))
+    .force("forceY", d3.forceY().strength(.3).y(height * .5))
+    .force("charge", d3.forceManyBody().strength(-7))
+    .force("collide", d3.forceCollide().strength(1).radius(function(d){
+    return 4;
+  }).iterations(1))
+
+  simulation.restart()
+
+  setTimeout(function(){ simulation.stop(); }, 1500)
+}
+else {
+  d3.select("#bubblechart").selectAll("circle").attr("r", function(d){
+      d.size = +d[bubblesize] / factor;
+      console.log()
+      d.size < 2 ? d.radius = 2 : d.radius = d.size;
+      return d.radius;
+    })
+
+  var x = d3.scaleOrdinal()
+    .domain([1, 2, 3, 4, 5])
+    .range([3*width/10, 4*width/10,5*width/10,6*width/10,7*width/10])
+
+  simulation
+    .alpha(.1)
+    .force("forceX", d3.forceX().strength(.4).x(function(d){ return x(d.cluster) }))
+    .force("forceY", d3.forceY().strength(.3).y(height * .5))
+    .force("charge", d3.forceManyBody().strength(-7))
+    .force("collide", d3.forceCollide().strength(1).radius(function(d){
+    +d[bubblesize] / factor;
+    d.size < 2 ? d.radius = 2 : d.radius = d.size;
+    return d.radius;
+  }).iterations(1))
+
+  simulation.restart()
+
+  setTimeout(function(){ simulation.stop(); }, 1500)
+}
+
+});
+
+
+
+$( ".color" ).change(function() {
+
+var colorScale;
+
+document.getElementById("ClusterLegend").style.opacity="0"
+document.getElementById("SchoolTypeLegend").style.opacity="0"
+document.getElementById("defaultlegend").style.opacity="0"
+document.getElementById("aidlegend").style.opacity="0"
+document.getElementById("earningslegend").style.opacity="0"
+document.getElementById("genderlegend").style.opacity="0"
+document.getElementById("racelegend").style.opacity="0"
+document.getElementById("aidchangelegend").style.opacity="0"
+
+var bubblecolor = $("select.color option:selected").text()
+if (bubblecolor == "Percent of Male Students"){bubblecolor = "UGDS_MEN"; colorScale = d3.scaleLinear().domain([0,1]).range(["pink", "blue"]); document.getElementById("genderlegend").style.opacity="1"}
+else if (bubblecolor == "Percent of Black Students"){bubblecolor = "UGDS_BLACK"; colorScale = d3.scaleSequential(d3.interpolateGreys).domain([0,1]); document.getElementById("racelegend").style.opacity="1"}
+else if (bubblecolor == "School Type"){bubblecolor = "CONTROL"; colorScale = d3.scaleOrdinal(["#34B4B2", "#F19145","#F1D678"]); document.getElementById("SchoolTypeLegend").style.opacity="1"}
+else if (bubblecolor == "Default Rate"){bubblecolor = "CDR3"; colorScale = d3.scaleSequential(d3.interpolateYlOrRd).domain([0,.3]); document.getElementById("defaultlegend").style.opacity="1"}
+else if (bubblecolor == "Median Earnings"){bubblecolor = "MD_EARN_WNE_P10"; colorScale = d3.scaleSequential(d3.interpolateGreens).domain([0,100000]); document.getElementById("earningslegend").style.opacity="1"}
+else if (bubblecolor == "Change in Grant Aid"){bubblecolor = "Change_in_grant_aid"; colorScale = d3.scaleSequential(d3.interpolatePiYG).domain([-10000,10000]); document.getElementById("aidchangelegend").style.opacity="1"}
+else if (bubblecolor == "None"){bubblecolor = "None"; d3.select("#bubblechart").selectAll("circle").attr("fill", "#65E5DC")};
+
+console.log(bubblecolor)
+
+d3.select("#bubblechart").selectAll("circle").attr("fill", function(d) { return colorScale(+d[bubblecolor]); })
+});
 
 function hat(){
   document.getElementById("gradhat").style.opacity="1"
@@ -2398,10 +2572,242 @@ svg
 
 
 
+
+    // append the svg object to the body of the page
+var legendheight = 60
+var legendwidth = 150
+var svg = d3.select("#my_dataviz3")
+  .append("svg")
+    .attr("padding", "0")
+    .attr("width", legendwidth)
+    .attr("height", legendheight)
+
+// The scale you use for bubble size
+var size = d3.scaleSqrt()
+  .domain([1, 50000])  // What's in the data, let's say it is percentage
+  .range([1, 10])  // Size in pixel
+
+// Add legend: circles
+var valuesToShow = [1000, 40000]
+var xCircle = 60
+var xLabel = 80
+var yCircle = 50
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("circle")
+    .attr("cx", xCircle)
+    .attr("cy", function(d){ return yCircle - size(d) } )
+    .attr("r", function(d){ return size(d) })
+    .style("fill", "none")
+    .attr("stroke", "black")
+
+// Add legend: segments
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("line")
+    .attr('x1', function(d){ return xCircle + size(d) } )
+    .attr('x2', xLabel)
+    .attr('y1', function(d){ return yCircle - size(d) } )
+    .attr('y2', function(d){ return yCircle - size(d) } )
+    .attr('stroke', 'black')
+    .style('stroke-dasharray', ('2,2'))
+
+// Add legend: labels
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("text")
+    .attr('x', xLabel)
+    .attr('y', function(d){ return yCircle - size(d) } )
+    .text( function(d){ return d } )
+    .style("font-size", 10)
+    .attr('alignment-baseline', 'middle')
+
+
+// append the svg object to the body of the page
+var legendheight = 60
+var legendwidth = 150
+var svg = d3.select("#my_dataviz4")
+  .append("svg")
+    .attr("padding", "0")
+    .attr("width", legendwidth)
+    .attr("height", legendheight)
+
+// The scale you use for bubble size
+var size = d3.scaleSqrt()
+  .domain([1, 120000])  // What's in the data, let's say it is percentage
+  .range([1, 12])  // Size in pixel
+
+// Add legend: circles
+var valuesToShow = [1000, 100000]
+var xCircle = 60
+var xLabel = 80
+var yCircle = 50
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("circle")
+    .attr("cx", xCircle)
+    .attr("cy", function(d){ return yCircle - size(d) } )
+    .attr("r", function(d){ return size(d) })
+    .style("fill", "none")
+    .attr("stroke", "black")
+
+// Add legend: segments
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("line")
+    .attr('x1', function(d){ return xCircle + size(d) } )
+    .attr('x2', xLabel)
+    .attr('y1', function(d){ return yCircle - size(d) } )
+    .attr('y2', function(d){ return yCircle - size(d) } )
+    .attr('stroke', 'black')
+    .style('stroke-dasharray', ('2,2'))
+
+// Add legend: labels
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("text")
+    .attr('x', xLabel)
+    .attr('y', function(d){ return yCircle - size(d) } )
+    .text( function(d){ return d } )
+    .style("font-size", 10)
+    .attr('alignment-baseline', 'middle')
+
+
+
+
+    // append the svg object to the body of the page
+var legendheight = 60
+var legendwidth = 150
+var svg = d3.select("#my_dataviz5")
+  .append("svg")
+    .attr("padding", "0")
+    .attr("width", legendwidth)
+    .attr("height", legendheight)
+
+// The scale you use for bubble size
+var size = d3.scaleSqrt()
+  .domain([1, 50000])  // What's in the data, let's say it is percentage
+  .range([1, 12])  // Size in pixel
+
+// Add legend: circles
+var valuesToShow = [1000, 40000]
+var xCircle = 60
+var xLabel = 80
+var yCircle = 50
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("circle")
+    .attr("cx", xCircle)
+    .attr("cy", function(d){ return yCircle - size(d) } )
+    .attr("r", function(d){ return size(d) })
+    .style("fill", "none")
+    .attr("stroke", "black")
+
+// Add legend: segments
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("line")
+    .attr('x1', function(d){ return xCircle + size(d) } )
+    .attr('x2', xLabel)
+    .attr('y1', function(d){ return yCircle - size(d) } )
+    .attr('y2', function(d){ return yCircle - size(d) } )
+    .attr('stroke', 'black')
+    .style('stroke-dasharray', ('2,2'))
+
+// Add legend: labels
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("text")
+    .attr('x', xLabel)
+    .attr('y', function(d){ return yCircle - size(d) } )
+    .text( function(d){ return d } )
+    .style("font-size", 10)
+    .attr('alignment-baseline', 'middle')
+
+
+
+
+
+        // append the svg object to the body of the page
+var legendheight = 60
+var legendwidth = 150
+var svg = d3.select("#my_dataviz6")
+  .append("svg")
+    .attr("padding", "0")
+    .attr("width", legendwidth)
+    .attr("height", legendheight)
+
+// The scale you use for bubble size
+var size = d3.scaleSqrt()
+  .domain([1, 16000])  // What's in the data, let's say it is percentage
+  .range([1, 11])  // Size in pixel
+
+// Add legend: circles
+var valuesToShow = [1000, 15000]
+var xCircle = 60
+var xLabel = 80
+var yCircle = 50
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("circle")
+    .attr("cx", xCircle)
+    .attr("cy", function(d){ return yCircle - size(d) } )
+    .attr("r", function(d){ return size(d) })
+    .style("fill", "none")
+    .attr("stroke", "black")
+
+// Add legend: segments
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("line")
+    .attr('x1', function(d){ return xCircle + size(d) } )
+    .attr('x2', xLabel)
+    .attr('y1', function(d){ return yCircle - size(d) } )
+    .attr('y2', function(d){ return yCircle - size(d) } )
+    .attr('stroke', 'black')
+    .style('stroke-dasharray', ('2,2'))
+
+// Add legend: labels
+svg
+  .selectAll("legend")
+  .data(valuesToShow)
+  .enter()
+  .append("text")
+    .attr('x', xLabel)
+    .attr('y', function(d){ return yCircle - size(d) } )
+    .text( function(d){ return d } )
+    .style("font-size", 10)
+    .attr('alignment-baseline', 'middle')
+
+
+
+
     var w = 300, h = 100;
 
 
-    var key1 = d3.select("#legend1")
+    var key1 = d3.select("#defaultlegend")
     .append("svg")
     .attr("width", w+50)
     .attr("height", h)
@@ -2409,7 +2815,7 @@ svg
     ;
     key1.append("text").attr("x", 5).attr("y", 30).text("Default Rate Within Three Years of Graduation (%)").style("font-size", "15px").attr("alignment-baseline","left")
 
-    var legend1 = key1.append("defs")
+    var defaultlegend = key1.append("defs")
       .append("svg:linearGradient")
       .attr("id", "gradient1")
       .attr("x1", "0%")
@@ -2418,22 +2824,22 @@ svg
       .attr("y2", "100%")
       .attr("spreadMethod", "pad");
 
-    legend1.append("stop")
+    defaultlegend.append("stop")
       .attr("offset", "0%")
       .attr("stop-color", "#FFF8BC")
       .attr("stop-opacity", 1);
 
-    legend1.append("stop")
+    defaultlegend.append("stop")
       .attr("offset", "33%")
       .attr("stop-color", "#FEA547")
       .attr("stop-opacity", 1);
 
-    legend1.append("stop")
+    defaultlegend.append("stop")
       .attr("offset", "66%")
       .attr("stop-color", "#D61320")
       .attr("stop-opacity", 1);
 
-    legend1.append("stop")
+    defaultlegend.append("stop")
       .attr("offset", "100%")
       .attr("stop-color", "#800026")
       .attr("stop-opacity", 1);
@@ -2469,7 +2875,7 @@ svg
 
 
 
-      var key2 = d3.select("#legend2")
+      var key2 = d3.select("#aidlegend")
       .append("svg")
       .attr("width", w+50)
       .attr("height", h)
@@ -2478,7 +2884,7 @@ svg
 
       key2.append("text").attr("x", 5).attr("y", 30).text("Amount of Aid Awarded ($1,000s)").style("font-size", "15px").attr("alignment-baseline","left")
 
-    var legend2 = key2.append("defs")
+    var aidlegend = key2.append("defs")
       .append("svg:linearGradient")
       .attr("id", "gradient2")
       .attr("x1", "0%")
@@ -2487,22 +2893,22 @@ svg
       .attr("y2", "100%")
       .attr("spreadMethod", "pad");
 
-    legend2.append("stop")
+    aidlegend.append("stop")
       .attr("offset", "0%")
       .attr("stop-color", "#F7FCF5")
       .attr("stop-opacity", 1);
 
-    legend2.append("stop")
+    aidlegend.append("stop")
       .attr("offset", "33%")
       .attr("stop-color", "#93D290")
       .attr("stop-opacity", 1);
 
-    legend2.append("stop")
+    aidlegend.append("stop")
       .attr("offset", "66%")
       .attr("stop-color", "#147E3A")
       .attr("stop-opacity", 1);
 
-    legend2.append("stop")
+    aidlegend.append("stop")
       .attr("offset", "100%")
       .attr("stop-color", "#004400")
       .attr("stop-opacity", 1);
@@ -2537,7 +2943,7 @@ svg
 
 
       
-    var key3 = d3.select("#legend3")
+    var key3 = d3.select("#earningslegend")
       .append("svg")
       .attr("width", w+50)
       .attr("height", h)
@@ -2545,7 +2951,7 @@ svg
 
     key3.append("text").attr("x", 5).attr("y", 30).text("Median Earnings Post-Graduation ($1,000s)").style("font-size", "15px").attr("alignment-baseline","left")
 
-    var legend3 = key3.append("defs")
+    var earningslegend = key3.append("defs")
       .append("svg:linearGradient")
       .attr("id", "gradient3")
       .attr("x1", "0%")
@@ -2554,22 +2960,22 @@ svg
       .attr("y2", "100%")
       .attr("spreadMethod", "pad");
 
-    legend3.append("stop")
+    earningslegend.append("stop")
       .attr("offset", "0%")
       .attr("stop-color", "#F7FCF5")
       .attr("stop-opacity", 1);
 
-    legend3.append("stop")
+    earningslegend.append("stop")
       .attr("offset", "33%")
       .attr("stop-color", "#93D290")
       .attr("stop-opacity", 1);
 
-    legend3.append("stop")
+    earningslegend.append("stop")
       .attr("offset", "66%")
       .attr("stop-color", "#147E3A")
       .attr("stop-opacity", 1);
 
-    legend3.append("stop")
+    earningslegend.append("stop")
       .attr("offset", "100%")
       .attr("stop-color", "#004400")
       .attr("stop-opacity", 1);
@@ -2602,7 +3008,7 @@ svg
 
 
 
-    var key4 = d3.select("#legend4")
+    var key4 = d3.select("#genderlegend")
       .append("svg")
       .attr("width", w+50)
       .attr("height", h)
@@ -2610,7 +3016,7 @@ svg
 
     key4.append("text").attr("x", 5).attr("y", 30).text("Percent of Male Students").style("font-size", "15px").attr("alignment-baseline","left")
 
-    var legend4 = key4.append("defs")
+    var genderlegend = key4.append("defs")
       .append("svg:linearGradient")
       .attr("id", "gradient4")
       .attr("x1", "0%")
@@ -2619,22 +3025,22 @@ svg
       .attr("y2", "100%")
       .attr("spreadMethod", "pad");
 
-    legend4.append("stop")
+    genderlegend.append("stop")
       .attr("offset", "0%")
       .attr("stop-color", "#ffc0cb")
       .attr("stop-opacity", 1);
 
-    legend4.append("stop")
+    genderlegend.append("stop")
       .attr("offset", "33%")
       .attr("stop-color", "#a77ddd")
       .attr("stop-opacity", 1);
 
-    legend4.append("stop")
+    genderlegend.append("stop")
       .attr("offset", "66%")
       .attr("stop-color", "#533fee")
       .attr("stop-opacity", 1);
 
-    legend4.append("stop")
+    genderlegend.append("stop")
       .attr("offset", "100%")
       .attr("stop-color", "#0000ff")
       .attr("stop-opacity", 1);
@@ -2667,7 +3073,7 @@ svg
 
 
 
-    var key5 = d3.select("#legend5")
+    var key5 = d3.select("#racelegend")
     .append("svg")
     .attr("width", w+50)
     .attr("height", h)
@@ -2675,7 +3081,7 @@ svg
 
     key5.append("text").attr("x", 5).attr("y", 30).text("Percent of Black Students").style("font-size", "15px").attr("alignment-baseline","left")
 
-    var legend5= key5.append("defs")
+    var racelegend= key5.append("defs")
       .append("svg:linearGradient")
       .attr("id", "gradient5")
       .attr("x1", "0%")
@@ -2684,22 +3090,22 @@ svg
       .attr("y2", "100%")
       .attr("spreadMethod", "pad");
 
-    legend5.append("stop")
+    racelegend.append("stop")
       .attr("offset", "0%")
       .attr("stop-color", "#fafafa")
       .attr("stop-opacity", 1);
 
-    legend5.append("stop")
+    racelegend.append("stop")
       .attr("offset", "33%")
       .attr("stop-color", "#c4c4c4")
       .attr("stop-opacity", 1);
 
-    legend5.append("stop")
+    racelegend.append("stop")
       .attr("offset", "66%")
       .attr("stop-color", "#6d6d6d")
       .attr("stop-opacity", 1);
 
-    legend5.append("stop")
+    racelegend.append("stop")
       .attr("offset", "100%")
       .attr("stop-color", "#000000")
       .attr("stop-opacity", 1);
@@ -2730,6 +3136,72 @@ svg
     .style("text-anchor", "end")
     .text("axis title");
 
+
+
+
+    var key6 = d3.select("#aidchangelegend")
+    .append("svg")
+    .attr("width", w+50)
+    .attr("height", h)
+    .attr("padding", "10");
+
+    key6.append("text").attr("x", 5).attr("y", 30).text("Change in Grant Aid Per Student Since Recession").style("font-size", "15px").attr("alignment-baseline","left")
+
+    var aidchangelegend= key6.append("defs")
+      .append("svg:linearGradient")
+      .attr("id", "gradient6")
+      .attr("x1", "0%")
+      .attr("y1", "100%")
+      .attr("x2", "100%")
+      .attr("y2", "100%")
+      .attr("spreadMethod", "pad");
+
+    aidchangelegend.append("stop")
+      .attr("offset", "0%")
+      .attr("stop-color", "#B41670")
+      .attr("stop-opacity", 1);
+
+    aidchangelegend.append("stop")
+      .attr("offset", "33%")
+      .attr("stop-color", "#F3BCDC")
+      .attr("stop-opacity", 1);
+
+    aidchangelegend.append("stop")
+      .attr("offset", "66%")
+      .attr("stop-color", "#BFE394")
+      .attr("stop-opacity", 1);
+
+    aidchangelegend.append("stop")
+      .attr("offset", "100%")
+      .attr("stop-color", "#276419")
+      .attr("stop-opacity", 1);
+
+    key6.append("rect")
+      .attr("width", w)
+      .attr("height", h - 90)
+      .attr("y",25)
+      .style("fill", "url(#gradient6)")
+      .attr("transform", "translate(19,10)");
+
+    var y6 = d3.scaleLinear()
+      .range([300, 0])
+      .domain([10000, -10000]);
+
+    var yAxis6 = d3.axisBottom()
+      .scale(y6)
+      .ticks(5);
+
+    key6.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(19,45)")
+    .call(yAxis6)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("axis title");
+
     
     
     var mydataviz = d3.select("#my_dataviz")
@@ -2737,6 +3209,18 @@ svg
 
     var mydataviz2 = d3.select("#my_dataviz2")
     mydataviz2.append("text").attr("x", 20).attr("y", 15).text("Average Debt ($)").style("font-size", "15px").attr("alignment-baseline","middle")
+
+    var mydataviz3 = d3.select("#my_dataviz3")
+    mydataviz3.append("text").attr("x", 20).attr("y", 15).text("Net Cost").style("font-size", "15px").attr("alignment-baseline","middle")
+
+    var mydataviz4 = d3.select("#my_dataviz4")
+    mydataviz4.append("text").attr("x", 20).attr("y", 15).text("Median Earnings").style("font-size", "15px").attr("alignment-baseline","middle")
+
+    var mydataviz5 = d3.select("#my_dataviz5")
+    mydataviz5.append("text").attr("x", 20).attr("y", 15).text("Average Aid Provided").style("font-size", "15px").attr("alignment-baseline","middle")
+
+    var mydataviz6 = d3.select("#my_dataviz6")
+    mydataviz6.append("text").attr("x", 20).attr("y", 15).text("Average Loans Taken Out").style("font-size", "15px").attr("alignment-baseline","middle")
 
     // select the svg area
     var SchoolTypesvg = d3.select("#SchoolTypeLegend")
@@ -2838,7 +3322,7 @@ sizeDivisor = 3000, nodePadding = 1;
             div.transition()		
                 .duration(200)		
                 .style("opacity", .9);		
-            div	.html(d["Institution Name"] + "<br/>"  + "Avg Grant Aid: " + +d['Average amount of federal  state  local or institutional grant aid awarded (SFA1516)'] + "<br/>" + "Avg Loans: " + +d["Average amount of federal student loans awarded to full-time first-time undergraduates (SFA1516)"] + "<br/>" + "Number of Undergrads: " + +d["UGDS"] + "<br/>"  + "Median Debt: " + +d["GRAD_DEBT_MDN_SUPP"]+ "<br/>"  + "Median Earnings: " + +d["MD_EARN_WNE_P10"]+ "<br/>"  + "Default Rate: " + +d["CDR3"]+ "<br/>"  + "Net Cost: " + +d["net cost"]+ "<br/>"  + "Proportion of men: " + +d["UGDS_MEN"]+ "<br/>"  + "Proportion of black students: " + +d["UGDS_BLACK"])	
+            div	.html(d["Institution Name"] + "<br/>"  + +d['Change_in_grant_aid'] + "<br/>"  + "Avg Grant Aid: " + +d['Average amount of federal  state  local or institutional grant aid awarded (SFA1516)'] + "<br/>" + "Avg Loans: " + +d["Average amount of federal student loans awarded to full-time first-time undergraduates (SFA1516)"] + "<br/>" + "Number of Undergrads: " + +d["UGDS"] + "<br/>"  + "Median Debt: " + +d["GRAD_DEBT_MDN_SUPP"]+ "<br/>"  + "Median Earnings: " + +d["MD_EARN_WNE_P10"]+ "<br/>"  + "Default Rate: " + +d["CDR3"]+ "<br/>"  + "Net Cost: " + +d["net cost"]+ "<br/>"  + "Proportion of men: " + +d["UGDS_MEN"]+ "<br/>"  + "Proportion of black students: " + +d["UGDS_BLACK"])	
                 .style("left", (d3.event.pageX + 10) + "px")		
                 .style("top", (d3.event.pageY - 80) + "px");	
             })					
@@ -2854,7 +3338,7 @@ sizeDivisor = 3000, nodePadding = 1;
           
     });
 
-    setTimeout(function(){ simulation.stop(); }, 8000)
+    setTimeout(function(){ simulation.stop(); }, 6000)
 
     // function dragstarted(d) {
     //   if (!d3.event.active) simulation.alphaTarget(.03).restart();
