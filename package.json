@@ -15,8 +15,9 @@
   "bugs": {
     "url": "https://github.com/tce9232/Student-Loan-Blog/issues"
   },
-  "homepage": "https://github.com/tce9232/Student-Loan-Blog#readme"
-},
-"engines": {
+  "homepage": "https://github.com/tce9232/Student-Loan-Blog#readme",
+  "engines": {
   "node": "10.16.3"
-},
+  }
+}
+
