@@ -17,6 +17,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
   <script src="https://kit.fontawesome.com/3702056331.js"></script>
   <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+  <script src="tsne.html"></script>
   <style>
 
     @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600');
@@ -1110,7 +1111,7 @@ img {
             <br/>
             <br/>
 
-            <img src="Photos/ElbowPlot.png" style="max-width: 70%;">
+            <img src="Photos/ElbowPlot.png" style="max-width: 70%; margin-bottom: 100px">
   
           </p>
 
@@ -1150,14 +1151,73 @@ img {
                         make up for that with pretty high earnings, and fairly low cost and default rates. Examples of these schools 
                         are Purdue University, the University of Wisconsin, and Ohio State University. We'll just call these "large public colleges."
                       </p>
-              
+                      <p class="prose">
+                          This heatmap is useful for seeing the general traits of the clusters, but using some more advanced analytical techniques, we 
+                          can look at where each individual school falls in relation to each other.
+                      </p>
+  
+
+                      
+                      
         
                 </article>
+                
+                
+                    
         
                 <figure>
                     <img src="Photos/ClusterPlot.png" style="max-width: 70%; top: 10%">
                 </figure>
+
+                
               </section>
+
+
+
+
+              <section class="img" id="scrollyleft">
+
+                  <article style="max-width: 30%;">
+                      <p class="prose">
+                          t-Distributed Stochastic Neighbor Embedding or "t-SNE" is a dimensionality reduction technique
+                          which allows users to see high-dimensional datasets in a dimension better suited for data visualization.        
+                        </p>
+                      <p class="prose">
+                          Here, we plotted every college in the United States and the seven attributes associated with them from 
+                          the K-means clustering on a two-dimensional space. Each school is colored by the cluster it's associated with. 
+                          Generally, any schools in the proximity of each other on this plot are more similar than those that are farther away.
+                          Although the schools from each cluster are generally grouped together, you can see some spaces where schools from one 
+                          cluster overlap with those from another. A way to interpret those is that those schools share some common characteristics 
+                          of both clusters, but ultimately came closer to the cluster they were assigned in the seven dimensional space. 
+                        </p>
+                        <p class="prose"> 
+                          For example, if you hover your mouse over the elite schools in the top right, you notice a bunch of the schools 
+                          farthest away from everything else are ultra-elite schools like Princeton, Harvard and MIT. This is because these schools 
+                          share very few characteristics with anything else on the plot. But there are also two points 
+                          in the elite universities cluster that are grouped together with mostly schools from the large public schools cluster. 
+                          These are the University of Virginia and the University of New Hampshire. These schools share a lot of similar attributes 
+                          with schools in the large public school cluster, but ultimately ended up closer to the elite universities when taking 
+                          all seven dimensions into account.
+                        </p>
+                        <p class="prose"> 
+                          You can explore the graph on your own by hovering over the points to display their attributes. If the tooltip gets in the way, you 
+                          can click your mouse to make it temporarily disappear. Once you hover over one of the points, all of the points from the 
+                          other cluster will fade to grey to give you a better picture of where that cluster stands in the greater scheme. If you want to 
+                          take a closer look a a section of the map, you can zoom in by scrolling your mouse and pan around the screen by clicking and 
+                          dragging.
+                        </p>
+                            
+          
+                  </article>
+                
+                  <figure top:0>
+                      <svg id="tsneClusterLegend" style="position: sticky; top: 0; height: 80px; width: 100%; padding: 50px 0px 0px 55px;  opacity: 1;"></svg>
+                      <div id="tsne" style="position: sticky; top: 20px;"></div>
+                      
+                  </figure>
+  
+                </section>
+             
         
              
         </body>
@@ -2057,7 +2117,7 @@ document.getElementById("my_dataviz6").style.opacity="0"
 function bubble8() {
 
 
-document.getElementById("ClusterLegend").style.opacity="0"
+document.getElementById("ClusterLegend").style.opacity="1"
 document.getElementById("SchoolTypeLegend").style.opacity="0"
 document.getElementById("defaultlegend").style.opacity="0"
 document.getElementById("aidlegend").style.opacity="0"
@@ -3384,6 +3444,21 @@ svg
     Clustersvg.append("text").attr("x", 30).attr("y", 58).text("Cluster 4 - High Risk Schools").style("font-size", "15px").attr("alignment-baseline","middle")
     Clustersvg.append("text").attr("x", 30).attr("y", 73).text("Cluster 5 - Large Public Colleges").style("font-size", "15px").attr("alignment-baseline","middle")
 
+    // select the svg area
+    var tsneClustersvg = d3.select("#tsneClusterLegend")
+
+    // Handmade legend
+    tsneClustersvg.append("rect").attr("x",18).attr("y",6).attr("width", 10).attr("height", 10).style("fill", "#8da0cb")
+    tsneClustersvg.append("rect").attr("x",18).attr("y",21).attr("width", 10).attr("height", 10).style("fill", "#a6d854")
+    tsneClustersvg.append("rect").attr("x",18).attr("y",36).attr("width", 10).attr("height", 10).style("fill", "#fc8d62")
+    tsneClustersvg.append("rect").attr("x",18).attr("y",51).attr("width", 10).attr("height", 10).style("fill", "#e78ac3")
+    tsneClustersvg.append("rect").attr("x",18).attr("y",66).attr("width", 10).attr("height", 10).style("fill", "#66c2a5")
+    tsneClustersvg.append("text").attr("x", 30).attr("y", 13).text("Cluster 1 - Trade Schools").style("font-size", "15px").attr("alignment-baseline","middle")
+    tsneClustersvg.append("text").attr("x", 30).attr("y", 28).text("Cluster 2 - Mid-level Regional Schools").style("font-size", "15px").attr("alignment-baseline","middle")
+    tsneClustersvg.append("text").attr("x", 30).attr("y", 43).text("Cluster 3 - Elite Universities").style("font-size", "15px").attr("alignment-baseline","middle")
+    tsneClustersvg.append("text").attr("x", 30).attr("y", 58).text("Cluster 4 - High Risk Schools").style("font-size", "15px").attr("alignment-baseline","middle")
+    tsneClustersvg.append("text").attr("x", 30).attr("y", 73).text("Cluster 5 - Large Public Colleges").style("font-size", "15px").attr("alignment-baseline","middle")
+
 
     // select the svg area
     var flcsvg = d3.select("#flcLegend")
@@ -3500,8 +3575,14 @@ sizeDivisor = 3000, nodePadding = 1;
       return d;
     }
 
+
+    
+    $("#tsne").load("tsne.html");
+
 		// kick things off
 		init();
+
+
 
   </script>
 
