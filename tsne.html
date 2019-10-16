@@ -117,7 +117,7 @@ d3.csv("Data/CollegeClusters.csv", function(data) {
     selected_cluster = d.cluster
 
 
-    d3.selectAll("circle")
+    d3.select("#tsne_dataviz").selectAll("circle")
       .style("fill", "lightgrey")
       .attr("r", 3)
 
