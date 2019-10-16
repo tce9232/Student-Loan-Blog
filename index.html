@@ -1226,7 +1226,7 @@ img {
           <section class="img" id="bubblescrolly">
               <article>
 
-                <div class="step" id = "step-bubble1" data-step="11" data-scrollama-index="0" style="height: 546px; width: 300px;">
+                <div class="step" id = "step-bubble1" data-step="11" data-scrollama-index="0" style="height: 546px; width: 300px; margin-top: 250px">
                   <p>Now that we know a bit about these clusters, let’s explore them more in-depth in a less static way.
                   </p>
                 </div>
@@ -2368,7 +2368,6 @@ else if (bubblesize == "Average Loans Taken Out"){bubblesize = "Average amount o
 else if (bubblesize == "Median Earnings"){bubblesize = "MD_EARN_WNE_P10"; factor = 10000; document.getElementById("my_dataviz4").style.opacity="1"}
 else if (bubblesize == "None"){bubblesize = "None"};
 
-console.log(bubblesize)
 
 if (bubblesize == "None"){
   d3.select("#bubblechart").selectAll("circle").attr("r", function(d){
@@ -2383,8 +2382,8 @@ if (bubblesize == "None"){
     .alpha(.1)
     .force("forceX", d3.forceX().strength(.4).x(function(d){ return x(d.cluster) }))
     .force("forceY", d3.forceY().strength(.3).y(height * .5))
-    .force("charge", d3.forceManyBody().strength(-7))
-    .force("collide", d3.forceCollide().strength(1).radius(function(d){
+    .force("charge", d3.forceManyBody().strength(-9))
+    .force("collide", d3.forceCollide().strength(.8).radius(function(d){
     return 4;
   }).iterations(1))
 
@@ -2408,8 +2407,8 @@ else {
     .alpha(.1)
     .force("forceX", d3.forceX().strength(.4).x(function(d){ return x(d.cluster) }))
     .force("forceY", d3.forceY().strength(.3).y(height * .5))
-    .force("charge", d3.forceManyBody().strength(-7))
-    .force("collide", d3.forceCollide().strength(1).radius(function(d){
+    .force("charge", d3.forceManyBody().strength(-9))
+    .force("collide", d3.forceCollide().strength(.8).radius(function(d){
     +d[bubblesize] / factor;
     d.size < 2 ? d.radius = 2 : d.radius = d.size;
     return d.radius;
