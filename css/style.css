@@ -392,7 +392,7 @@
   
   #intro{
   
-      background:url(Photos/classroom.jpg) 50% 0 no-repeat fixed;
+      background:url(../Photos/classroom.jpg) 50% 0 no-repeat fixed;
       color: white;
       height: 1500px;
       margin: 0 auto;
@@ -403,7 +403,7 @@
   
   #second{
   
-      background: url(Photos/grads.jpeg) 50% 0 no-repeat fixed;
+      background: url(../Photos/grads.jpeg) 50% 0 no-repeat fixed;
       color: white;
       height: 1800px;
       margin: 0 auto;
@@ -414,7 +414,7 @@
   
   #third{
   
-      background: url(Photos/woman.jpg) 50% 0 no-repeat fixed;
+      background: url(../Photos/woman.jpg) 50% 0 no-repeat fixed;
       color: white;
       height: 200VH;
       padding: 100px 0 0 0;	
@@ -424,7 +424,7 @@
   
   #fourth{
   
-  background: url(Photos/women.jpg) 50% 0 no-repeat fixed;
+  background: url(../Photos/women.jpg) 50% 0 no-repeat fixed;
   color: white;
   height: 250VH;
   padding: 100px 0 0 0;	
@@ -434,7 +434,7 @@
   
   #mountain{
   
-      background: "Photos/MoneyMountain.png" 50% 0 no-repeat fixed;
+      background: "../Photos/MoneyMountain.png" 50% 0 no-repeat fixed;
       color: white;
       height: 650px;
       padding: 100px 0 0 0;	
