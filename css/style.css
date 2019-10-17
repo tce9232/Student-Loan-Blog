@@ -1,0 +1,509 @@
+*{
+
+    margin:0;
+    padding:0;
+  
+  }
+  
+  html, body{
+  
+    height: 100%;
+    padding: 10;
+    scroll-behavior: smooth;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  
+  }
+  
+  svg{
+  
+    padding: 20px;
+    position: sticky;
+    top: 0;
+  
+  }
+  
+  text{
+  
+    font-size: 12px;
+    position: center;
+  
+  }
+  
+  path {
+    opacity: 1;
+    fill: none;
+    stroke-width: 1px;
+    stroke-dasharray: 1600;
+  
+  }
+  
+  .path-tuition {
+    opacity: 1;
+  }
+  
+  .path-animate {
+  
+    fill: none;
+    stroke-dasharray: 1600;
+    animation: dash 2s linear 1;
+    stroke-width: 2;
+  
+  }
+  
+    @-webkit-keyframes dash {
+  
+      from {
+        stroke-dashoffset: 1600;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  
+  .axis path, .axis line {
+  
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  
+  }
+  
+  h3 {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      margin-bottom: 20px;
+      margin-top: 50px;
+  }
+  
+  .prose {
+  
+    max-width: 40rem;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  
+  }
+  
+  .title {
+  
+    max-width: 60rem;
+    margin: 0 auto 1rem auto;
+    padding-top: 0;
+    font-weight: 700;
+    text-align: center;
+    font-size: 60px;
+    line-height: 1.5;
+    color: #3b3b3b;
+  
+  }
+  
+  .subtitle {
+  
+    font-weight: 400;
+    max-width: 60rem;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    color: #6e6e6e;
+    font-size: 24px;
+  
+  }
+  
+  .byline {
+  
+    max-width: 40rem;
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+  
+  }
+  
+  .debt_container {
+  
+    position: sticky;
+    top: 25%;
+    bottom: auto;
+    transform: translate3d(0,0,0);
+  
+  }
+  
+  .picture_is_visible {
+  
+    opacity: 1;
+    transition: .3s;
+    max-width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    position: absolute
+  
+  }
+  
+  .picture_is_not_visible {
+  
+    opacity: 0;
+    transition: .3s;
+    max-width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    position: absolute;
+  
+  }
+  
+  .node circle {
+    stroke: #3a403d;
+    stroke-width: .5px;
+  }
+  
+  .scroll-text {
+  
+    position: relative;
+    max-width: 30rem;
+    margin: 0 auto;
+    padding: 1rem;
+    z-index: 1;
+  
+  }
+  
+  .step {
+    
+  }
+  
+  .hidden-step {
+  
+    opacity: 0;
+  
+  }
+  
+  .step:last-child {
+  
+    margin-bottom: 0;
+  
+  }
+  
+  .step.boxed p {
+  
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: #fff;
+    border: 1px solid #c9c9c9;
+    -webkit-box-shadow: 0 1rem 2rem rgba(201,201,201,.3);
+    box-shadow: 0 1rem 2rem rgba(201,201,201,.3);
+    padding: 2rem 1rem;
+    text-shadow: 0 0 black;
+    box-shadow: 0 0 5px black;
+  
+  }
+  
+  .step p {
+  
+    margin-bottom: 150px;
+    font-family: "TiemposTextWeb-Regular","Georgia";
+    font-size: 16px;
+    line-height: 23px;
+    color: #767678;
+  }
+  
+  #scrolly {
+  
+    position: relative;
+    background-color: #ffffff;
+    padding: 1rem;
+  
+  }
+  
+  #emojiscrolly {
+  
+  position: relative;
+  background-color: #ffffff;
+  padding: 1rem;
+  
+  }
+  
+  #firstscrolly {
+  
+    position: relative;
+    background-color: #ffffff;
+  
+  }
+  
+  #scrollyleft {
+  
+    position: relative;
+    background-color: #ffffff;
+    padding: 1rem;
+    display: flex;
+  
+  }
+  
+  #bubblescrolly {
+  
+    position: relative;
+    background-color: #ffffff;
+    padding: 1rem;
+    display: flex;
+  
+  }
+  
+  #hatscrolly {
+  
+  position: relative;
+  background-color: #ffffff;
+  padding: 1rem;
+  display: flex;
+  
+  }
+  
+  div.tooltip {	
+    position: absolute;			
+    text-align: left;			
+    width: 200px;					
+    height: 150px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+  }
+  
+  article {
+  
+    position: relative;
+    padding: 0 1rem;
+    max-width: 20rem;
+  
+  }
+  
+  .centerpositioned {
+  
+    position: relative;
+    padding: 0 1rem;
+    max-width: 20rem;
+    margin: 0 auto;
+  
+  }
+  
+  figure {
+  
+    position: sticky;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  
+  }
+  
+  figure p {
+  
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    font-weight: 900;
+    color: #fff;
+  
+  }
+  
+   /*
+  Plugin: jQuery Parallax
+  Version 1.1.3
+  Author: Ian Lunn
+  Twitter: @IanLunn
+  Author URL: https://www.ianlunn.co.uk/
+  Plugin URL: https://www.ianlunn.co.uk/plugins/jquery-parallax/
+  
+  License: http://creativecommons.org/licenses/by-sa/3.0/ (Attribution Share Alike). Please attribute work to Ian Lunn simply by leaving these comments in the source code or if you'd prefer, place a link on your website to https://www.ianlunn.co.uk/.
+  */
+  
+  @charset "utf-8";
+  
+  /* CSS Document */
+  
+  p{
+  
+      margin: 0 0 20px 0;	
+  
+  }
+  
+  p, ul{
+  
+      margin-bottom: 150px;
+    font-family: "TiemposTextWeb-Regular","Georgia";
+    font-size: 16px;
+    line-height: 23px;
+    color: #767678;
+  
+  }
+  
+  .float-left{
+  
+      float: left;	
+      margin: 0 0 0 20px;
+  
+  }
+  
+  .float-right{
+  
+      float: right;
+      margin: 0 20px 0 0;
+  
+  }
+  
+  .center{
+  
+      font-size: 2.5em;
+      padding: 80px 0 0 0;
+      text-align: center;
+  
+  }
+  
+  #nav{
+  
+      list-style: none;
+      position: fixed;
+      right: 20px;
+  
+  }
+  
+  #nav li{
+  
+      margin: 0 0 15px 0;	
+  
+  }
+  
+  #intro{
+  
+      background:url(Photos/classroom.jpg) 50% 0 no-repeat fixed;
+      color: white;
+      height: 1500px;
+      margin: 0 auto;
+      padding: 0;
+    background-size: cover;
+  
+  }
+  
+  #second{
+  
+      background: url(Photos/grads.jpeg) 50% 0 no-repeat fixed;
+      color: white;
+      height: 1800px;
+      margin: 0 auto;
+      overflow: hidden;
+    background-size: cover;
+  
+  }
+  
+  #third{
+  
+      background: url(Photos/woman.jpg) 50% 0 no-repeat fixed;
+      color: white;
+      height: 200VH;
+      padding: 100px 0 0 0;	
+    background-size: cover;
+  
+  }
+  
+  #fourth{
+  
+  background: url(Photos/women.jpg) 50% 0 no-repeat fixed;
+  color: white;
+  height: 250VH;
+  padding: 100px 0 0 0;	
+  background-size: cover;
+  
+  }
+  
+  #mountain{
+  
+      background: "Photos/MoneyMountain.png" 50% 0 no-repeat fixed;
+      color: white;
+      height: 650px;
+      padding: 100px 0 0 0;	
+  
+  }
+  
+  .story{
+  
+      margin: 0 auto;
+      min-width: 980px;
+      overflow: auto;
+      width: 980px;
+  
+  }
+  
+  .story .float-left, .story .float-right{
+  
+      padding: 100px 0 0 0;
+      position: relative;
+      width: 350px;	
+  
+  }
+  
+  .quote {
+  
+    position: center;
+    display: block;
+    left: 50%;
+    top: 100px;
+    margin-top: 400px;
+    margin-left: 0px;
+    margin-bottom: 300px;
+    background: transparent;
+  
+  }
+  
+  img {
+  
+    display: block;
+    object-fit: cover;
+    position: sticky;
+    top: 0;
+    border: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  
+  }
+  
+  .path-hat {
+    stroke-dasharray: 1000;
+    animation: draw 5s;
+  }
+  
+  
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 2000
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  .select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }

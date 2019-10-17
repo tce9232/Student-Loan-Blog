@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
 
-
-<head>
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
-
-
-
-<style>
-div.tooltip {	
-  position: absolute;			
-  text-align: left;			
-  width: 200px;					
-  height: 150px;					
-  padding: 2px;				
-  font: 12px sans-serif;		
-  background: lightsteelblue;	
-  border: 0px;		
-  border-radius: 8px;			
-  pointer-events: none;			
-}
-</style>
-
-</head>
-
-
-
-<!-- Create a div where the graph will take place -->
-<div id="tsne_dataviz"></div>
-
-
-
-<script>
 
 // set the dimensions and tsnemargins of the graph
 var tsnemargin = {top: 10, right: 10, bottom: 30, left: 20},
@@ -188,5 +154,3 @@ points = points
                 });
 
 })
-
-</script>
