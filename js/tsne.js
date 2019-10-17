@@ -13,7 +13,7 @@ var div = d3.select("body").append("div")
 
 
 // append the svg object to the body of the page
-var plot = d3.select("#tsne_dataviz")
+var plot = d3.select("#tsne")
   .append("svg")
     .attr("width", tsnewidth + tsnemargin.left + tsnemargin.right)
     .attr("height", tsneheight + tsnemargin.top + tsnemargin.bottom)
@@ -151,8 +151,6 @@ points = points
                       
 
                 });
-
-
 
 })
 
