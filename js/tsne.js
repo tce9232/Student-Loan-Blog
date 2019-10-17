@@ -29,7 +29,7 @@ plot.append("defs").append("clipPath")
     .attr("height", tsneheight);
 
 //Read the data
-d3.csv("/../Data/CollegeClusters.csv", function(data) {
+d3.csv("./Data/CollegeClusters.csv", function(data) {
 
   // Add X axis
   var xScale = d3.scaleLinear()
