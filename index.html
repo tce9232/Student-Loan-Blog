@@ -558,12 +558,11 @@ img {
         <a href="https://www.studentdebtrelief.us/student-loans/student-debt-statistics/" target="_blank">71%</a> of all university graduates nationwide: student loans.
       <br/>
       <br/>
-        Student loans seem like a concept that is as old as time itself. It's not difficult to 
-        picture Aristotle logging onto Fedloan to complete his FAFSA, or Confucius checking NerdWallet
-        to a find a list of the best private lenders, but student lending is a rather novel concept.
+        Student loans seem like a concept that is as old as time itself, but student lending is a rather novel concept.
         Early in United States history, colleges and universities either did not charge tuition or had very low
-        rates. At that time, the biggest cost of getting an advanced degree was moving and living expenses. In turn, this led to 
-        colleges mostly made up of students from wealthy families.
+        rates. At that time, the biggest cost of getting an advanced degree was moving and living expenses. Despite the modest expense, 
+        the cost of moving away from home was still prohibitive for many working class families. This led to 
+        colleges mostly made up of students with generational wealth.
       <br/>
       <br/>
         This all changed in the 1920s with the roaring economy. Suddenly, the cost of college was within
@@ -576,7 +575,7 @@ img {
         government administered student loans, and helped establish many of the financial aid programs we know today.
       </p>
       <img src="Photos/FDR.jpg" alt= "alternative text" style="width: 40%; top:unset">
-      <div style="font-size:80%; text-align:center;">FDR signing the G.I. Bill into law in 1944</div> 
+      <div style="font-size:80%; text-align:center; opacity: .75">FDR signing the G.I. Bill into law in 1944</div> 
     
     <p class="prose">
         These government programs caused attendances at colleges to skyrocket. In the decade after the passing of
@@ -601,7 +600,7 @@ img {
         
     </body>
 
-    <section id="firstscrolly">
+    <section id="firstscrolly" style="margin-bottom: 200px">
       <div>
         <img src="Photos/MountainRoad.jpg" id="Mountain Road">
         <img src="Photos/MoneyMountain.png" id="Money Mountain"> 
@@ -783,7 +782,7 @@ img {
           <br>
         </p>
           <img src="Photos/olin.jpg" alt= "alternative text" style="width: 40%; top:unset">
-          <div style="font-size:80%; text-align:center;">John M. Olin inside the Olin Business School at Washington University in St Louis</div> 
+          <div style="font-size:80%; text-align:center; opacity: .75">John M. Olin inside the Olin Business School at Washington University in St Louis</div> 
         
         <p class="prose">
           Yet another way for colleges to bring in cash is through investing.
@@ -1087,31 +1086,35 @@ img {
       </body>
 
       <body>
-          <p class="prose" style="margin-top: 100px;">
+          <p class="prose" style="margin-top: 100px; margin-bottom: 100px">
             There are thousands of colleges in the United States. Are they all contributing to the debt 
             crisis at the same rate? What traits do these colleges have that distinguish themselves from each
             other in terms of debt? These were the questions I sought to answer in my final analysis. 
             <br/>
             <br/>
-            First, I created a dataset using the <a href="https://collegescorecard.ed.gov/data/documentation/" target="_blank">College Scorecard</a>, which is a tool the US government created
+            First, I created a dataset using the <a href="https://collegescorecard.ed.gov/data/documentation/" target="_blank">College Scorecard</a>, which is a tool the US government made
             to help students compare colleges in key metrics. The metrics I decided would most apply to 
             this study were average grant aid awarded, average loans awarded, number of undergraduate
             students, median debt after graduation, median earnings 10 years after graduation, the default
             rate for students within three years of graduation, and the average net cost of the school (sticker price minus average aid).
             <br/>
             <br/>
-            Using the K-means clustering method in Python, I created an elbow plot to decide how many clusters to 
-            add to my analysis. The y-axis here tells us the sum of squared distances between the individual points and the 
-            center of the clusters they're assigned to. The x-axis tells us how many clusters were created. Adding additional 
+            To properly group these schools, I used an unsupervised machine learning algorithm called "K-means." This method takes data with many
+            dimensions like these schools, and assigns them to k different clusters by minimizing the distance between these schools and the center 
+            of the cluster in which they're assigned. The first step in this analysis is to create an elbow plot to decide how many clusters to 
+            use.
+            <br/>
+            <br/>
+            <img src="Photos/ElbowPlot.png" style="position:inherit; max-width: 70%;">
+            <br/>
+            The y-axis here tells us the sum of squared distances between the individual points and the 
+            center of their clusters. The x-axis tells us how many clusters were created. Adding additional 
             clusters will always decrease the sum of squared distances, but adding too many clusters makes them less practical or 
             intuitive, and could potentially overfit the data. Choosing the number of clusters is more art than 
             science, but five clusters for this dataset seems to be the point were the benefit 
-            from adding additional clusters seems to become marginal. Five clusters also gives us fairly even cluster
-            sizes, which is ideal.
-            <br/>
-            <br/>
+            from adding additional clusters seems to become marginal.
 
-            <img src="Photos/ElbowPlot.png" style="max-width: 70%; margin-bottom: 100px">
+            
   
           </p>
 
@@ -1119,7 +1122,8 @@ img {
 
                 <article style="max-width: 30%;">
                     <p class="prose">
-                        Now let's take a look at the cluster heat map, and see if we can interpret what these clusters
+                        As indicated at the top of this cluster heat map, five clusters also gives us fairly even cluster
+                        sizes, which is ideal. Now let's take a look to see if we can interpret what these clusters
                         represent.             
                       </p>
                     <p class="prose">
@@ -1177,24 +1181,26 @@ img {
 
               <section class="img" id="scrollyleft">
 
-                  <article style="max-width: 30%;">
+                  <article style="max-width: 30%; margin-top: 100px">
                       <p class="prose">
                           t-Distributed Stochastic Neighbor Embedding or "t-SNE" is a dimensionality reduction technique
                           which allows users to see high-dimensional datasets in a dimension better suited for data visualization.        
                         </p>
                       <p class="prose">
-                          Here, we plotted every college in the United States and the seven attributes associated with them from 
-                          the K-means clustering on a two-dimensional space. Each school is colored by the cluster it's associated with. 
-                          Generally, any schools in the proximity of each other on this plot are more similar than those that are farther away.
-                          Although the schools from each cluster are generally grouped together, you can see some spaces where schools from one 
-                          cluster overlap with those from another. A way to interpret those is that those schools share some common characteristics 
-                          of both clusters, but ultimately came closer to the cluster they were assigned in the seven dimensional space. 
+                          Here, I plotted every college in the United States and the seven attributes associated with them from 
+                          the K-means clustering on a two-dimensional space. Each school is colored by the cluster with which it's associated. 
+                          Generally, the points on this plot that are closer together are more similar than those that are more separated.
+                        </p>
+                      <p class="prose">
+                          Although the schools from each cluster are generally grouped together, you can see some areas where schools from different 
+                          clusters overlap. These are schools that share some common characteristics 
+                          from both clusters, but ultimately came closer to the cluster they were assigned in the seven dimensional space. 
                         </p>
                         <p class="prose"> 
-                          For example, if you hover your mouse over the elite schools in the top right, you notice a bunch of the schools 
-                          farthest away from everything else are ultra-elite schools like Princeton, Harvard and MIT. This is because these schools 
+                          For example, if you hover your mouse over the elite schools in the top right, you notice the schools 
+                          farthest away from everything else (farthest top right) are ultra-elite schools like Princeton, Harvard and MIT. This is because these schools 
                           share very few characteristics with anything else on the plot. But there are also two points 
-                          in the elite universities cluster that are grouped together with mostly schools from the large public schools cluster. 
+                          in the elite universities cluster that are grouped in the middle of the schools from the large public schools cluster. 
                           These are the University of Virginia and the University of New Hampshire. These schools share a lot of similar attributes 
                           with schools in the large public school cluster, but ultimately ended up closer to the elite universities when taking 
                           all seven dimensions into account.
@@ -1203,7 +1209,7 @@ img {
                           You can explore the graph on your own by hovering over the points to display their attributes. If the tooltip gets in the way, you 
                           can click your mouse to make it temporarily disappear. Once you hover over one of the points, all of the points from the 
                           other cluster will fade to grey to give you a better picture of where that cluster stands in the greater scheme. If you want to 
-                          take a closer look a a section of the map, you can zoom in by scrolling your mouse and pan around the screen by clicking and 
+                          take a closer look at a section of the map, you can zoom in by scrolling your mouse and pan around the screen by clicking and 
                           dragging.
                         </p>
                             
@@ -1365,7 +1371,7 @@ img {
         
               <figure>
                 <svg id="SchoolTypeLegend" style="position: sticky; top: 0; height: 100px; width: 100%;  opacity: 0; "></svg>
-                <svg id="ClusterLegend" style="position: sticky; top: 0; height: 100px; width: 100%;  opacity: 0;"></svg>
+                <svg id="ClusterLegend" style="position: sticky; top: 0; height: 80px; width: 100%;  opacity: 0;"></svg>
                 <div id="defaultlegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0; padding: 0px;"> </div>
                 <div id="aidlegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
                 <div id="earningslegend" style="position: sticky; top: 0; height: 60px; width: 100%; padding: 0px 0px 0px 400px; opacity: 0;padding: 0px;"> </div>
@@ -1616,7 +1622,7 @@ d3.csv("Data/tuition.csv", function (error, data) {
   })
   // Scale the range of the data
     x.domain([1985, 2020]);
-    y.domain([0, 45000]);
+    y.domain([0, 40000]);
   // Add the tuitionline path
     flc.append("path")
       .data([data])
@@ -2941,8 +2947,8 @@ svg
     var key1 = d3.select("#defaultlegend")
     .append("svg")
     .attr("width", w+50)
-    .attr("height", h)
-    .attr("padding", "10")
+    .attr("height", 65)
+    .attr("padding", "0")
     ;
     key1.append("text").attr("x", 5).attr("y", 30).text("Default Rate Within Three Years of Graduation (%)").style("font-size", "15px").attr("alignment-baseline","left")
 
@@ -3009,8 +3015,8 @@ svg
       var key2 = d3.select("#aidlegend")
       .append("svg")
       .attr("width", w+50)
-      .attr("height", h)
-      .attr("padding", "10")
+      .attr("height", 65)
+      .attr("padding", "0")
       ;
 
       key2.append("text").attr("x", 5).attr("y", 30).text("Amount of Aid Awarded ($1,000s)").style("font-size", "15px").attr("alignment-baseline","left")
@@ -3077,8 +3083,8 @@ svg
     var key3 = d3.select("#earningslegend")
       .append("svg")
       .attr("width", w+50)
-      .attr("height", h)
-      .attr("padding", "10");
+      .attr("height", 65)
+      .attr("padding", "0");
 
     key3.append("text").attr("x", 5).attr("y", 30).text("Median Earnings Post-Graduation ($1,000s)").style("font-size", "15px").attr("alignment-baseline","left")
 
@@ -3142,8 +3148,8 @@ svg
     var key4 = d3.select("#genderlegend")
       .append("svg")
       .attr("width", w+50)
-      .attr("height", h)
-      .attr("padding", "10");
+      .attr("height", 65)
+      .attr("padding", "0");
 
     key4.append("text").attr("x", 5).attr("y", 30).text("Percent of Male Students").style("font-size", "15px").attr("alignment-baseline","left")
 
@@ -3207,8 +3213,8 @@ svg
     var key5 = d3.select("#racelegend")
     .append("svg")
     .attr("width", w+50)
-    .attr("height", h)
-    .attr("padding", "10");
+    .attr("height", 65)
+    .attr("padding", "0");
 
     key5.append("text").attr("x", 5).attr("y", 30).text("Percent of Black Students").style("font-size", "15px").attr("alignment-baseline","left")
 
@@ -3273,8 +3279,8 @@ svg
     var key6 = d3.select("#aidchangelegend")
     .append("svg")
     .attr("width", w+50)
-    .attr("height", h)
-    .attr("padding", "10");
+    .attr("height", 65)
+    .attr("padding", "0");
 
     key6.append("text").attr("x", 5).attr("y", 30).text("Change in Grant Aid Per Student Since Recession").style("font-size", "15px").attr("alignment-baseline","left")
 
@@ -3337,8 +3343,8 @@ svg
     var key7 = d3.select("#netcostlegend")
     .append("svg")
     .attr("width", w+50)
-    .attr("height", h)
-    .attr("padding", "10");
+    .attr("height", 65)
+    .attr("padding", "0");
 
     key7.append("text").attr("x", 5).attr("y", 30).text("Net Cost").style("font-size", "15px").attr("alignment-baseline","left")
 
