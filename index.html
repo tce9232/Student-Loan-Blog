@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
+
+  <title>Student Loans</title>
+
+  <meta name="Description" content="A data-driven analysis of the student debt crisis in America.">
 
   <meta charset="utf-8">
 
   <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
   <script src="https://unpkg.com/scrollama"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" defer></script>
+  <meta name="viewport" content="initial-scale=1.0" />
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://unpkg.com/jeezy@1.11.2/lib/jeezy.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
@@ -25,9 +26,10 @@
 
 
 <body>
+  
   <main id="content">
     <div class="intro">
-        <img src="Photos/title.jpg" style="width: 50%; margin-bottom: 30px; top:unset">
+        <img alt="title image" src="Photos/title.webp" style="width: 50%; margin-bottom: 30px; top:unset">
       <p class="subtitle">
         It's Payback Time
       </p>
@@ -41,7 +43,7 @@
         As the end of my master's 
         program fast approaches, I'm starting to feel the graduate school version of the "Sunday scaries." 
         These are not, however, caused by capstone projects, the stress of finding a full-time job, or even the threat of another Chicago winter. This, instead, is a fear that haunts
-        <a href="https://www.studentdebtrelief.us/student-loans/student-debt-statistics/" target="_blank">71%</a> of all university graduates nationwide: student loans.
+        <a href="https://www.studentdebtrelief.us/student-loans/student-debt-statistics/" target="_blank" rel="noreferrer">71%</a> of all university graduates nationwide: student loans.
       <br/>
       <br/>
         Student loans seem like a concept that is as old as time itself, but student lending is a rather novel concept.
@@ -52,7 +54,7 @@
       <br/>
       <br/>
         This all changed in the 1920s with the roaring economy. Suddenly, the cost of college was within
-        reach, even if your last name wasn't Rockefeller. By the end of the 1920s, <a href="https://www.bestcollegesonline.com/blog/a-timeline-of-college-tuition/" target="_blank">20%</a> of college-age
+        reach, even if your last name wasn't Rockefeller. By the end of the 1920s, <a href="https://www.bestcollegesonline.com/blog/a-timeline-of-college-tuition/" target="_blank" rel="noreferrer">20%</a> of college-age
         Americans would enroll in higher education. 
         The middle of the century continued that trend as the government prioritized access to higher education for an even wider group
         of people. It started with the GI Bill, which guaranteed free college or vocational school for veterans
@@ -60,7 +62,7 @@
         students afford college when they wouldn't have been able to on their own. This also marked the first time the federal
         government administered student loans, and helped establish many of the financial aid programs we know today.
       </p>
-      <img src="Photos/FDR.jpg" alt= "alternative text" style="width: 40%; top:unset">
+      <img alt="president FDR" src="Photos/FDR.webp" alt= "alternative text" style="width: 40%; top:unset">
       <div style="font-size:80%; text-align:center; opacity: .75">FDR signing the G.I. Bill into law in 1944</div> 
     
     <p class="prose">
@@ -73,13 +75,13 @@
          out loans to pay for their advanced degrees, which were becoming more and more necessary to enter into the work-force.
       <br/>
       <br/>
-        Starting in the mid-1970s, college tuition began increasing at a <a href="https://www.bestcollegesonline.com/blog/a-timeline-of-college-tuition/" target="_blank">faster rate</a> than the rest of the economy. 
+        Starting in the mid-1970s, college tuition began increasing at a <a href="https://www.bestcollegesonline.com/blog/a-timeline-of-college-tuition/" target="_blank" rel="noreferrer">faster rate</a> than the rest of the economy. 
         This trend could partially be attributed to the demand for higher education exceeding the supply. But it certainly
         was worsened by the massive state funding cuts to higher education that began in the 1980s and have, essentially,
         remained to this day. 
       <br/>
       <br/>
-      By 1986, students had racked up <a href="https://www.onlinecolleges.net/student-debt-in-the-u-s-part-2-a-brief-history-of-student-debt-in-the-united-states/" target="_blank">$10 billion dollars</a> in student loans. Let's take a look at where we stand today.
+      By 1986, students had racked up <a href="https://www.onlinecolleges.net/student-debt-in-the-u-s-part-2-a-brief-history-of-student-debt-in-the-united-states/" target="_blank" rel="noreferrer">$10 billion dollars</a> in student loans. Let's take a look at where we stand today.
         
       </p>
 
@@ -88,8 +90,8 @@
 
     <section id="firstscrolly" style="margin-bottom: 200px">
       <div>
-        <img src="Photos/MountainRoad.jpg" id="Mountain Road">
-        <img src="Photos/MoneyMountain.png" id="Money Mountain"> 
+        <img alt="mountain background" src="Photos/MountainRoad.webp" id="Mountain Road">
+        <img alt="money mountain" src="Photos/MoneyMountain.webp" id="Money Mountain"> 
         <svg id="flcLegend" style="position: sticky; top: 0; height: 100px; width: 100%;  opacity: 0; transform: translate(70px, 40px);"></svg>
         <svg id="firstlinechart" width="1150" height="650" position=sticky top=0 opacity=0></svg>
 
@@ -235,7 +237,7 @@
   
           <div id="intro">
             <div class="story">
-              <img class="quote" src="Photos/FirstQuote.png" width="800" height="669" alt="">
+              <img alt="quote image" class="quote" src="Photos/FirstQuote.webp" width="800" height="669" alt="">
             </div> <!--.story-->
           </div> <!--#intro--> 
   
@@ -255,7 +257,7 @@
           Another source of school funding is philanthropy. Colleges will gladly accept money from private 
           citizens, foundations or corporations. If you give enough, they might even 
           let you put your name on a building (check out the Northwestern Pritzker School of Law or Carnegie Mellon University). If you'd 
-          like your own naming rights, you can find Northwestern's handy guide <a href="https://www.northwestern.edu/fm/contractors/10-1400-donor-recognition-fm-guidelines-aug-2018_for-fm.pdf" target="_blank">here.</a> 
+          like your own naming rights, you can find Northwestern's handy guide <a href="https://www.northwestern.edu/fm/contractors/10-1400-donor-recognition-fm-guidelines-aug-2018_for-fm.pdf" target="_blank" rel="noreferrer">here.</a> 
           <br>
           <br>
           While naming rights to a building or bench may seem innocuous enough, decreased government funding 
@@ -263,18 +265,18 @@
           to them being held captive by the ideologies of their donors. John M. Olin and the Koch brothers 
           are among the most prominent of America's elite to realize they could use college philanthropy to their political advantage. 
           By founding entire college departments and hiring professors preaching corporation-friendly 
-          ideologies--and even creating a new approach to jurisprudence called "Law and Economics"--these billionaires have been able to launder their interests through respected universities.<sup><a href="http://www.smcm.edu/democracy/wp-content/uploads/sites/29/2015/07/how-right-wing-billionaires-infiltrated-higher-education.pdf" target="_blank">[1]</a></sup>
+          ideologies--and even creating a new approach to jurisprudence called "Law and Economics"--these billionaires have been able to launder their interests through respected universities.<sup><a href="http://www.smcm.edu/democracy/wp-content/uploads/sites/29/2015/07/how-right-wing-billionaires-infiltrated-higher-education.pdf" target="_blank" rel="noreferrer">[1]</a></sup>
           <br>
           <br>
         </p>
-          <img src="Photos/olin.jpg" alt= "alternative text" style="width: 40%; top:unset">
+          <img alt="photo of John M Olin" src="Photos/olin.webp" alt= "alternative text" style="width: 40%; top:unset">
           <div style="font-size:80%; text-align:center; opacity: .75">John M. Olin inside the Olin Business School at Washington University in St Louis</div> 
         
         <p class="prose">
           Yet another way for colleges to bring in cash is through investing.
           An endowment is essentially how much money a college has in the bank, and it gets there either 
           through donations or other funding sources. But the more important aspect of an endowment is how it gets
-          spent--or not. More than 100 U.S. universities currently have an endowment of more than $1 billion <sup><a href="https://www.usatoday.com/story/money/business/2019/03/28/college-endowment-universities-receive-most-gifts-funds/39230729/" target="_blank">[2]</a> </sup> .
+          spent--or not. More than 100 U.S. universities currently have an endowment of more than $1 billion <sup><a href="https://www.usatoday.com/story/money/business/2019/03/28/college-endowment-universities-receive-most-gifts-funds/39230729/" target="_blank" rel="noreferrer">[2]</a> </sup> .
           Northwestern University currently has a $11.1 billion endowment, and Harvard, of course, leads the way
           with $38.3 billion in the bank. This money, and the returns it generates, can be used for financial aid programs, new facilities,
           or athletics. More often, however, it's just reinvested back into the endowment to make even more money 
@@ -286,23 +288,23 @@
           However, more and more, universities are obsessed with maintaining their endowment's value at all costs. 
           And I mean that quite literally: Yale has spent $480 million in one year on private equity fund managers 
           to manage their endowment. Compare that to the $170 million that was given to their students in the same 
-          year in the form of tuition assistance, fellowships and prizes<sup><a href="https://www.nytimes.com/2015/08/19/opinion/stop-universities-from-hoarding-money.html?_r=0" target="_blank">[3]</a> </sup>. 
+          year in the form of tuition assistance, fellowships and prizes<sup><a href="https://www.nytimes.com/2015/08/19/opinion/stop-universities-from-hoarding-money.html?_r=0" target="_blank" rel="noreferrer">[3]</a> </sup>. 
           You can see why some people call large universities banks with an education wing.
           <br>
           <br>
-          <img src="Photos/money.jpg" style="width: 20%; margin-bottom: 30px; top:unset">
+          <img alt="roll of money" src="Photos/money.webp" style="width: 20%; margin-bottom: 30px; top:unset">
           One could reasonably believe that a college is free to do with its endowment as it wishes, and if 
           they wish to hoard all of this wealth, then that's their business. But the reality is that the entire
           endowment system is heavily subsidized by taxpayers. So this stock-piling of assets, wherein the largest returns are going 
           to hedge fund managers rather than students, is happening at a cost to all of us. For elite private 
           universities, the average taxpayer subsidizes $13,000 per student per year, and at prestigious public 
           universities, the average subsidy is closer to $23,000 per student per year. Princeton leads all schools with $105,000
-          of taxpayer subsidy per student per year<sup><a href="https://www.air.org/sites/default/files/downloads/report/WhoWins_bookmarked_050411_0.pdf" target="_blank">[4]</a> </sup>.
+          of taxpayer subsidy per student per year<sup><a href="https://www.air.org/sites/default/files/downloads/report/WhoWins_bookmarked_050411_0.pdf" target="_blank" rel="noreferrer">[4]</a> </sup>.
           <br>
           <br>
           Despite all the money these elite universities pay for investors to handle their endowment, it's not quite
           clear how good the investors actually are at their job. Not a single Ivy League endowment has beaten the returns of a simple 
-          60/40 portfolio (60% bonds, 40% stocks) in the years since the 2008 recession <sup><a href="https://www.institutionalinvestor.com/article/b1c1c4tq2bjm3c/Not-One-Ivy-League-Endowment-Beat-a-Simple-U-S-60-40-Portfolio-Over-Ten-Years" target="_blank">[5]</a> </sup> 
+          60/40 portfolio (60% bonds, 40% stocks) in the years since the 2008 recession <sup><a href="https://www.institutionalinvestor.com/article/b1c1c4tq2bjm3c/Not-One-Ivy-League-Endowment-Beat-a-Simple-U-S-60-40-Portfolio-Over-Ten-Years" target="_blank" rel="noreferrer">[5]</a> </sup> 
           <br>
           <br>
           But do tuition increases, which come in the wake of shrinking government funds and endowment hoarding, 
@@ -323,7 +325,7 @@
             </div>
             <div class="step" style="height: 546px; width: 300px;">
                 <p>One in seven Americans owes a portion of that giant mountain of debt you saw in the beginning. That's 44 million
-                    people. And out of those people, 5.1 million of them are in default <sup><a href="https://www.forbes.com/sites/zackfriedman/2019/02/25/student-loan-debt-statistics-2019/#655c3c33133f" target="_blank">[6]</a> </sup> . Let's take a look at 
+                    people. And out of those people, 5.1 million of them are in default <sup><a href="https://www.forbes.com/sites/zackfriedman/2019/02/25/student-loan-debt-statistics-2019/#655c3c33133f" target="_blank" rel="noreferrer">[6]</a> </sup> . Let's take a look at 
                     how that compares to rates of default for debt linked to the Great Recession.</p>
               </div>
             <div class="hidden-step" data-step="1"
@@ -376,13 +378,13 @@
 
       <body>
           <ul id="nav"> 
-            <li><a href="#second" title="Next Section"><img src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
+            <li><a href="#second" title="Next Section"><img alt="parallax scrolling" src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
           </ul>
   
           <div id="second">
             <div class="story"><div class="bg" style="background-position: 400px"></div>
               <div class="float-right">
-                <img class="quote" src="Photos/SecondQuote.png" width="800" height="669" alt="">
+                <img alt="image of quote" class="quote" src="Photos/SecondQuote.webp" width="800" height="669" alt="">
               </div>
             </div> <!--.story-->
           </div> <!--#second-->
@@ -406,7 +408,7 @@
         <br/>
         <br/>
         As the student debt burden continues to climb, which life choices are being altered
-        by your pursuit of an advanced degree? <sup><a href="https://studentloanhero.com/featured/graduates-student-loan-debt-financial-milestones-survey/" target="_blank">[7]</a> </sup>
+        by your pursuit of an advanced degree? <sup><a href="https://studentloanhero.com/featured/graduates-student-loan-debt-financial-milestones-survey/" target="_blank" rel="noreferrer">[7]</a> </sup>
         </p>
 
       </body>
@@ -416,16 +418,16 @@
         <div>
           <figure class="debt_container">
 
-            <img src="Photos/baby.png" id="baby"
+            <img alt="baby emoji" src="Photos/baby.webp" id="baby"
             class = "picture_is_visible">
 
-            <img src="Photos/worker.png" id="worker"
+            <img alt="worker emoji" src="Photos/worker.webp" id="worker"
             class = "picture_is_not_visible">
 
-            <img src="Photos/older-woman.png" id="retire"
+            <img alt="grandma emoji" src="Photos/older-woman.webp" id="retire"
             class = "picture_is_not_visible">
 
-            <img src="Photos/house.png" id="house"
+            <img alt="house emoji" src="Photos/house.webp" id="house"
             class = "picture_is_not_visible">
 
             <div style="
@@ -543,9 +545,9 @@
             into nearly every facet of life. 
             <br/>
             <br/>
-            While op-ed columnists love pointing out how millennials are "killing" the <a href="https://www.usatoday.com/story/money/2017/05/16/millionaire-tells-millennials-your-avocado-addiction-costing-you-house/101727712/" target="_blank">real estate industry</a>, <a href="https://www.sheknows.com/health-and-wellness/articles/1091871/millennial-daters-too-casual/" target="_blank">relationships</a> and the <a href="https://qz.com/1574174/millennials-are-right-to-kill-the-american-car/" target="_blank">auto industry</a>
+            While op-ed columnists love pointing out how millennials are "killing" the <a href="https://www.usatoday.com/story/money/2017/05/16/millionaire-tells-millennials-your-avocado-addiction-costing-you-house/101727712/" target="_blank" rel="noreferrer">real estate industry</a>, <a href="https://www.sheknows.com/health-and-wellness/articles/1091871/millennial-daters-too-casual/" target="_blank" rel="noreferrer">relationships</a> and the <a href="https://qz.com/1574174/millennials-are-right-to-kill-the-american-car/" target="_blank" rel="noreferrer">auto industry</a>
             , it seems quite obvious that this has less to do with youthful arrogance or spite 
-            than the simple fact that millennials don't have much spending power--at least compared to the generations that came before <sup><a href="https://www.cnbc.com/2018/12/04/millennials-spend-less-because-theyre-poorer-federal-reserve-says.html" target="_blank">[8]</a> </sup>.
+            than the simple fact that millennials don't have much spending power--at least compared to the generations that came before <sup><a href="https://www.cnbc.com/2018/12/04/millennials-spend-less-because-theyre-poorer-federal-reserve-says.html" target="_blank" rel="noreferrer">[8]</a> </sup>.
             <br/>
             <br/>
             And while student debt can impact everyone's life choices, women and people of color are especially hard hit. 
@@ -562,7 +564,7 @@
         <div id="third">
           <div class="story">
             <div class="float-left">
-              <img class="quote" src="Photos/ThirdQuote.png" width="800" height="669" alt="" style="margin-top: 100px;">
+              <img alt="quote photo" class="quote" src="Photos/ThirdQuote.webp" width="800" height="669" alt="" style="margin-top: 100px;">
             </div>
           </div> <!--.story-->
         </div> <!--#third-->
@@ -578,7 +580,7 @@
             other in terms of debt? These were the questions I sought to answer in my final analysis. 
             <br/>
             <br/>
-            First, I created a dataset using the <a href="https://collegescorecard.ed.gov/data/documentation/" target="_blank">College Scorecard</a>, which is a tool the US government made
+            First, I created a dataset using the <a href="https://collegescorecard.ed.gov/data/documentation/" target="_blank" rel="noreferrer">College Scorecard</a>, which is a tool the US government made
             to help students compare colleges in key metrics. The metrics I decided would most apply to 
             this study were average grant aid awarded, average loans awarded, number of undergraduate
             students, median debt after graduation, median earnings 10 years after graduation, the default
@@ -591,7 +593,7 @@
             use.
             <br/>
             <br/>
-            <img src="Photos/ElbowPlot.png" style="position:inherit; max-width: 70%;">
+            <img alt="elbow plot" src="Photos/ElbowPlot.webp" style="position:inherit; max-width: 70%;">
             <br/>
             The y-axis here tells us the sum of squared distances between the individual points and the 
             center of their clusters. The x-axis tells us how many clusters were created. Adding additional 
@@ -656,7 +658,7 @@
                     
         
                 <figure>
-                    <img src="Photos/ClusterPlot.png" style="max-width: 70%; top: 10%">
+                    <img alt="cluster plot" src="Photos/ClusterPlot.webp" style="max-width: 70%; top: 10%">
                 </figure>
 
                 
@@ -832,19 +834,19 @@
                   </p>
                 </div>
 
-                  <div class="step" id = "step-bubble16">
+                  <div class="step" id = "step-bubble17">
 
                     
                     <div >
                       <h3 style="text-align: left">Set Bubble Attributes</h3>
                       <div >
                           <p>Size:  &nbsp &nbsp 
-                          <select class="size" style="background-color: white;">
+                          <select class="size" style="background-color: white;" name="BubbleSize">
                             <option>Avg Debt</option><option>Net Cost</option><option>Median Earnings</option><option>Number of Undergrads</option><option>Average Aid Provided</option><option>Average Loans Taken Out</option><option>None</option>
                           </select>
                           <br/>
                           Color:&nbsp
-                        <select class="color" style="background-color: white;">
+                        <select class="color" style="background-color: white;" name="BubbleColor">
                           <option>Percent of Black Students</option><option>Percent of Male Students</option><option>School Type</option><option>Default Rate</option><option>Median Earnings</option><option>Change in Grant Aid</option><option>Net Cost</option><option>None</option>
                         </select>
                         </p>
@@ -883,13 +885,13 @@
 
       <body>
           <ul id="nav">
-            <li><a href="#fourth" title="Next Section"><img src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
+            <li><a href="#fourth" title="Next Section"><img alt="parallax scrolling" src="https://ianlunn.co.uk/plugins/jquery-parallax/images/dot.png" alt="Link" /></a></li>
           </ul>
   
           <div id="fourth">
             <div class="story">
               <div class="float-right">
-                <img class="quote" src="Photos/FourthQuote.png" width="800" height="669" alt="">
+                <img alt="quote image" class="quote" src="Photos/FourthQuote.webp" width="800" height="669" alt="">
                 </div>
               </div> <!--.story-->
           </div> <!--#fourth-->
@@ -905,12 +907,12 @@
             know that this 👏 system 👏 is 👏 not 👏 normal 👏. 
             <br/> 
             <br/>
-            The UK has a similar student debt problem, but their tuition is capped at £9,000 per year <sup><a href="https://www.valuecolleges.com/collegecosts/" target="_blank">[9]</a> </sup>. In Germany, tuition has been 
+            The UK has a similar student debt problem, but their tuition is capped at £9,000 per year <sup><a href="https://www.valuecolleges.com/collegecosts/" target="_blank" rel="noreferrer">[9]</a> </sup>. In Germany, tuition has been 
             completely abolished. In fact, there are more than 40 countries around the world that offer free public higher education,
             including Finland, Sweden, Norway, Greece, Brazil and Turkey. Study at any of these schools (some do offer programs in English)
             and all you're expected to pay is your cost of living. 
             <br/>
-            <img src="Photos/earthgrad.png" style="width: 20%; top:unset">
+            <img alt="earth with graduation hat" src="Photos/earthgrad.webp" style="width: 20%; top:unset">
             This is not to say that the United States education system is homogenous. As we've seen, your financial situation after leaving 
             college can vary widely. Going to an elite school will cost you more, but you're unlikely to feel as much of a pinch 
             post-graduation as a person that enrolled in a relatively inexpensive trade school. And regardless of what school you attend,
@@ -951,7 +953,7 @@
             </article>
           </section>
           
-          <img src="Photos/credits.jpg" style="width: 10%; margin-bottom: 10px; top:unset">
+          <img alt="credits image" src="Photos/credits.webp" style="width: 10%; margin-bottom: 10px; top:unset">
           <p class="prose">Thanks to everyone who provided feedback and insight along the way, with special thanks to:
               <br/>
               <br/>
@@ -1205,17 +1207,7 @@ d3.csv("Data/delinquency.csv", function (error, data) {
   $('#third').parallax("50%", 0.3);
   $('#fourth').parallax("50%", 0.2);
 })
-    //waypoints scroll constructor
-    function scroll(n, offset, func1, func2){
-      return new Waypoint({
-        element: document.getElementById(n),
-        handler: function(direction) {
-           direction == 'down' ? func1() : func2();
-        },
-        //start 75% from the top of the div
-        offset: offset
-      });
-    };
+    
     function flc1() {
       
       document.getElementById("flcpath1").style.opacity=0     
@@ -1827,7 +1819,7 @@ function hat(){
 			})
 				.onStepEnter(handleStepEnter)
 			// setup resize event
-			window.addEventListener('resize', handleResize);
+			window.addEventListener('resize', handleResize, {passive: true});
     }
     // append the svg object to the body of the page
 var legendheight = 60
