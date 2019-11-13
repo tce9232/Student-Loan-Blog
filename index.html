@@ -15,7 +15,6 @@
   <meta name="viewport" content="initial-scale=1.0" />
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://unpkg.com/jeezy@1.11.2/lib/jeezy.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script> -->
   <script src="https://kit.fontawesome.com/3702056331.js"></script>
   <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.7.0.min.js"></script>
@@ -317,7 +316,7 @@
       
       <body>
           
-        <p class="prose" top=200 style="margin-top: 100px; margin-bottom: 20px">
+        <p class="prose" top=200 style="margin-top: 100px; margin-bottom: 0px">
           Government funding getting slowly drained from higher education has led to colleges scrambling to 
           find revenue from other sources. And tuition increases have proved an easy way to shift that burden 
           onto the student: A college degree has become essential to find a well-paying job in the 
@@ -394,15 +393,15 @@
             <div class="hidden-step" data-step="1"
             data-scrollama-index="6" style="height: 225px;">
             </div>
-            <div class="step" style="height: 546px; width: 300px;">
+            <div class="step" style="height: 350px; width: 300px;">
                 <p>One in seven Americans owes a portion of that giant mountain of debt you saw in the beginning. That's 44 million
                     people. And out of those people, 5.1 million of them are in default <sup><a href="https://www.forbes.com/sites/zackfriedman/2019/02/25/student-loan-debt-statistics-2019/#655c3c33133f" target="_blank" rel="noreferrer">[6]</a> </sup> . Let's take a look at 
                     how that compares to rates of default for debt linked to the Great Recession.</p>
               </div>
             <div class="hidden-step" data-step="1"
-            data-scrollama-index="6" style="height: 325px;">
+            data-scrollama-index="6" style="height: 375px;">
             </div>
-          <div class="step" id = "step-slc1" data-step="1" data-scrollama-index="0" style="height: 400px; width: 300px;">
+          <div class="step" id = "step-slc1" data-step="1" data-scrollama-index="0" style="height: 550px; width: 300px;">
             <p>Here's what the rate of default on mortgages was in the United States from 2003 to 2017 </p>
           </div>
           <div class="step" style="height: 546px; width: 300px;">
@@ -417,25 +416,25 @@
               <p>However, credit card default rates are almost always higher than mortgages, and they also returned to normal post-recession.
               </p>
             </div>
-          <div class="step" id = "step-slc3" data-step="3" data-scrollama-index="2" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc3" data-step="3" data-scrollama-index="2" style="height: 500px; width: 300px;">
             <p>Here are the default rates for auto loans and revolving debt</p>
           </div>
           <div class="hidden-step" data-step="1"
             data-scrollama-index="6" style="height: 125px;">
             </div>
-          <div class="step" id = "step-slc4" data-step="4" data-scrollama-index="3" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc4" data-step="4" data-scrollama-index="3" style="height: 500px; width: 300px;">
             <p>Finally, let's look at the rate of default on student loan debt</p>
           </div>
-          <div class="step" id = "step-slc5" data-step="5" data-scrollama-index="4" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc5" data-step="5" data-scrollama-index="4" style="height: 500px; width: 300px;">
               <p>Not only is this rate currently past the rate of default during the peak of the housing crisis ...</p>
           </div>
-          <div class="step" id = "step-slc6" data-step="6" data-scrollama-index="5" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc6" data-step="6" data-scrollama-index="5" style="height: 500px; width: 300px;">
               <p>... the default rate has never gone down, even post-recession</p>
           </div>
-          <div class="step" id = "step-slc7" data-step="7" data-scrollama-index="6" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc7" data-step="7" data-scrollama-index="6" style="height: 500px; width: 300px;">
               <p>How high can it go?</p>
           </div>
-          <div class="step" id = "step-slc8" data-step="8" data-scrollama-index="7" style="height: 546px; width: 300px;">
+          <div class="step" id = "step-slc8" data-step="8" data-scrollama-index="7" style="height: 500px; width: 300px;">
               <p>What will this graph look like if there's another recession?</p>
           </div>
 
@@ -645,7 +644,7 @@
       </body>
 
       <body>
-          <p class="prose" style="margin-top: 100px; margin-bottom: 100px">
+          <p class="prose" style="margin-top: 100px; margin-bottom: 30px">
             There are thousands of colleges in the United States. Are they all contributing to the debt 
             crisis at the same rate? What traits do these colleges have that distinguish themselves from each
             other in terms of debt? These were the questions I sought to answer in my final analysis. 
@@ -658,12 +657,23 @@
             rate for students within three years of graduation, and the average net cost of the school (sticker price minus average aid).
             <br/>
             <br/>
-            To properly group these schools, I used an unsupervised machine learning algorithm called "K-means." This method takes data with many
-            dimensions like these schools, and assigns them to k different clusters by minimizing the distance between these schools and the center 
-            of the cluster in which they're assigned. The first step in this analysis is to create an elbow plot to decide how many clusters to 
-            use.
+            Since these metrics were distributed across multiple College Scorecard datasets, I had to join them by a common 
+            school ID. Then, I had to make sure these schools had enough public data for me to analyze. College Scorecard 
+            suppresses data from any field that contains fewer than 30 students out of privacy concerns. I started out with 
+            3,626 schools, but had to narrow this down to 3,180 after about 450 school had debt at graduation or median earnings 
+            as “Privacy Suppressed.” The rest of the schools had their data normalized and run through the scikit-learn K-means 
+            package to group them into individual clusters.
             <br/>
             <br/>
+            K-means is an unsupervised machine learning algorithm which takes data with many dimensions like these schools, 
+            and assigns them to k different clusters by minimizing the distance between these schools and the center of 
+            the cluster in which they're assigned. The first step in this analysis is to create an elbow plot to decide how 
+            many clusters to sort the schools into. 
+            <br/>
+            <br/>
+          </p>
+            <p style="color: black; margin-top: 0px; margin-bottom: 20px; text-align: center; font-weight: 700"><b>Elbow Plot</b></p>
+            <p class="prose" style="margin-top: 0px; margin-bottom: 100px">
             <img alt="elbow plot" src="Photos/ElbowPlot.webp" style="position:inherit; max-width: 70%;">
             <br/>
             The y-axis here tells us the sum of squared distances between the individual points and the 
@@ -1025,12 +1035,92 @@
           </section>
           
           <img alt="credits image" src="Photos/credits.webp" style="width: 10%; margin-bottom: 10px; top:unset">
-          <p class="prose">Thanks to everyone who provided feedback and insight along the way, with special thanks to:
+          <p class="prose">
+            Thanks to everyone who provided feedback and insight along the way, with special thanks to:
               <br/>
               <br/>
               Hilal Kasikci, Jeremiah Lant, Kobzyev Kyrylo, Will Wallo, Torie Palacios, Marcus Thuillier, Andrew Brandt and Bridget Callaghan
-              
+              <br/>
           </p>
+              <hr>
+          <p class="prose">
+              If you have any questions, comments or feedback regarding this article, please feel free to send me an <a href="mailto:teddavidcarlson@gmail.com" target="_blank" rel="noreferrer">email</a> or connect on <a href="https://www.linkedin.com/in/ted-david-carlson/" target="_blank" rel="noreferrer">LinkedIn</a>. 
+            </p>
+
+
+          <button type="button" class="collapsible">Click for Citations</button>
+      <div class="content">
+        <p class="prose">
+          <b>Article Citations:</b>
+          <br/>
+          <br/>
+          “College Access and Affordability: USA vs. the World.” Value Colleges, www.valuecolleges.com/collegecosts/.
+          <br/>
+          <br/>
+          Cummings, William. “Millionaire to Millennials: Your Avocado Toast Addiction Is Costing You a House.” USA Today, Gannett Satellite Information Network, 16 May 2017, www.usatoday.com/story/money/2017/05/16/millionaire-tells-millennials-your-avocado-addiction-costing-you-house/101727712/.
+          <br/>
+          <br/>
+          Fleischer, Victor. “Stop Universities From Hoarding Money.” The New York Times, The New York Times, 19 Aug. 2015, www.nytimes.com/2015/08/19/opinion/stop-universities-from-hoarding-money.html?_r=0.
+          <br/>
+          <br/>
+          Friedman, Zack. “Student Loan Debt Statistics In 2019: A $1.5 Trillion Crisis.” Forbes, Forbes Magazine, 14 Oct. 2019, www.forbes.com/sites/zackfriedman/2019/02/25/student-loan-debt-statistics-2019/#19fad6dc133f.
+          <br/>
+          <br/>
+          Goldy-Brown, Sarah. “Student Loan Debt Statistics in 2018 - Student Debt Relief.” Student Debt Relief | Student Loan Forgiveness, Student Debt Relief | Student Loan Forgiveness, 21 Oct. 2019, www.studentdebtrelief.us/student-loans/student-debt-statistics/.
+          <br/>
+          <br/>
+          Hirschlag, Ally. “Relationships Are Getting Dangerously Casual Thanks to Millennial Daters.” SheKnows, 10 July 2018, www.sheknows.com/health-and-wellness/articles/1091871/millennial-daters-too-casual/.
+          <br/>
+          <br/>
+          Klor de Alva, Jorge. Who Wins? Who Pays? 2011, air.org.
+          <br/>
+          <br/>
+          Mayer, Jane. How Right­Wing Billionaires Infiltrated Higher Education. 2016, www.smcm.edu.
+          <br/>
+          <br/>
+          Minkel, Elizabeth. “Millennials Are Right to Kill the American Car.” Quartz, Quartz, 15 Mar. 2019, qz.com/1574174/millennials-are-right-to-kill-the-american-car/.
+          <br/>
+          <br/>
+          Segal, Julie. “Not One Ivy League Endowment Beat a Simple U.S. 60-40 Portfolio Over Ten Years.” Institutional Investor, Institutional Investor, 30 Nov. 2018, www.institutionalinvestor.com/article/b1c1c4tq2bjm3c/Not-One-Ivy-League-Endowment-Beat-a-Simple-U-S-60-40-Portfolio-Over-Ten-Years.
+          <br/>
+          <br/>
+          “Student Debt Part 2: A Brief History of Student Debt in United States.” OnlineColleges.net, 11 Feb. 2019, www.onlinecolleges.net/student-debt-in-the-u-s-part-2-a-brief-history-of-student-debt-in-the-united-states/.
+          <br/>
+          <br/>
+          Suneson, Grant. “These Universities Receive the Most Money through College Endowments.” USA Today, Gannett Satellite Information Network, 29 Mar. 2019, www.usatoday.com/story/money/business/2019/03/28/college-endowment-universities-receive-most-gifts-funds/39230729/.
+          <br/>
+          <br/>
+          Writers, Staff. “A Timeline of College Tuition.” BestCollegesOnline.com, BestCollegesOnline.com, 22 Aug. 2019, www.bestcollegesonline.com/blog/a-timeline-of-college-tuition/.          
+          <br/>
+          <br/>
+          YoniBlum. “Millennials Spend Less than Previous Generations Because They Literally Have Less Money, Fed Says.” CNBC, CNBC, 4 Dec. 2018, www.cnbc.com/2018/12/04/millennials-spend-less-because-theyre-poorer-federal-reserve-says.html.
+          <br/>
+          <br/>
+          <b>Image Citations: </b>
+          <br/>
+          <br/>
+          (32), sillysigi. “Money Making Drawing.” Steemit, steemit.com/drawings/@sillysigi/money-making-drawing.
+          <br/>
+          <br/>
+          “Brown and Black Wooden Chairs Inside Room · Free Stock Photo.” Free Stock Photos, www.pexels.com/photo/auditorium-benches-chairs-class-207691/.
+          <br/>
+          <br/>
+          “Free Image on Pixabay - Graduation Cap, Graduate.” Graduation Cap Graduate - Free Image on Pixabay, pixabay.com/illustrations/graduation-cap-graduate-graduation-3407621/.
+          <br/>
+          <br/>
+          “G.I. Bill.” Wikipedia, Wikimedia Foundation, 10 Nov. 2019, en.wikipedia.org/wiki/G.I._Bill#/media/File:GI_Bill_signing.jpg.
+          <br/>
+          <br/>
+          Imgur. “Mountain Background.” Imgur, 21 May 2018, imgur.com/gallery/t6vsAYT.
+          <br/>
+          <br/>
+          “Newly Graduated People Wearing Black Academy Gowns Throwing Hats Up in the Air · Free Stock Photo.” Free Stock Photos, www.pexels.com/photo/accomplishment-ceremony-education-graduation-267885/.
+          <br/>
+          <br/>
+          “Olin Business School Centennial.” Olin Business School Centennial RSS, olin100.wustl.edu/.
+          </p>
+      </div>
+
         </body> 
     
       <head>
